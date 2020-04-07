@@ -1,11 +1,12 @@
 import React from 'react';
-import { Heading, StyledText, Underlay, PrimaryButton } from '../components';
+import { Heading, StyledText, Underlay } from '../components';
 import { distance, groupNegative } from '../assets';
-// import { useHistory } from 'react-router-dom';
-import { Image } from 'react-native';
+import { Link } from "react-router-native";
+import { Text, Image } from 'react-native';
+
 
 const KeepYourDistanceRule = ({ }) => {
-  // let history = useHistory();
+
   return (
     <Underlay>
       <Heading>Keep your distance!</Heading>
@@ -20,14 +21,15 @@ const KeepYourDistanceRule = ({ }) => {
         A perfect excuse to avoid that person you ghosted!
       </StyledText>
 
-      <PrimaryButton title=" ...I’m listening..." onPress={() => console.log("try")} />
-
+      <Link to='/groups'>
+        <Text> ...I’m listening...</Text>
+      </Link>
     </Underlay>
   );
 };
 
 const GroupsRule = ({ }) => {
-  // let history = useHistory();
+
   return (
     <Underlay>
       <Heading>Avoid groups!</Heading>
@@ -40,15 +42,15 @@ const GroupsRule = ({ }) => {
 
       <StyledText>Bye, Felicia!</StyledText>
 
-      {/* <PrimaryButton onPress={() => history.push('/staysthome')}>
-        ...aaaaand?...
-      </PrimaryButton> */}
-    </Underlay>
+      <Link to='/staysthome'>
+        <Text>...aaaaand?...</Text>
+      </Link>
+    </Underlay >
   );
 };
 
 const StayHoneRule = ({ }) => {
-  // let history = useHistory();
+
   return (
     <Underlay>
       <Heading>Stay home!</Heading>
@@ -61,9 +63,9 @@ const StayHoneRule = ({ }) => {
 
       <StyledText>Who knew your housecat was onto something...</StyledText>
 
-      {/* <PrimaryButton onPress={() => history.push('/')}>
-        Ok, got it!
-      </PrimaryButton> */}
+      <Link to='/'>
+        <Text> Ok, got it!</Text>
+      </Link>
     </Underlay>
   );
 };

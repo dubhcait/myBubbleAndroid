@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 const PrimaryButton = styled.Button`
-  font-family: Dosis;
+  font-family: Dosis-Bold;
   font-style: normal;
   color: white;
-  font-weight: bold;
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -18,4 +17,4 @@ const PrimaryButton = styled.Button`
   justify-content: center;
 `;
 
-export {PrimaryButton};
+export { PrimaryButton };

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Heading, StyledText, Underlay, PrimaryButton } from '../components';
+import { Heading, StyledText, Underlay } from '../components';
 import { healthBubble } from '../assets';
 import { Text, Image } from 'react-native';
 import { Link } from "react-router-native";
 
-const InitialScreen = ({ introPartialSeen }) => (
+const InitialScreen = () => (
 
   <Underlay color="dark">
     <Heading color="white">YOUR MISSION</Heading>
@@ -19,7 +19,9 @@ const InitialScreen = ({ introPartialSeen }) => (
       <Text>safe social distance</Text> to
       earn rewards
     </StyledText>
-    <Link to="/game"><Text>Text</Text></Link>
+    <Link to="/game">
+      <Text>Text</Text>
+    </Link>
 
   </Underlay>
 );
