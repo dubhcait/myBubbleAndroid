@@ -1,12 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -16,58 +8,74 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { InitialScreen, GameIntro, KeepYourDistanceRule, GroupsRule, StayHoneRule } from "./views"
+import { NativeRouter, Route } from "react-router-native";
 
 const App: () => React$Node = () => {
+  // const hasIntroBeenSeen = window.localStorage.getItem("introSeen");
+  const [showIntro, setShowIntro] = useState(true);
+  const [showGameInstructions, setGameInstructions] = useState(false);
+
+  const [modalMesg, setModalMesg] = useState(false);
+  const [lifeCount, setLifeCount] = useState([1, 1, 1]);
+
+  const lostLife = () =>
+    setLifeCount(lifeCount.length > 0 ? [...lifeCount].pop() : lifeCount);
+
+  const gainLife = () => setLifeCount([...lifeCount].push(1));
+
+  const [geoLocation, setGeoLocation] = useState("");
+
+  useEffect(() => {
+    // getLocation(setGeoLocation);
+  }, []);
+
+  useEffect(() => {
+    console.log("location", geoLocation);
+  }, [geoLocation]);
+
+  const introPartialSeen = () => {
+    setShowIntro(false);
+    setGameInstructions(true);
+  };
+
+  const introAllSeen = () => {
+    setGameInstructions(false);
+    // window.localStorage.setItem("introSeen", "true");
+  };
+
+  const displayModalMesg = () => { };
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
+      <NativeRouter><StatusBar barStyle="dark-content" />
+        <SafeAreaView>
+          <ScrollView
+            contentInsetAdjustmentBehavior="automatic"
+            style={styles.scrollView}>
+
+            {global.HermesInternal == null ? null : (
+              <View style={styles.engine}>
+                <Text style={styles.footer}>Engine: Hermes</Text>
+              </View>
+            )}
+            <View style={styles.body}>
+              {showIntro && (
+                <Route path="/" render={() => (<InitialScreen introPartialSeen={introPartialSeen} />)} />
+              )}
+
+              {showGameInstructions && (
+                <Route path="/" render={() => (<GameIntro introAllSeen={introAllSeen} />)} />
+              )}
+
+              <Route path="/distance" component={KeepYourDistanceRule} />
+              <Route path="/groups" component={GroupsRule} />
+              <Route path="/staysthome" component={StayHoneRule} />
             </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
+          </ScrollView>
+        </SafeAreaView>
+
+      </NativeRouter>
     </>
   );
 };
@@ -112,3 +120,18 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
+{/* <Route path="/distance" component={KeepYourDistanceRule}/>
+<Route path="/groups" component={GroupsRule}/>
+<Route path="/staysthome" component={StayHoneRule}/>
+{showIntro && (
+<Route path="/" render={() => ( <InitialScreen introPartialSeen={introPartialSeen} />)}/>
+)}
+
+{showGameInstructions && (
+<Route path="/" render={() => ( <GameIntro introAllSeen={introAllSeen} />)}/>
+)}
+
+<Route path="/" render={() => ( 
+<MainScreen lifeCount={lifeCount} />)}/>
+ */}
