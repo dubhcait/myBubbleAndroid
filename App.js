@@ -60,17 +60,17 @@ const App: () => React$Node = () => {
               </View>
             )}
             <View style={styles.body}>
-              {showIntro && (
-                <Route path="/" render={() => (<InitialScreen introPartialSeen={introPartialSeen} />)} />
-              )}
 
-              {showGameInstructions && (
-                <Route path="/" render={() => (<GameIntro introAllSeen={introAllSeen} />)} />
-              )}
+
+
+              <Route path="/game" render={() => (<GameIntro />)} />
 
               <Route path="/distance" component={KeepYourDistanceRule} />
               <Route path="/groups" component={GroupsRule} />
               <Route path="/staysthome" component={StayHoneRule} />
+              {showIntro && (
+                <Route path="/" render={() => (<InitialScreen />)} />
+              )}
             </View>
           </ScrollView>
         </SafeAreaView>

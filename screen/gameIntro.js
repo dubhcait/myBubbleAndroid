@@ -15,9 +15,9 @@ import {
   twoPeople,
   group,
 } from '../assets';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-const GameIntro = ({introAllSeen}) => {
+const GameIntro = ({ introAllSeen }) => {
   let history = useHistory();
 
   return (
@@ -26,27 +26,27 @@ const GameIntro = ({introAllSeen}) => {
 
       <StyledText>Start the week with a new challenge and 3 bubbles</StyledText>
       <FlexRow>
-        <Image src={newTask} style={{height: 60 + 'px'}} />
-        <Image src={plus} style={{height: 50 + 'px'}} />
-        <Image src={healthBubble} style={{height: 60 + 'px'}} />{' '}
+        <Image src={newTask} style={{ height: 60 + 'px' }} />
+        <Image src={plus} style={{ height: 50 + 'px' }} />
+        <Image src={healthBubble} style={{ height: 60 + 'px' }} />{' '}
         <Image
           src={healthBubble}
-          style={{height: 60 + 'px', marginLeft: -16 + 'px'}}
+          style={{ height: 60 + 'px', marginLeft: -16 + 'px' }}
         />
         <Image
           src={healthBubble}
-          style={{height: 60 + 'px', marginLeft: -16 + 'px'}}
+          style={{ height: 60 + 'px', marginLeft: -16 + 'px' }}
         />
       </FlexRow>
 
       <Heading>Don’t burst any bubbles by breaking social distance!</Heading>
       <FlexRow>
-        <Image src={twoPeople} style={{height: 30 + 'px', margin: 15 + 'px'}} />
-        <Image src={group} style={{height: 40 + 'px', margin: 15 + 'px'}} />
-        <Image src={home} style={{height: 40 + 'px', margin: 15 + 'px'}} />
+        <Image src={twoPeople} style={{ height: 30 + 'px', margin: 15 + 'px' }} />
+        <Image src={group} style={{ height: 40 + 'px', margin: 15 + 'px' }} />
+        <Image src={home} style={{ height: 40 + 'px', margin: 15 + 'px' }} />
         <Image
           src={poppedBubble}
-          style={{height: 60 + 'px', margin: 15 + 'px'}}
+          style={{ height: 60 + 'px', margin: 15 + 'px' }}
         />
       </FlexRow>
 

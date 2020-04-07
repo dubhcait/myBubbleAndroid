@@ -1,25 +1,26 @@
 import React from 'react';
-import {Heading, StyledText, Underlay, PrimaryButton} from '../components';
-import {healthBubble} from '../assets';
+import { Heading, StyledText, Underlay, PrimaryButton } from '../components';
+import { healthBubble } from '../assets';
+import { Link } from "react-router-native";
 
-const InitialScreen = ({introPartialSeen}) => (
+const InitialScreen = () => (
   <Underlay color="dark">
     <Heading color="white">YOUR MISSION</Heading>
 
     <StyledText>
       Keep you and your loved ones safe as we battle{' '}
-      <span style={{fontWeight: 'bold'}}>COVID-19</span>
+      <Text style={{ fontWeight: 'bold' }}>COVID-19</Text>
     </StyledText>
-    <Image src={healthBubble} style={{height: 190 + 'px'}} />
+    <Image src={healthBubble} style={{ height: 190 + 'px' }} />
     <StyledText>
       Stay in your “bubble” each week - a{' '}
-      <span style={{textDecoration: 'underline'}}>safe social distance</span> to
+      <Text style={{ textDecoration: 'underline' }}>safe social distance</Text> to
       earn rewards
     </StyledText>
 
-    <PrimaryButton onClick={() => introPartialSeen()}>
-      <p style={{margin: 0}}>Lets go!</p>
-    </PrimaryButton>
+    <Link to="/game">
+      <Text>Lets go!</Text>
+    </Link>
   </Underlay>
 );
 
