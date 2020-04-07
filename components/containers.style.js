@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import {topLeftBubbles, bottomRightBubbles} from '../assets';
+import { topLeftBubbles, bottomRightBubbles } from '../assets';
 
 const UnderlayStyle = styled.View`
-  width: 100vw;
-  height: 100vh;
+  width: 500px;
+  height: 700px;
 
   background: #ffffff;
 
@@ -30,11 +30,11 @@ const Internal = styled.View`
   z-index: 2000;
 `;
 
-const Underlay = ({children, bubbles = true}) => (
+const Underlay = ({ children, bubbles = true }) => (
   <UnderlayStyle>
     <Internal>{children}</Internal>
-    {bubbles && <ImgTop src={topLeftBubbles} />}
-    {bubbles && <ImgBottom src={bottomRightBubbles} />}
+    {bubbles && <ImgTop source={topLeftBubbles} />}
+    {bubbles && <ImgBottom source={bottomRightBubbles} />}
   </UnderlayStyle>
 );
 
@@ -51,6 +51,7 @@ const CircularUnderlay = styled.View`
 
 const FlexRow = styled.View`
   display: flex;
+  flex-direction: row;
 `;
 
 const FlexColumn = styled.View`
@@ -58,4 +59,4 @@ const FlexColumn = styled.View`
   flex-direction: column;
 `;
 
-export {Underlay, FlexRow, FlexColumn, CircularUnderlay};
+export { Underlay, FlexRow, FlexColumn, CircularUnderlay };
