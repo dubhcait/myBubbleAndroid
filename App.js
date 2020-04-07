@@ -11,10 +11,27 @@ import {
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { InitialScreen, GameIntro, KeepYourDistanceRule, GroupsRule, StayHoneRule } from "./views"
 import { NativeRouter, Route } from "react-router-native";
+import AsyncStorage from '@react-native-community/async-storage';
+// import getLocation from "./util/geoLocation"
 
 const App: () => React$Node = () => {
-  // const hasIntroBeenSeen = window.localStorage.getItem("introSeen");
-  const [showIntro, setShowIntro] = useState(true);
+
+  const hasIntroBeenSeen = async () => {
+
+    try {
+
+      const value = await AsyncStorage.getItem('introSeen')
+
+      if (value !== null) {
+
+        return true
+      }
+      return false
+    } catch (e) {
+      return false
+    }
+  }
+  const [showIntro, setShowIntro] = useState(hasIntroBeenSeen() ? true : false);
   const [showGameInstructions, setGameInstructions] = useState(false);
 
   const [modalMesg, setModalMesg] = useState(false);
@@ -29,20 +46,24 @@ const App: () => React$Node = () => {
 
   useEffect(() => {
     // getLocation(setGeoLocation);
+
   }, []);
+
+  const setIntroSeenInStorage = async () => {
+    try {
+      await AsyncStorage.setItem('introSeen', 'true')
+    } catch (e) {
+      // saving error
+    }
+  }
 
   useEffect(() => {
     console.log("location", geoLocation);
   }, [geoLocation]);
 
-  const introPartialSeen = () => {
-    setShowIntro(false);
-    setGameInstructions(true);
-  };
-
   const introAllSeen = () => {
-    setGameInstructions(false);
-    // window.localStorage.setItem("introSeen", "true");
+    setShowIntro(false);
+    setIntroSeenInStorage()
   };
 
   const displayModalMesg = () => { };
@@ -60,17 +81,17 @@ const App: () => React$Node = () => {
               </View>
             )}
             <View style={styles.body}>
-              {showIntro && (
-                <Route path="/" render={() => (<InitialScreen introPartialSeen={introPartialSeen} />)} />
-              )}
 
-              {showGameInstructions && (
-                <Route path="/" render={() => (<GameIntro introAllSeen={introAllSeen} />)} />
-              )}
+
+
+              <Route path="/game" render={() => (<GameIntro />)} />
 
               <Route path="/distance" component={KeepYourDistanceRule} />
               <Route path="/groups" component={GroupsRule} />
               <Route path="/staysthome" component={StayHoneRule} />
+              {showIntro && (
+                <Route path="/" render={() => (<InitialScreen />)} />
+              )}
             </View>
           </ScrollView>
         </SafeAreaView>

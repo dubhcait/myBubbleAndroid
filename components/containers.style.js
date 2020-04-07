@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { topLeftBubbles, bottomRightBubbles } from '../assets';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const UnderlayStyle = styled.View`
-  width: 500px;
-  height: 700px;
+  width: ${wp("100%")};
+  height: ${hp("100%")};
 
   background: #ffffff;
 

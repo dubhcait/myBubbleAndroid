@@ -4,7 +4,6 @@ import {
   StyledText,
   Underlay,
   FlexRow,
-  PrimaryButton,
 } from '../components';
 import {
   healthBubble,
@@ -15,8 +14,8 @@ import {
   twoPeople,
   group,
 } from '../assets';
-import { Image } from 'react-native';
-// import { useHistory } from 'react-router-dom';
+import { Image, Text } from 'react-native';
+import { Link } from "react-router-native";
 
 const GameIntro = ({ introAllSeen }) => {
   // let history = useHistory();
@@ -48,13 +47,9 @@ const GameIntro = ({ introAllSeen }) => {
       </FlexRow>
 
       <StyledText>Keep your bubbles safe by Sunday and get rewards!</StyledText>
-
-      <PrimaryButton
-        title=" What’s social distancing?"
-        onPress={() => {
-          introAllSeen();
-          // history.push('/distance');
-        }} />
+      <Link to="/distance">
+        <Text>What’s social distancing?</Text>
+      </Link>
 
     </Underlay>
   );
