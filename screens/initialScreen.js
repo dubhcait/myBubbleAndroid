@@ -9,7 +9,6 @@ import {
   SafeAreaView,
   ScrollView,
 } from 'react-native';
-import {Link} from 'react-router-native';
 
 const InitialScreen = () => (
   <ScrollView contentContainerStyle={{flexGrow: 1}}>

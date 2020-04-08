@@ -1,12 +1,9 @@
 import React from 'react';
-import { Heading, StyledText, Underlay, PrimaryButtonLink } from '../components';
-import { distance, groupNegative, house } from '../assets';
-import { Link } from "react-router-native";
+import { Heading, StyledText, Underlay } from '../components';
+import { distance, groupNegative } from '../assets';
 import { Text, Image } from 'react-native';
 
-
 const KeepYourDistanceRule = ({ }) => {
-
   return (
     <Underlay>
       <Heading>Keep your distance!</Heading>
@@ -20,13 +17,15 @@ const KeepYourDistanceRule = ({ }) => {
       <StyledText>
         A perfect excuse to avoid that person you ghosted!
       </StyledText>
-      <PrimaryButtonLink text="...I’m listening..." url="/groups" />
+
+      {/* <Link to="/groups">
+        <Text> ...I’m listening...</Text>
+      </Link> */}
     </Underlay>
   );
 };
 
 const GroupsRule = ({ }) => {
-
   return (
     <Underlay>
       <Heading>Avoid groups!</Heading>
@@ -38,13 +37,15 @@ const GroupsRule = ({ }) => {
       <Image source={groupNegative} />
 
       <StyledText>Bye, Felicia!</StyledText>
-      <PrimaryButtonLink text="...aaaaand?..." url="/staysthome" />
-    </Underlay >
+
+      {/* <Link to="/staysthome">
+        <Text>...aaaaand?...</Text>
+      </Link> */}
+    </Underlay>
   );
 };
 
 const StayHoneRule = ({ }) => {
-
   return (
     <Underlay>
       <Heading>Stay home!</Heading>
@@ -58,6 +59,9 @@ const StayHoneRule = ({ }) => {
       <StyledText>Who knew your housecat was onto something...</StyledText>
       <PrimaryButtonLink text="Ok, got it!" url="/" />
 
+      {/* <Link to="/">
+        <Text> Ok, got it!</Text>
+      </Link> */}
     </Underlay>
   );
 };
