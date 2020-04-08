@@ -160,6 +160,7 @@ const MainStack = () => {
     <>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={InitialScreen} />
+        <Stack.Screen name="Intro" component={GameIntro} />
       </Stack.Navigator>
     </>
   );

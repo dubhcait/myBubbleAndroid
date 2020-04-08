@@ -7,10 +7,11 @@ import {
   StyleSheet,
   View,
   SafeAreaView,
+  Button,
   ScrollView,
 } from 'react-native';
 
-const InitialScreen = () => (
+const InitialScreen = ({navigation}) => (
   <ScrollView contentContainerStyle={{flexGrow: 1}}>
     <Heading color="white">YOUR MISSION</Heading>
 
@@ -23,6 +24,7 @@ const InitialScreen = () => (
         Stay in your “bubble” each week - a <Text>safe social distance</Text> to
         earn rewards
       </StyledText>
+      <Button title="Start" onPress={() => navigation.navigate('Intro')} />
     </View>
   </ScrollView>
 );
