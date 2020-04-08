@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { topLeftBubbles, bottomRightBubbles } from '../assets';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const UnderlayStyle = styled.View`
-  width: ${wp("100%")};
-  height: ${hp("100%")};
-
-  background: ${props => props.color === "dark" ? '#0E3D71' : '#ffffff'};
+  background: #ffffff;
+  width: ${wp('100%')};
+  height: ${hp('100%')};
   position: relative;
 `;
 
@@ -32,8 +34,8 @@ const Internal = styled.View`
   z-index: 2000;
 `;
 
-const Underlay = ({ children, bubbles = true, color }) => (
-  <UnderlayStyle color={color}>
+const Underlay = ({ children, bubbles = true }) => (
+  <UnderlayStyle>
     <Internal>{children}</Internal>
     {bubbles && <ImgTop source={topLeftBubbles} />}
     {bubbles && <ImgBottom source={bottomRightBubbles} />}
