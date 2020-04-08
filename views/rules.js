@@ -1,6 +1,6 @@
 import React from 'react';
-import { Heading, StyledText, Underlay } from '../components';
-import { distance, groupNegative } from '../assets';
+import { Heading, StyledText, Underlay, PrimaryButtonLink } from '../components';
+import { distance, groupNegative, house } from '../assets';
 import { Link } from "react-router-native";
 import { Text, Image } from 'react-native';
 
@@ -20,10 +20,7 @@ const KeepYourDistanceRule = ({ }) => {
       <StyledText>
         A perfect excuse to avoid that person you ghosted!
       </StyledText>
-
-      <Link to='/groups'>
-        <Text> ...I’m listening...</Text>
-      </Link>
+      <PrimaryButtonLink text="...I’m listening..." url="/groups" />
     </Underlay>
   );
 };
@@ -41,10 +38,7 @@ const GroupsRule = ({ }) => {
       <Image source={groupNegative} />
 
       <StyledText>Bye, Felicia!</StyledText>
-
-      <Link to='/staysthome'>
-        <Text>...aaaaand?...</Text>
-      </Link>
+      <PrimaryButtonLink text="...aaaaand?..." url="/staysthome" />
     </Underlay >
   );
 };
@@ -59,13 +53,11 @@ const StayHoneRule = ({ }) => {
         Only go out if you have to: getting groceries, going to work, or getting
         some solo exercise!
       </StyledText>
-      <Image source={groupNegative} />
+      <Image source={house} />
 
       <StyledText>Who knew your housecat was onto something...</StyledText>
+      <PrimaryButtonLink text="Ok, got it!" url="/" />
 
-      <Link to='/'>
-        <Text> Ok, got it!</Text>
-      </Link>
     </Underlay>
   );
 };

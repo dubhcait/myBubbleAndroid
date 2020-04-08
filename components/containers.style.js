@@ -7,8 +7,7 @@ const UnderlayStyle = styled.View`
   width: ${wp("100%")};
   height: ${hp("100%")};
 
-  background: #ffffff;
-
+  background: ${props => props.color === "dark" ? '#0E3D71' : '#ffffff'};
   position: relative;
 `;
 
@@ -25,14 +24,16 @@ const ImgBottom = styled.Image`
 `;
 
 const Internal = styled.View`
+  width: ${wp("100%")};
+  height: ${hp("100%")};
   display: flex;
-  flex-direction: column;
+  justify-content:space-evenly;
   align-items: center;
   z-index: 2000;
 `;
 
-const Underlay = ({ children, bubbles = true }) => (
-  <UnderlayStyle>
+const Underlay = ({ children, bubbles = true, color }) => (
+  <UnderlayStyle color={color}>
     <Internal>{children}</Internal>
     {bubbles && <ImgTop source={topLeftBubbles} />}
     {bubbles && <ImgBottom source={bottomRightBubbles} />}

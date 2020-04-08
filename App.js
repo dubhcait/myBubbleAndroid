@@ -90,7 +90,7 @@ const App: () => React$Node = () => {
               <Route path="/groups" component={GroupsRule} />
               <Route path="/staysthome" component={StayHoneRule} />
               {showIntro && (
-                <Route path="/" render={() => (<InitialScreen />)} />
+                <Route exact path="/" render={() => (<InitialScreen />)} />
               )}
             </View>
           </ScrollView>

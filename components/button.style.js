@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Link } from "react-router-native";
+import React from 'react';
 
 const PrimaryButton = styled.Button`
   font-family: Dosis-Bold;
@@ -17,4 +19,24 @@ const PrimaryButton = styled.Button`
   justify-content: center;
 `;
 
-export { PrimaryButton };
+const LinkStyle = styled.Text`
+  font-family: Dosis-Bold;
+  color: white;
+  font-size: 20px;
+  background: #0e3d71;
+  border-radius: 5px;
+  min-width: 200px;
+  height: 40px;
+  line-height: 40px;
+  text-align:center;
+`
+
+const PrimaryButtonLink = ({ text, url }) => {
+
+  return (<Link to={url}>
+    <LinkStyle >{text}</LinkStyle>
+  </Link>)
+}
+
+
+export { PrimaryButton, PrimaryButtonLink };
