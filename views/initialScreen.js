@@ -1,27 +1,25 @@
 import React from 'react';
-import { Heading, StyledText, Underlay } from '../components';
+import { Heading, StyledText, Underlay, PrimaryButtonLink } from '../components';
 import { healthBubble } from '../assets';
 import { Text, Image } from 'react-native';
 import { Link } from "react-router-native";
 
 const InitialScreen = () => (
 
-  <Underlay color="dark">
+  <Underlay color="dark" bubbles={false}>
     <Heading color="white">YOUR MISSION</Heading>
 
-    <StyledText>
+    <StyledText color="white">
       Keep you and your loved ones safe as we battle{' '}
-      <Text>COVID-19</Text>
+      <Text color="white">COVID-19</Text>
     </StyledText>
     <Image source={healthBubble} />
-    <StyledText>
+    <StyledText color="white">
       Stay in your “bubble” each week - a{' '}
-      <Text>safe social distance</Text> to
+      <Text color="white">safe social distance</Text> to
       earn rewards
     </StyledText>
-    <Link to="/game">
-      <Text>Text</Text>
-    </Link>
+    <PrimaryButtonLink text="Lets go!" url="/game" />
 
   </Underlay>
 );

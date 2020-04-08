@@ -12,8 +12,8 @@ import {
   FlexColumn,
   CircularUnderlay,
 } from './containers.style';
-import {Heading, StyledText, BulletPont} from './text.style';
-import {PrimaryButton} from './button.style';
+import { Heading, StyledText, BulletPont } from './text.style';
+import { PrimaryButton, PrimaryButtonLink } from './button.style';
 
 export {
   Heading,
@@ -30,4 +30,5 @@ export {
   GroupIcon,
   PrimaryButton,
   CircularUnderlay,
+  PrimaryButtonLink
 };

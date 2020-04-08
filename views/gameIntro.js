@@ -4,6 +4,7 @@ import {
   StyledText,
   Underlay,
   FlexRow,
+  PrimaryButtonLink
 } from '../components';
 import {
   healthBubble,
@@ -47,9 +48,8 @@ const GameIntro = ({ introAllSeen }) => {
       </FlexRow>
 
       <StyledText>Keep your bubbles safe by Sunday and get rewards!</StyledText>
-      <Link to="/distance">
-        <Text>What’s social distancing?</Text>
-      </Link>
+      <PrimaryButtonLink text="What’s social distancing?" url="/distance" />
+
 
     </Underlay>
   );
