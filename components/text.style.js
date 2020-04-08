@@ -15,6 +15,8 @@ const StyledText = styled.Text`
   font-style: normal;
   font-size: 18px;
   line-height: 28px;
+  text-align: center;
+  color: ${props => (props.color ? props.color : '#0e3d71')};
 `;
 
 const BulletPont = styled.Text`

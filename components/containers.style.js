@@ -25,8 +25,10 @@ const ImgBottom = styled.Image`
 `;
 
 const Internal = styled.View`
+  width: ${wp('100%')};
+  height: ${hp('100%')};
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   z-index: 2000;
 `;

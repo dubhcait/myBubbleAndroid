@@ -54,9 +54,10 @@ const StayHoneRule = ({}) => {
         Only go out if you have to: getting groceries, going to work, or getting
         some solo exercise!
       </StyledText>
-      <Image source={groupNegative} />
+      <Image source={house} />
 
       <StyledText>Who knew your housecat was onto something...</StyledText>
+      <PrimaryButtonLink text="Ok, got it!" url="/" />
 
       {/* <Link to="/">
         <Text> Ok, got it!</Text>

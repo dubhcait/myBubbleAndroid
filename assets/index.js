@@ -15,7 +15,7 @@ import leaderboard from "./leaderboard.png";
 import award from "./award.png";
 import goodDeed from "./goodDeed.png";
 import twoPeople from "./twoPeople.png";
-
+import house from "./house.png"
 export {
   bottomRightBubbles,
   bottomRightDarkBubbles,
@@ -33,5 +33,6 @@ export {
   leaderboard,
   award,
   goodDeed,
-  twoPeople
+  twoPeople,
+  house
 };
