@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   Bubble,
   Heading,
@@ -14,18 +14,18 @@ import {
   award,
   goodDeed,
 } from '../assets';
-import { Image } from 'react-native';
+import {Image} from 'react-native';
 
-const MainScreen = ({ lifeCount }) => {
+const MainScreen = ({lifeCount}) => {
   const [status, setStatus] = useState('BubblePlus');
 
-  const LifeCount = ({ lifeCount }) => {
+  const LifeCount = ({lifeCount}) => {
     console.log(lifeCount);
     return lifeCount.map((i, k) => {
       if (k === 0) {
         if (i === 1) {
           return (
-            <Image source={healthBubble} key={k} style={{ height: 100 + 'px' }} />
+            <Image source={healthBubble} key={k} style={{height: 100 + 'px'}} />
           );
         }
         return <Image source={poppedBubble} key={k} />;
@@ -35,7 +35,7 @@ const MainScreen = ({ lifeCount }) => {
           <Image
             source={healthBubble}
             key={k}
-            style={{ height: 100 + 'px', marginLeft: -28 + 'px' }}
+            style={{height: 100 + 'px', marginLeft: -28 + 'px'}}
           />
         );
       }

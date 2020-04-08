@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Heading,
-  StyledText,
-  Underlay,
-  FlexRow,
-  PrimaryButtonLink
-} from '../components';
+import { Heading, StyledText, Underlay, FlexRow } from '../components';
 import {
   healthBubble,
   plus,
@@ -16,7 +10,6 @@ import {
   group,
 } from '../assets';
 import { Image, Text } from 'react-native';
-import { Link } from "react-router-native";
 
 const GameIntro = ({ introAllSeen }) => {
   // let history = useHistory();
@@ -30,12 +23,8 @@ const GameIntro = ({ introAllSeen }) => {
         <Image source={newTask} />
         <Image source={plus} />
         <Image source={healthBubble} />
-        <Image
-          source={healthBubble}
-        />
-        <Image
-          source={healthBubble}
-        />
+        <Image source={healthBubble} />
+        <Image source={healthBubble} />
       </FlexRow>
 
       <Heading>Don’t burst any bubbles by breaking social distance!</Heading>
@@ -43,15 +32,20 @@ const GameIntro = ({ introAllSeen }) => {
         <Image source={twoPeople} />
         <Image source={group} />
         <Image source={home} />
-        <Image
-          source={poppedBubble} />
+        <Image source={poppedBubble} />
       </FlexRow>
 
       <StyledText>Keep your bubbles safe by Sunday and get rewards!</StyledText>
-      <PrimaryButtonLink text="What’s social distancing?" url="/distance" />
+<<<<<<< HEAD
+  <PrimaryButtonLink text="What’s social distancing?" url="/distance" />
 
 
-    </Underlay>
+=======
+      {/* <Link to="/distance">
+        <Text>What’s social distancing?</Text>
+      </Link> */}
+>>>>>>> degugging routing
+    </Underlay >
   );
 };
 
