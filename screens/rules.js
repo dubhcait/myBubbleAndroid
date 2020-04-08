@@ -1,12 +1,9 @@
 import React from 'react';
-import { Heading, StyledText, Underlay } from '../components';
-import { distance, groupNegative } from '../assets';
-import { Link } from "react-router-native";
-import { Text, Image } from 'react-native';
+import {Heading, StyledText, Underlay} from '../components';
+import {distance, groupNegative} from '../assets';
+import {Text, Image} from 'react-native';
 
-
-const KeepYourDistanceRule = ({ }) => {
-
+const KeepYourDistanceRule = ({}) => {
   return (
     <Underlay>
       <Heading>Keep your distance!</Heading>
@@ -21,15 +18,14 @@ const KeepYourDistanceRule = ({ }) => {
         A perfect excuse to avoid that person you ghosted!
       </StyledText>
 
-      <Link to='/groups'>
+      {/* <Link to="/groups">
         <Text> ...I’m listening...</Text>
-      </Link>
+      </Link> */}
     </Underlay>
   );
 };
 
-const GroupsRule = ({ }) => {
-
+const GroupsRule = ({}) => {
   return (
     <Underlay>
       <Heading>Avoid groups!</Heading>
@@ -42,15 +38,14 @@ const GroupsRule = ({ }) => {
 
       <StyledText>Bye, Felicia!</StyledText>
 
-      <Link to='/staysthome'>
+      {/* <Link to="/staysthome">
         <Text>...aaaaand?...</Text>
-      </Link>
-    </Underlay >
+      </Link> */}
+    </Underlay>
   );
 };
 
-const StayHoneRule = ({ }) => {
-
+const StayHoneRule = ({}) => {
   return (
     <Underlay>
       <Heading>Stay home!</Heading>
@@ -63,11 +58,11 @@ const StayHoneRule = ({ }) => {
 
       <StyledText>Who knew your housecat was onto something...</StyledText>
 
-      <Link to='/'>
+      {/* <Link to="/">
         <Text> Ok, got it!</Text>
-      </Link>
+      </Link> */}
     </Underlay>
   );
 };
 
-export { KeepYourDistanceRule, GroupsRule, StayHoneRule };
+export {KeepYourDistanceRule, GroupsRule, StayHoneRule};

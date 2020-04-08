@@ -18,7 +18,6 @@ import {
   GroupsRule,
   StayHoneRule,
 } from './screens';
-import {NativeRouter, Route} from 'react-router-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const Root = createStackNavigator();
@@ -161,8 +160,6 @@ const MainStack = () => {
     <>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={InitialScreen} />
-        <Stack.Screen name="Game Intro" component={GameIntro} />
-        <Stack.Screen name="Distance" component={KeepYourDistanceRule} />
       </Stack.Navigator>
     </>
   );
