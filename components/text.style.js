@@ -6,14 +6,14 @@ const Heading = styled.Text`
   font-size: 38px;
   line-height: 48px;
   text-align: center;
-
-  color: #0e3d71;
+  color: #01016f;
 `;
+// color: #0e3d71;
 
 const StyledText = styled.Text`
   font-family: Lato-Regular;
   font-style: normal;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 28px;
 `;
 
@@ -26,4 +26,4 @@ const BulletPont = styled.Text`
   margin: 0;
 `;
 
-export { Heading, StyledText, BulletPont };
+export {Heading, StyledText, BulletPont};

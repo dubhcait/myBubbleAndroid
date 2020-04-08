@@ -8,9 +8,8 @@ import {
 
 const UnderlayStyle = styled.View`
   background: #ffffff;
-  width: ${wp('100%')};
-  height: ${hp('100%')};
   position: relative;
+  z-index: 0;
 `;
 
 const ImgTop = styled.Image`
@@ -36,7 +35,7 @@ const Underlay = ({children, bubbles = true}) => (
   <UnderlayStyle>
     <Internal>{children}</Internal>
     {bubbles && <ImgTop source={topLeftBubbles} />}
-    {bubbles && <ImgBottom source={bottomRightBubbles} />}
+    {/* {bubbles && <ImgBottom source={bottomRightBubbles} />} */}
   </UnderlayStyle>
 );
 

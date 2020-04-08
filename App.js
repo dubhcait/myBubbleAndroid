@@ -159,7 +159,11 @@ const MainStack = () => {
   return (
     <>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={InitialScreen} />
+        <Stack.Screen
+          name="Home"
+          component={InitialScreen}
+          options={{headerShown: false}}
+        />
         <Stack.Screen name="Intro" component={GameIntro} />
       </Stack.Navigator>
     </>
