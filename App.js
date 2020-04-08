@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,10 +7,10 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {
   InitialScreen,
   GameIntro,
@@ -159,7 +159,12 @@ const MainStack = () => {
   return (
     <>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={InitialScreen} />
+        <Stack.Screen
+          name="Home"
+          component={InitialScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen name="Intro" component={GameIntro} />
       </Stack.Navigator>
     </>
   );

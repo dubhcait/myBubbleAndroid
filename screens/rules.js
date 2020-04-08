@@ -1,9 +1,9 @@
 import React from 'react';
-import { Heading, StyledText, Underlay } from '../components';
-import { distance, groupNegative } from '../assets';
-import { Text, Image } from 'react-native';
+import {Heading, StyledText, Underlay} from '../components';
+import {distance, groupNegative} from '../assets';
+import {Text, Image} from 'react-native';
 
-const KeepYourDistanceRule = ({ }) => {
+const KeepYourDistanceRule = ({}) => {
   return (
     <Underlay>
       <Heading>Keep your distance!</Heading>
@@ -25,7 +25,7 @@ const KeepYourDistanceRule = ({ }) => {
   );
 };
 
-const GroupsRule = ({ }) => {
+const GroupsRule = ({}) => {
   return (
     <Underlay>
       <Heading>Avoid groups!</Heading>
@@ -45,7 +45,7 @@ const GroupsRule = ({ }) => {
   );
 };
 
-const StayHoneRule = ({ }) => {
+const StayHoneRule = ({}) => {
   return (
     <Underlay>
       <Heading>Stay home!</Heading>
@@ -66,4 +66,4 @@ const StayHoneRule = ({ }) => {
   );
 };
 
-export { KeepYourDistanceRule, GroupsRule, StayHoneRule };
+export {KeepYourDistanceRule, GroupsRule, StayHoneRule};

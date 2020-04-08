@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, StyledText, Underlay, FlexRow } from '../components';
+import {Heading, StyledText, Underlay, FlexRow} from '../components';
 import {
   healthBubble,
   plus,
@@ -9,9 +9,9 @@ import {
   twoPeople,
   group,
 } from '../assets';
-import { Image, Text } from 'react-native';
+import {Image, Text} from 'react-native';
 
-const GameIntro = ({ introAllSeen }) => {
+const GameIntro = ({introAllSeen}) => {
   // let history = useHistory();
 
   return (
@@ -36,16 +36,10 @@ const GameIntro = ({ introAllSeen }) => {
       </FlexRow>
 
       <StyledText>Keep your bubbles safe by Sunday and get rewards!</StyledText>
-<<<<<<< HEAD
-  <PrimaryButtonLink text="What’s social distancing?" url="/distance" />
-
-
-=======
       {/* <Link to="/distance">
         <Text>What’s social distancing?</Text>
       </Link> */}
->>>>>>> degugging routing
-    </Underlay >
+    </Underlay>
   );
 };
 

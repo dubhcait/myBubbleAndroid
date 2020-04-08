@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { topLeftBubbles, bottomRightBubbles } from '../assets';
+import {topLeftBubbles, bottomRightBubbles} from '../assets';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -8,9 +8,8 @@ import {
 
 const UnderlayStyle = styled.View`
   background: #ffffff;
-  width: ${wp('100%')};
-  height: ${hp('100%')};
   position: relative;
+  z-index: 0;
 `;
 
 const ImgTop = styled.Image`
@@ -26,19 +25,19 @@ const ImgBottom = styled.Image`
 `;
 
 const Internal = styled.View`
-  width: ${wp("100%")};
-  height: ${hp("100%")};
+  width: ${wp('100%')};
+  height: ${hp('100%')};
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   align-items: center;
   z-index: 2000;
 `;
 
-const Underlay = ({ children, bubbles = true }) => (
+const Underlay = ({children, bubbles = true}) => (
   <UnderlayStyle>
     <Internal>{children}</Internal>
     {bubbles && <ImgTop source={topLeftBubbles} />}
-    {bubbles && <ImgBottom source={bottomRightBubbles} />}
+    {/* {bubbles && <ImgBottom source={bottomRightBubbles} />} */}
   </UnderlayStyle>
 );
 
@@ -63,4 +62,4 @@ const FlexColumn = styled.View`
   flex-direction: column;
 `;
 
-export { Underlay, FlexRow, FlexColumn, CircularUnderlay };
+export {Underlay, FlexRow, FlexColumn, CircularUnderlay};
