@@ -1,12 +1,20 @@
 import {useTheme} from '@react-navigation/native';
 import React from 'react';
-import {Animated, Image, ScrollView, StyleSheet, View} from 'react-native';
+import {
+  Animated,
+  CheckBox,
+  Image,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {group, home, twoPeople} from '../assets';
-import {Heading, PrimaryButton, StyledText} from '../components';
-import useSpringHeart from '../util/useSpringHeart';
+import {Heading, StyledText} from '../components';
+import useSpringReward from '../util/useSpringReward';
 const WeeklyChallenge = ({navigation}) => {
   const {colors} = useTheme();
-  const springValue = useSpringHeart();
+  const springValue = useSpringReward();
   return (
     <ScrollView
       contentContainerStyle={{
@@ -23,11 +31,16 @@ const WeeklyChallenge = ({navigation}) => {
           paddingVertical: 30,
         }}>
         <Heading>THIS WEEK’S CHALLENGE</Heading>
-        <Animated.View
-          style={{width: 60, height: 60, transform: [{scale: springValue}]}}>
-          <StyledText>Signup for an online course </StyledText>
-          <StyledText>Have a videochat with a friend</StyledText>
-        </Animated.View>
+        <View>
+          <View style={styles.objectives}>
+            <CheckBox center disabled={true} title="Objective 1" />
+            <StyledText>Signup for an online course</StyledText>
+          </View>
+          <View style={styles.objectives}>
+            <CheckBox center disabled={true} title="Objective 2" />
+            <StyledText>Have a videochat with a friend</StyledText>
+          </View>
+        </View>
         <StyledText>And don’t break the social distance rules!</StyledText>
 
         <View style={styles.rowIcons}>
@@ -37,13 +50,28 @@ const WeeklyChallenge = ({navigation}) => {
         </View>
 
         <Heading>TO EARN:</Heading>
-
-        <StyledText>A free month of Netflix</StyledText>
-
-        <PrimaryButton
-          text="Challenge accepted!"
-          onPress={() => navigation.navigate('Intro')}
-        />
+        <Animated.View style={{transform: [{scale: springValue}]}}>
+          <StyledText>A free month of Netflix</StyledText>
+        </Animated.View>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('WeeklyChallenge')}
+          style={{
+            borderColor: '#d8031c',
+            marginHorizontal: 46,
+            borderRadius: 20,
+            borderWidth: 1.4,
+            marginVertical: 10,
+          }}>
+          <Heading
+            style={{
+              fontSize: 20,
+              color: colors.primary,
+              textTransform: 'uppercase',
+              padding: 1,
+            }}>
+            Challenge accepted!
+          </Heading>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -53,6 +81,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-evenly',
+  },
+  objectives: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
