@@ -5,46 +5,33 @@ import {
   Underlay,
   FlexRow,
   PrimaryButton,
-  GroupIcon,
 } from '../components';
-import {
-  healthBubble,
-  plus,
-  newTask,
-  home,
-  poppedBubble,
-  group,
-} from '../assets';
-import { Image } from 'react-native';
+import {twoPeople, home, group} from '../assets';
+import {Image, View} from 'react-native';
 
-const WeeklyChallenge = ({ introAllSeen }) => (
+const WeeklyChallenge = ({navigation}) => (
   <Underlay>
-    <Heading>THIS WEEK’S CHALLENGE</Heading>
-
-    <StyledText>Signup for an online course </StyledText>
-    <StyledText>Have a videochat with a friend</StyledText>
+    <Heading style={{width: 240}}>THIS WEEK’S CHALLENGE</Heading>
+    <View>
+      <StyledText>Signup for an online course </StyledText>
+      <StyledText>Have a videochat with a friend</StyledText>
+    </View>
     <StyledText>And don’t break the social distance rules!</StyledText>
-    <FlexRow>
-      <Image source={newTask} />
-      <Image source={plus} />
-      <Image source={healthBubble} /> <Image source={healthBubble} />
-      <Image source={healthBubble} />
-    </FlexRow>
 
-    <Heading>Don’t burst any bubbles by breaking social distance!</Heading>
     <FlexRow>
-      <GroupIcon />
+      <Image source={twoPeople} />
       <Image source={group} />
       <Image source={home} />
-      <Image source={poppedBubble} />
     </FlexRow>
 
     <Heading>TO EARN:</Heading>
     <FlexRow>
-      <StyledText>A free month of Netflixd</StyledText>
+      <StyledText>A free month of Netflix</StyledText>
     </FlexRow>
-
-    <PrimaryButton>Challenge accepted!</PrimaryButton>
+    <PrimaryButton
+      text="Challenge accepted!"
+      onPress={() => navigation.navigate('Intro')}
+    />
   </Underlay>
 );
 
