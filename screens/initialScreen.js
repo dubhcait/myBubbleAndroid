@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {Heading, StyledText, Underlay, PrimaryButton} from '../components';
 import {healthBubble} from '../assets';
+import {virus} from '../assets';
 import {
   Text,
   Image,
@@ -11,9 +12,15 @@ import {
   Animated,
 } from 'react-native';
 import useSpringHeart from '../util/useSpringHeart';
+import useSpinVirus from '../util/useSpringHeart';
 
 const InitialScreen = ({navigation}) => {
-  const springValue = useSpringHeart();
+  let springValue = useSpringHeart();
+  let spinValue = useSpinVirus();
+  const spin = spinValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '360deg'],
+  });
 
   return (
     <ScrollView
@@ -21,9 +28,72 @@ const InitialScreen = ({navigation}) => {
         flexGrow: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#ffffff',
       }}>
-      <Underlay style={{flex: 1}}>
-        <Heading style={{marginTop: 140, fontSize: 38}}>YOUR MISSION</Heading>
+      <View style={{flex: 1}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            height: 100,
+          }}>
+          <View
+            style={{
+              width: 24,
+              height: 26,
+              alignSelf: 'flex-end',
+              margin: 18,
+            }}>
+            <Animated.Image
+              source={virus}
+              style={{
+                tintColor: '#d8031c',
+                width: '100%',
+                height: '100%',
+                resizeMode: 'contain',
+                transform: [{rotate: spin}],
+              }}
+            />
+          </View>
+          <View
+            style={{
+              width: 34,
+              height: 36,
+              alignSelf: 'flex-start',
+              transform: [{scaleX: -1}],
+              margin: 8,
+            }}>
+            <Animated.Image
+              source={virus}
+              style={{
+                tintColor: '#d8031c',
+                width: '100%',
+                height: '100%',
+                resizeMode: 'contain',
+                transform: [{rotate: spin}],
+              }}
+            />
+          </View>
+          <View
+            style={{
+              width: 38,
+              height: 40,
+              alignSelf: 'baseline',
+              margin: 30,
+            }}>
+            <Animated.Image
+              source={virus}
+              style={{
+                tintColor: '#d8031c',
+                width: '100%',
+                height: '100%',
+                resizeMode: 'contain',
+                transform: [{rotate: spin}],
+              }}
+            />
+          </View>
+        </View>
+        <Heading style={{marginTop: 20, fontSize: 38}}>YOUR MISSION</Heading>
 
         <StyledText
           style={{
@@ -92,7 +162,7 @@ const InitialScreen = ({navigation}) => {
             </Heading>
           </TouchableOpacity>
         </View>
-      </Underlay>
+      </View>
     </ScrollView>
   );
 };

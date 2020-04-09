@@ -1,21 +1,22 @@
-import bottomRightBubbles from "./bottomRightBubbles.png";
-import bottomRightDarkBubbles from "./bottomRightDarkBubbles.png";
-import group from "./groups.png";
-import groupNegative from "./groupNegative.png";
-import healthBubble from "./healthBubble.png";
-import home from "./home.png";
-import newTask from "./newTask.png";
-import plus from "./plus.png";
-import poppedBubble from "./poppedBubble.png";
-import thumbsUp from "./thumbsUp.png";
-import topLeftBubbles from "./topLeftBubbles.png";
-import topLeftDarkBubbles from "./topLeftDarkBubbles.png";
-import distance from "./distance.png";
-import leaderboard from "./leaderboard.png";
-import award from "./award.png";
-import goodDeed from "./goodDeed.png";
-import twoPeople from "./twoPeople.png";
-import house from "./house.png"
+import bottomRightBubbles from './bottomRightBubbles.png';
+import bottomRightDarkBubbles from './bottomRightDarkBubbles.png';
+import group from './groups.png';
+import groupNegative from './groupNegative.png';
+import healthBubble from './healthBubble.png';
+import virus from './virus.png';
+import home from './home.png';
+import newTask from './newTask.png';
+import plus from './plus.png';
+import poppedBubble from './poppedBubble.png';
+import thumbsUp from './thumbsUp.png';
+import topLeftBubbles from './topLeftBubbles.png';
+import topLeftDarkBubbles from './topLeftDarkBubbles.png';
+import distance from './distance.png';
+import leaderboard from './leaderboard.png';
+import award from './award.png';
+import goodDeed from './goodDeed.png';
+import twoPeople from './twoPeople.png';
+import house from './house.png';
 export {
   bottomRightBubbles,
   bottomRightDarkBubbles,
@@ -34,5 +35,6 @@ export {
   award,
   goodDeed,
   twoPeople,
-  house
+  house,
+  virus,
 };

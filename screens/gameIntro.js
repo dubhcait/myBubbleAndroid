@@ -21,7 +21,7 @@ import {
 import {useTheme} from '@react-navigation/native';
 import useSpringHeart from '../util/useSpringHeart';
 
-const GameIntro = ({introAllSeen}) => {
+const GameIntro = ({introAllSeen, navigation}) => {
   // let history = useHistory();
   const {colors} = useTheme();
   const springValue = useSpringHeart();
@@ -115,6 +115,7 @@ const GameIntro = ({introAllSeen}) => {
           Keep your bubbles safe by Sunday and get rewards!
         </StyledText>
         <TouchableOpacity
+          onPress={() => navigation.navigate('Distancing')}
           style={{
             borderColor: '#d8031c',
             marginHorizontal: 46,
