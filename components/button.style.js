@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from "react-router-native";
 import React from 'react';
 
 const PrimaryButton = styled.Button`
@@ -28,15 +27,11 @@ const LinkStyle = styled.Text`
   min-width: 200px;
   height: 40px;
   line-height: 40px;
-  text-align:center;
-`
+  text-align: center;
+`;
 
-const PrimaryButtonLink = ({ text, url }) => {
+const PrimaryButtonLink = ({text, url}) => {
+  return <LinkStyle>{text}</LinkStyle>;
+};
 
-  return (<Link to={url}>
-    <LinkStyle >{text}</LinkStyle>
-  </Link>)
-}
-
-
-export { PrimaryButton, PrimaryButtonLink };
+export {PrimaryButton, PrimaryButtonLink};

@@ -4,7 +4,7 @@ const Heading = styled.Text`
   font-family: Dosis-Bold;
   font-style: normal;
   font-size: 38px;
-  line-height: 48px;
+  line-height: 38px;
   text-align: center;
   color: #01016f;
 `;

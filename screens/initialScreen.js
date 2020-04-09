@@ -3,11 +3,9 @@ import {Heading, StyledText, Underlay, PrimaryButton} from '../components';
 import {healthBubble} from '../assets';
 import {
   Text,
-  ImageBackground,
+  Image,
   StyleSheet,
   View,
-  SafeAreaView,
-  Button,
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
@@ -20,7 +18,7 @@ const InitialScreen = ({navigation}) => (
       alignItems: 'center',
     }}>
     <Underlay style={{flex: 1}}>
-      <Heading style={{marginTop: 140}}>YOUR MISSION</Heading>
+      <Heading style={{marginTop: 140, fontSize: 38}}>YOUR MISSION</Heading>
 
       <StyledText
         style={{
@@ -52,34 +50,40 @@ const InitialScreen = ({navigation}) => (
           }}>
           - a safe social distance to earn rewards
         </StyledText>
+
         <TouchableOpacity
           style={{
-            alignSelf: 'center',
-            width: 160,
-            height: 160,
+            marginHorizontal: 86,
+            marginVertical: 10,
+            flexDirection: 'column',
+            alignContent: 'center',
+            alignItems: 'center',
           }}
           onPress={() => navigation.navigate('Intro')}>
-          <ImageBackground
-            source={healthBubble}
+          <View
             style={{
-              width: '100%',
-              height: '100%',
+              width: 70,
+              height: 70,
+              margin: 10,
             }}>
-            <View
+            <Image
+              source={healthBubble}
               style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <Heading style={{textTransform: 'uppercase', fontSize: 46}}>
-                Start
-              </Heading>
-            </View>
-          </ImageBackground>
+                width: '100%',
+                height: '100%',
+              }}
+            />
+          </View>
+          <Heading
+            style={{
+              textTransform: 'uppercase',
+              fontSize: 22,
+              color: '#9fcbee',
+              margin: 4,
+              letterSpacing: 1.4,
+            }}>
+            Start
+          </Heading>
         </TouchableOpacity>
       </View>
     </Underlay>
