@@ -1,26 +1,67 @@
-const getLocation = setGeoLocation => {
-  //function that retrieves the position
-  const showPosition = position => {
-    const location = {
-      longitude: position.coords.longitude,
-      latitude: position.coords.latitude
-    };
-    setGeoLocation(location);
-  };
+import Geolocation from '@react-native-community/geolocation';
 
-  if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
-  } else {
-    console.log("Geo Location not supported");
+geolocation.requestAuthorization();
+Geolocation.getCurrentPosition(info => console.log(info));
+Geolocation.watchPosition(success, [error], [options]);
+
+geolocation.clearWatch(watchID);
+
+useEffect(() => {
+  async function loadInitialPosition() {
+    const {granted} = await navigator.geolocation.requestAuthorization();
+
+    if (granted) {
+      navigator.geolocation.getCurrentPosition(info => console.log(info));
+
+      const {latitude, longitude} = coords;
+
+      setHone({
+        latitude,
+        longitude,
+      });
+    }
   }
-};
+
+  loadInitialPosition();
+}, []);
+
+
+componentDidMount() {
+  Geolocation.getCurrentPosition(
+    position => {
+      this.setState({
+        region: {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          latitudeDelta: 0.06,
+          longitudeDelta: 0.07,
+        },
+      });
+    },
+    error => console.log(error.message),
+    {enableHighAccuracy: true, timeout: 20000},
+  );
+  this.watchID = Geolocation.watchPosition(position => {
+    this.setState({
+      region: {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+        latitudeDelta: 0.0462,
+        longitudeDelta: 0.0261,
+      },
+    });
+  });
+  this.getData();
+}
+
+
 
 const distanceFromHome = (home, position) => {
   return calculateDistance(
     home.coords.latitude,
     home.coords.longitude,
     position.coords.latitude,
-    position.coords.longitude
+    position.coords.longitude,
   );
 };
 
@@ -41,5 +82,4 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 Number.prototype.toRad = function() {
   return (this * Math.PI) / 180;
 };
-export { distanceFromHome };
-export default getLocation;
+
