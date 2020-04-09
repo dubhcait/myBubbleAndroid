@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {Heading, StyledText, Underlay, FlexRow} from '../components';
 import {
   healthBubble,
@@ -16,12 +16,15 @@ import {
   StyleSheet,
   View,
   TouchableOpacity,
+  Animated,
 } from 'react-native';
 import {useTheme} from '@react-navigation/native';
+import useSpringHeart from '../util/useSpringHeart';
 
 const GameIntro = ({introAllSeen}) => {
   // let history = useHistory();
   const {colors} = useTheme();
+  const springValue = useSpringHeart();
   return (
     <ScrollView
       contentContainerStyle={{
@@ -41,9 +44,18 @@ const GameIntro = ({introAllSeen}) => {
           Start the week with a new challenge and 3 bubbles
         </StyledText>
         <View style={styles.rowIcons}>
-          <Image source={healthBubble} style={styles.bubbleImage} />
-          <Image source={healthBubble} style={styles.bubbleImage} />
-          <Image source={healthBubble} style={styles.bubbleImage} />
+          <Animated.Image
+            source={healthBubble}
+            style={{width: 60, height: 60, transform: [{scale: springValue}]}}
+          />
+          <Animated.Image
+            source={healthBubble}
+            style={{width: 60, height: 60, transform: [{scale: springValue}]}}
+          />
+          <Animated.Image
+            source={healthBubble}
+            style={{width: 60, height: 60, transform: [{scale: springValue}]}}
+          />
         </View>
         <View
           style={{
