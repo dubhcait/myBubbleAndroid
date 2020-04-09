@@ -20,6 +20,21 @@ import {
 } from './screens';
 import AsyncStorage from '@react-native-community/async-storage';
 
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#6497bf',
+    background: '#ffffff',
+    card: '#5a5a5a',
+    text: '#01016f',
+    accent: '#9fcbee',
+    ripple: '#d8031c',
+  },
+};
+
+//primary: blue, card: grey, text: darkblue, accent: lightblue, ripple: red
+
 const Root = createStackNavigator();
 const Stack = createStackNavigator();
 
@@ -144,7 +159,10 @@ export function createApp() {
   return function App() {
     return (
       <>
-        <StatusBar barStyle="light-content" />
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor={MyTheme.colors.background}
+        />
         <NavigationContainer>
           <Root.Navigator headerMode="none">
             <Root.Screen name="Root" component={MainStack} />
@@ -164,7 +182,14 @@ const MainStack = () => {
           component={InitialScreen}
           options={{headerShown: false}}
         />
-        <Stack.Screen name="Intro" component={GameIntro} />
+        <Stack.Screen
+          name="Intro"
+          component={GameIntro}
+          options={{
+            headerTransparent: true,
+            headerTitleStyle: {color: 'transparent'},
+          }}
+        />
       </Stack.Navigator>
     </>
   );

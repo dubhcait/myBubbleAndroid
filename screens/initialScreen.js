@@ -1,90 +1,171 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {Heading, StyledText, Underlay, PrimaryButton} from '../components';
 import {healthBubble} from '../assets';
+import {virus} from '../assets';
 import {
   Text,
-  ImageBackground,
+  Image,
   StyleSheet,
   View,
-  SafeAreaView,
-  Button,
   ScrollView,
   TouchableOpacity,
+  Animated,
 } from 'react-native';
+import useSpringHeart from '../util/useSpringHeart';
+import useSpinVirus from '../util/useSpringHeart';
 
-const InitialScreen = ({navigation}) => (
-  <ScrollView
-    contentContainerStyle={{
-      flexGrow: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}>
-    <Underlay style={{flex: 1}}>
-      <Heading style={{marginTop: 140}}>YOUR MISSION</Heading>
+const InitialScreen = ({navigation}) => {
+  let springValue = useSpringHeart();
+  let spinValue = useSpinVirus();
+  const spin = spinValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '360deg'],
+  });
 
-      <StyledText
-        style={{
-          marginTop: 20,
-          marginBottom: 20,
-          textAlign: 'center',
-          color: '#01016f',
-        }}>
-        Keep you and your loved ones safe as we battle <Text>COVID-19</Text>
-      </StyledText>
-      <View style={styles.rounded}>
-        <StyledText
-          numberOfLines={1}
+  return (
+    <ScrollView
+      contentContainerStyle={{
+        flexGrow: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#ffffff',
+      }}>
+      <View style={{flex: 1}}>
+        <View
           style={{
-            marginTop: 70,
-            marginHorizontal: 30,
-            textAlign: 'center',
-            color: '#9fcbee',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            height: 100,
           }}>
-          Stay in your “bubble” each week{' '}
-        </StyledText>
-        <StyledText
-          numberOfLines={1}
-          style={{
-            marginBottom: 10,
-            marginHorizontal: 10,
-            textAlign: 'center',
-            color: '#9fcbee',
-          }}>
-          - a safe social distance to earn rewards
-        </StyledText>
-        <TouchableOpacity
-          style={{
-            alignSelf: 'center',
-            width: 160,
-            height: 160,
-          }}
-          onPress={() => navigation.navigate('Intro')}>
-          <ImageBackground
-            source={healthBubble}
+          <View
             style={{
-              width: '100%',
-              height: '100%',
+              width: 24,
+              height: 26,
+              alignSelf: 'flex-end',
+              margin: 18,
             }}>
+            <Animated.Image
+              source={virus}
+              style={{
+                tintColor: '#d8031c',
+                width: '100%',
+                height: '100%',
+                resizeMode: 'contain',
+                transform: [{rotate: spin}],
+              }}
+            />
+          </View>
+          <View
+            style={{
+              width: 34,
+              height: 36,
+              alignSelf: 'flex-start',
+              transform: [{scaleX: -1}],
+              margin: 8,
+            }}>
+            <Animated.Image
+              source={virus}
+              style={{
+                tintColor: '#d8031c',
+                width: '100%',
+                height: '100%',
+                resizeMode: 'contain',
+                transform: [{rotate: spin}],
+              }}
+            />
+          </View>
+          <View
+            style={{
+              width: 38,
+              height: 40,
+              alignSelf: 'baseline',
+              margin: 30,
+            }}>
+            <Animated.Image
+              source={virus}
+              style={{
+                tintColor: '#d8031c',
+                width: '100%',
+                height: '100%',
+                resizeMode: 'contain',
+                transform: [{rotate: spin}],
+              }}
+            />
+          </View>
+        </View>
+        <Heading style={{marginTop: 20, fontSize: 38}}>YOUR MISSION</Heading>
+
+        <StyledText
+          style={{
+            marginTop: 20,
+            marginBottom: 20,
+            textAlign: 'center',
+            color: '#01016f',
+          }}>
+          Keep you and your loved ones safe as we battle <Text>COVID-19</Text>
+        </StyledText>
+        <View style={styles.rounded}>
+          <StyledText
+            numberOfLines={1}
+            style={{
+              marginTop: 70,
+              marginHorizontal: 30,
+              textAlign: 'center',
+              color: '#9fcbee',
+            }}>
+            Stay in your “bubble” each week{' '}
+          </StyledText>
+          <StyledText
+            numberOfLines={1}
+            style={{
+              marginBottom: 10,
+              marginHorizontal: 10,
+              textAlign: 'center',
+              color: '#9fcbee',
+            }}>
+            - a safe social distance to earn rewards
+          </StyledText>
+
+          <TouchableOpacity
+            style={{
+              marginHorizontal: 86,
+              marginVertical: 10,
+              flexDirection: 'column',
+              alignContent: 'center',
+              alignItems: 'center',
+            }}
+            onPress={() => navigation.navigate('Intro')}>
             <View
               style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                justifyContent: 'center',
-                alignItems: 'center',
+                width: 70,
+                height: 70,
+                margin: 10,
               }}>
-              <Heading style={{textTransform: 'uppercase', fontSize: 46}}>
-                Start
-              </Heading>
+              <Animated.Image
+                source={healthBubble}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  transform: [{scale: springValue}],
+                }}
+              />
             </View>
-          </ImageBackground>
-        </TouchableOpacity>
+            <Heading
+              style={{
+                textTransform: 'uppercase',
+                fontSize: 22,
+                color: '#9fcbee',
+                margin: 4,
+                letterSpacing: 1.4,
+              }}>
+              Start
+            </Heading>
+          </TouchableOpacity>
+        </View>
       </View>
-    </Underlay>
-  </ScrollView>
-);
+    </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({
   rounded: {
