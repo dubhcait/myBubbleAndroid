@@ -1,28 +1,25 @@
-import React, {useEffect, useRef} from 'react';
-import {Heading, StyledText, Underlay, FlexRow} from '../components';
+import {useTheme} from '@react-navigation/native';
+import React from 'react';
 import {
-  healthBubble,
-  plus,
-  newTask,
-  home,
-  poppedBubble,
-  twoPeople,
-  group,
-} from '../assets';
-import {
+  Animated,
   Image,
-  Text,
   ScrollView,
   StyleSheet,
-  View,
   TouchableOpacity,
-  Animated,
+  View,
 } from 'react-native';
-import {useTheme} from '@react-navigation/native';
+import {
+  group,
+  healthBubble,
+  home,
+  plus,
+  poppedBubble,
+  twoPeople,
+} from '../assets';
+import {Heading, StyledText} from '../components';
 import useSpringHeart from '../util/useSpringHeart';
 
 const GameIntro = ({introAllSeen, navigation}) => {
-  // let history = useHistory();
   const {colors} = useTheme();
   const springValue = useSpringHeart();
   return (
@@ -115,7 +112,7 @@ const GameIntro = ({introAllSeen, navigation}) => {
           Keep your bubbles safe by Sunday and get rewards!
         </StyledText>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Distancing')}
+          onPress={() => navigation.navigate('WeeklyChallenge')}
           style={{
             borderColor: '#d8031c',
             marginHorizontal: 46,

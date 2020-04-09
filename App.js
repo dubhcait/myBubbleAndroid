@@ -1,25 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
+import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {
-  InitialScreen,
-  GameIntro,
-  KeepYourDistanceRule,
-  GroupsRule,
-  StayHoneRule,
-  WeeklyChallenge,
-} from './screens';
-import AsyncStorage from '@react-native-community/async-storage';
+import React from 'react';
+import {StatusBar} from 'react-native';
+import {GameIntro, InitialScreen, WeeklyChallenge} from './screens';
 
 const MyTheme = {
   ...DefaultTheme,
@@ -102,7 +85,14 @@ const MainStack = () => {
             headerTitleStyle: {color: 'transparent'},
           }}
         />
-        <Stack.Screen name="WeeklyChallenge" component={WeeklyChallenge} />
+        <Stack.Screen
+          name="WeeklyChallenge"
+          options={{
+            headerTransparent: true,
+            headerTitleStyle: {color: 'transparent'},
+          }}
+          component={WeeklyChallenge}
+        />
       </Stack.Navigator>
     </>
   );

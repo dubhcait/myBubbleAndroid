@@ -1,7 +1,7 @@
 import React from 'react';
-import {Heading, StyledText, Underlay} from '../components';
+import {Image} from 'react-native';
 import {distance, groupNegative} from '../assets';
-import {Text, Image} from 'react-native';
+import {Heading, StyledText, Underlay} from '../components';
 
 const KeepYourDistanceRule = ({}) => {
   return (

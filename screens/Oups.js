@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import {
-  Heading,
-  Underlay,
-  FlexRow,
   BubbleX,
-  PrimaryButton
-} from "../components";
+  FlexRow,
+  Heading,
+  PrimaryButton,
+  Underlay,
+} from '../components';
 
 const OupsEnd = () => (
   <Underlay>
@@ -34,4 +34,4 @@ const OupsTooManyPeople = () => (
   </Underlay>
 );
 
-export { OupsEnd, OupsTooManyPeople };
+export {OupsEnd, OupsTooManyPeople};
