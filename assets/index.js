@@ -7,6 +7,7 @@ import virus from './virus.png';
 import home from './home.png';
 import newTask from './newTask.png';
 import plus from './plus.png';
+import house2 from './house2.png';
 import poppedBubble2 from './poppedBubble2.png';
 import thumbsUp from './thumbsUp.png';
 import topLeftBubbles from './topLeftBubbles.png';
@@ -24,6 +25,7 @@ export {
   groupNegative,
   healthBubble,
   home,
+  house2,
   newTask,
   plus,
   poppedBubble2,
