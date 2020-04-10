@@ -1,60 +1,28 @@
 import Geolocation from '@react-native-community/geolocation';
 
-geolocation.requestAuthorization();
-Geolocation.getCurrentPosition(info => console.log(info));
-Geolocation.watchPosition(success, [error], [options]);
-
-geolocation.clearWatch(watchID);
-
-useEffect(() => {
-  async function loadInitialPosition() {
-    const {granted} = await navigator.geolocation.requestAuthorization();
-
-    if (granted) {
-      navigator.geolocation.getCurrentPosition(info => console.log(info));
-
-      const {latitude, longitude} = coords;
-
-      setHone({
-        latitude,
-        longitude,
-      });
-    }
-  }
-
-  loadInitialPosition();
-}, []);
-
-
-componentDidMount() {
+async function handleHomelocation(setHomeLocation) {
   Geolocation.getCurrentPosition(
     position => {
-      this.setState({
-        region: {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          latitudeDelta: 0.06,
-          longitudeDelta: 0.07,
-        },
-      });
+      const {longitude, latitude} = position.coords;
+      setHomeLocation({longitude, latitude});
     },
-    error => console.log(error.message),
-    {enableHighAccuracy: true, timeout: 20000},
+    null,
+    {},
   );
-  this.watchID = Geolocation.watchPosition(position => {
-    this.setState({
-      region: {
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-        latitudeDelta: 0.0462,
-        longitudeDelta: 0.0261,
-      },
-    });
-  });
-  this.getData();
 }
 
-
+async function handleCurrentlocation(setCurrentLocation) {
+  Geolocation.watchPosition(
+    position => {
+      const {longitude, latitude} = position.coords;
+      setCurrentLocation({longitude, latitude});
+    },
+    error => {
+      console.log('error:', error);
+    },
+    {distanceFilter: 10, enableHighAccuracy: true, maximumAge: 60000},
+  );
+}
 
 const distanceFromHome = (home, position) => {
   return calculateDistance(
@@ -83,3 +51,4 @@ Number.prototype.toRad = function() {
   return (this * Math.PI) / 180;
 };
 
+export {handleHomelocation, handleCurrentlocation, distanceFromHome};

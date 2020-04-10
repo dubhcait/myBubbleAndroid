@@ -1,9 +1,9 @@
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StatusBar} from 'react-native';
 import {GameIntro, InitialScreen, WeeklyChallenge} from './screens';
-
+import {handleCurrentlocation} from './util/geoLocation';
 const MyTheme = {
   ...DefaultTheme,
   colors: {
@@ -52,6 +52,16 @@ const Stack = createStackNavigator();
 
 export function createApp() {
   return function App() {
+    const [homeLocation, setHomeLocation] = useState({});
+    const [currentLocation, setCurrentLocation] = useState({});
+
+    useEffect(() => {
+      handleCurrentlocation(setCurrentLocation);
+    }, []);
+
+    useEffect(() => {
+      console.log(currentLocation);
+    }, [currentLocation]);
     return (
       <>
         <StatusBar
