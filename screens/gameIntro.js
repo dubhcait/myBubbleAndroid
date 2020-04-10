@@ -13,7 +13,7 @@ import {
   healthBubble,
   home,
   plus,
-  poppedBubble,
+  poppedBubble2,
   twoPeople,
 } from '../assets';
 import {Heading, StyledText} from '../components';
@@ -33,11 +33,11 @@ const GameIntro = ({introAllSeen, navigation}) => {
         style={{
           flex: 1,
           backgroundColor: '#ffffff',
-          paddingVertical: 30,
+          paddingVertical: 20,
         }}>
         <Heading> How to WIN</Heading>
 
-        <StyledText style={{paddingVertical: 20, color: '#01016f'}}>
+        <StyledText style={{paddingVertical: 20}}>
           Start the week with a new challenge and 3 bubbles
         </StyledText>
         <View style={styles.rowIcons}>
@@ -62,9 +62,9 @@ const GameIntro = ({introAllSeen, navigation}) => {
             paddingVertical: 10,
           }}>
           <Heading
+            color={colors.primary}
             style={{
               fontSize: 20,
-              color: colors.primary,
               textTransform: 'uppercase',
               paddingHorizontal: 10,
             }}>
@@ -75,6 +75,8 @@ const GameIntro = ({introAllSeen, navigation}) => {
               borderColor: '#d8031c',
               borderRadius: 50,
               borderWidth: 1.4,
+
+              elevation: 1.8,
             }}>
             <Image
               style={{
@@ -88,42 +90,29 @@ const GameIntro = ({introAllSeen, navigation}) => {
           </View>
         </View>
 
-        <Heading style={{paddingVertical: 30, fontSize: 22}}>
+        <Heading style={{paddingVertical: 20, fontSize: 22}}>
           Don’t burst any bubbles by breaking social distance!
         </Heading>
         <View style={styles.rowIcons}>
           <Image source={twoPeople} style={{tintColor: colors.primary}} />
           <Image source={group} style={{tintColor: colors.primary}} />
           <Image source={home} style={{tintColor: colors.primary}} />
-          <View
-            style={{
-              borderColor: colors.primary,
-              borderRadius: 50,
-              borderWidth: 1.4,
-            }}>
-            <Image
-              source={poppedBubble}
-              style={{width: 38.7, height: 38, margin: 2}}
-            />
-          </View>
+          <Image
+            source={poppedBubble2}
+            style={{width: 40.7, height: 40, margin: 2}}
+          />
         </View>
 
-        <StyledText style={{color: '#01016f', paddingVertical: 10}}>
+        <StyledText style={{paddingVertical: 20}}>
           Keep your bubbles safe by Sunday and get rewards!
         </StyledText>
         <TouchableOpacity
-          onPress={() => navigation.navigate('WeeklyChallenge')}
-          style={{
-            borderColor: '#d8031c',
-            marginHorizontal: 46,
-            borderRadius: 20,
-            borderWidth: 1.4,
-            marginVertical: 10,
-          }}>
+          onPress={() => navigation.navigate('Rules')}
+          style={styles.buttonStyle}>
           <Heading
+            color={colors.primary}
             style={{
               fontSize: 20,
-              color: colors.primary,
               textTransform: 'uppercase',
               padding: 1,
             }}>
@@ -139,6 +128,15 @@ const styles = StyleSheet.create({
   bubbleImage: {
     width: 60,
     height: 60,
+  },
+  buttonStyle: {
+    borderColor: '#d8031c',
+    marginHorizontal: 46,
+    borderRadius: 30,
+    borderWidth: 1.4,
+    marginVertical: 10,
+
+    elevation: 1.8,
   },
   rowIcons: {
     flexDirection: 'row',

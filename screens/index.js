@@ -1,14 +1,15 @@
 import GameIntro from './gameIntro';
 import InitialScreen from './initialScreen';
-import {GroupsRule, KeepYourDistanceRule, StayHoneRule} from './rules';
 // import { OupsEnd, OupsTooManyPeople } from "./Oups";
 // import WellDone from "./wellDone";
 // import MainScreen from "./mainScreen";
+// import WeeklyChallenge from "./weeklyChallenge";
+import {GroupsRule, KeepYourDistanceRule, StayHomeRule} from './Rules';
 import WeeklyChallenge from './weeklyChallenge';
 export {
   KeepYourDistanceRule,
   GroupsRule,
-  StayHoneRule,
+  StayHomeRule,
   GameIntro,
   InitialScreen,
   // OupsTooManyPeople,

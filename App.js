@@ -2,7 +2,13 @@ import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {StatusBar} from 'react-native';
-import {GameIntro, InitialScreen, WeeklyChallenge} from './screens';
+import {
+  GameIntro,
+  GroupsRule,
+  InitialScreen,
+  KeepYourDistanceRule,
+  WeeklyChallenge,
+} from './screens';
 
 const MyTheme = {
   ...DefaultTheme,
@@ -81,10 +87,30 @@ const MainStack = () => {
           name="Intro"
           component={GameIntro}
           options={{
+            headerTintColor: '#01016f',
             headerTransparent: true,
             headerTitleStyle: {color: 'transparent'},
           }}
         />
+        <Stack.Screen
+          name="Rules"
+          component={KeepYourDistanceRule}
+          options={{
+            headerTintColor: '#01016f',
+            headerTransparent: true,
+            headerTitleStyle: {color: 'transparent'},
+          }}
+        />
+        <Stack.Screen
+          name="Groups"
+          component={GroupsRule}
+          options={{
+            headerTransparent: true,
+            headerTintColor: '#ffffff',
+            headerTitleStyle: {color: 'transparent'},
+          }}
+        />
+
         <Stack.Screen
           name="WeeklyChallenge"
           options={{
