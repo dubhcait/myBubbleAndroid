@@ -7,11 +7,11 @@ import virus from './virus.png';
 import home from './home.png';
 import newTask from './newTask.png';
 import plus from './plus.png';
-import poppedBubble from './poppedBubble.png';
+import poppedBubble2 from './poppedBubble2.png';
 import thumbsUp from './thumbsUp.png';
 import topLeftBubbles from './topLeftBubbles.png';
 import topLeftDarkBubbles from './topLeftDarkBubbles.png';
-import distance from './distance.png';
+import distance2 from './distance2.png';
 import leaderboard from './leaderboard.png';
 import award from './award.png';
 import goodDeed from './goodDeed.png';
@@ -26,11 +26,11 @@ export {
   home,
   newTask,
   plus,
-  poppedBubble,
+  poppedBubble2,
   thumbsUp,
   topLeftBubbles,
   topLeftDarkBubbles,
-  distance,
+  distance2,
   leaderboard,
   award,
   goodDeed,
