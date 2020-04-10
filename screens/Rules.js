@@ -284,7 +284,7 @@ const StayHomeRule = ({navigation}) => {
       />
 
       <TouchableOpacity
-        onPress={() => navigation.navigate('Groups')}
+        onPress={() => navigation.navigate('WeeklyChallenge')}
         style={styles.buttonStyle}>
         <Heading
           style={{

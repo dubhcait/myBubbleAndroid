@@ -137,6 +137,7 @@ const MainStack = () => {
           name="WeeklyChallenge"
           options={{
             headerTransparent: true,
+            headerTintColor: '#ffffff',
             headerTitleStyle: {color: 'transparent'},
           }}
           component={WeeklyChallenge}
