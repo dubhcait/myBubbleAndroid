@@ -1,18 +1,18 @@
-import React, {useEffect, useRef} from 'react';
-import {Heading, StyledText, Underlay, PrimaryButton} from '../components';
-import {healthBubble} from '../assets';
-import {virus} from '../assets';
+import React from 'react';
 import {
-  Text,
-  Image,
-  StyleSheet,
-  View,
-  ScrollView,
-  TouchableOpacity,
   Animated,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import useSpringHeart from '../util/useSpringHeart';
-import useSpinVirus from '../util/useSpringHeart';
+import {healthBubble, virus} from '../assets';
+import {Heading, StyledText} from '../components';
+import {
+  default as useSpinVirus,
+  default as useSpringHeart,
+} from '../util/useSpringHeart';
 
 const InitialScreen = ({navigation}) => {
   let springValue = useSpringHeart();

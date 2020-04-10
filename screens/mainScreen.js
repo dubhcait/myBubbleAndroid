@@ -1,20 +1,19 @@
 import React, {useState} from 'react';
+import {Image} from 'react-native';
 import {
-  Bubble,
-  Heading,
-  FlexRow,
-  StyledText,
-  Underlay,
-  FlexColumn,
-} from '../components';
-import {
-  leaderboard,
-  healthBubble,
-  poppedBubble,
   award,
   goodDeed,
+  healthBubble,
+  leaderboard,
+  poppedBubble,
 } from '../assets';
-import {Image} from 'react-native';
+import {
+  FlexColumn,
+  FlexRow,
+  Heading,
+  StyledText,
+  Underlay,
+} from '../components';
 
 const MainScreen = ({lifeCount}) => {
   const [status, setStatus] = useState('BubblePlus');

@@ -1,26 +1,35 @@
-const getLocation = setGeoLocation => {
-  //function that retrieves the position
-  const showPosition = position => {
-    const location = {
-      longitude: position.coords.longitude,
-      latitude: position.coords.latitude
-    };
-    setGeoLocation(location);
-  };
+import Geolocation from '@react-native-community/geolocation';
 
-  if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
-  } else {
-    console.log("Geo Location not supported");
-  }
-};
+async function handleHomelocation(setHomeLocation) {
+  Geolocation.getCurrentPosition(
+    position => {
+      const {longitude, latitude} = position.coords;
+      setHomeLocation({longitude, latitude});
+    },
+    null,
+    {},
+  );
+}
+
+async function handleCurrentlocation(setCurrentLocation) {
+  Geolocation.watchPosition(
+    position => {
+      const {longitude, latitude} = position.coords;
+      setCurrentLocation({longitude, latitude});
+    },
+    error => {
+      console.log('error:', error);
+    },
+    {distanceFilter: 10, enableHighAccuracy: true, maximumAge: 60000},
+  );
+}
 
 const distanceFromHome = (home, position) => {
   return calculateDistance(
     home.coords.latitude,
     home.coords.longitude,
     position.coords.latitude,
-    position.coords.longitude
+    position.coords.longitude,
   );
 };
 
@@ -41,5 +50,5 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 Number.prototype.toRad = function() {
   return (this * Math.PI) / 180;
 };
-export { distanceFromHome };
-export default getLocation;
+
+export {handleHomelocation, handleCurrentlocation, distanceFromHome};
