@@ -16,7 +16,7 @@ import {
   GameIntro,
   KeepYourDistanceRule,
   GroupsRule,
-  StayHoneRule,
+  StayHomeRule,
 } from './screens';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -186,7 +186,26 @@ const MainStack = () => {
           name="Intro"
           component={GameIntro}
           options={{
+            headerTintColor: '#01016f',
             headerTransparent: true,
+            headerTitleStyle: {color: 'transparent'},
+          }}
+        />
+        <Stack.Screen
+          name="Rules"
+          component={KeepYourDistanceRule}
+          options={{
+            headerTintColor: '#01016f',
+            headerTransparent: true,
+            headerTitleStyle: {color: 'transparent'},
+          }}
+        />
+        <Stack.Screen
+          name="Groups"
+          component={GroupsRule}
+          options={{
+            headerTransparent: true,
+            headerTintColor: '#ffffff',
             headerTitleStyle: {color: 'transparent'},
           }}
         />

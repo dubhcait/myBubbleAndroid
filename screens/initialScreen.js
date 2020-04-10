@@ -100,28 +100,27 @@ const InitialScreen = ({navigation}) => {
             marginTop: 20,
             marginBottom: 20,
             textAlign: 'center',
-            color: '#01016f',
           }}>
           Keep you and your loved ones safe as we battle <Text>COVID-19</Text>
         </StyledText>
         <View style={styles.rounded}>
           <StyledText
+            color={'#9fcbee'}
             numberOfLines={1}
             style={{
               marginTop: 70,
               marginHorizontal: 30,
               textAlign: 'center',
-              color: '#9fcbee',
             }}>
             Stay in your “bubble” each week{' '}
           </StyledText>
           <StyledText
+            color={'#9fcbee'}
             numberOfLines={1}
             style={{
               marginBottom: 10,
               marginHorizontal: 10,
               textAlign: 'center',
-              color: '#9fcbee',
             }}>
             - a safe social distance to earn rewards
           </StyledText>
@@ -151,10 +150,10 @@ const InitialScreen = ({navigation}) => {
               />
             </View>
             <Heading
+              color={'#9fcbee'}
               style={{
                 textTransform: 'uppercase',
                 fontSize: 22,
-                color: '#9fcbee',
                 margin: 4,
                 letterSpacing: 1.4,
               }}>

@@ -5,7 +5,7 @@ import {
   plus,
   newTask,
   home,
-  poppedBubble,
+  poppedBubble2,
   twoPeople,
   group,
 } from '../assets';
@@ -40,7 +40,7 @@ const GameIntro = ({introAllSeen, navigation}) => {
         }}>
         <Heading> How to WIN</Heading>
 
-        <StyledText style={{paddingVertical: 20, color: '#01016f'}}>
+        <StyledText style={{paddingVertical: 20}}>
           Start the week with a new challenge and 3 bubbles
         </StyledText>
         <View style={styles.rowIcons}>
@@ -65,9 +65,9 @@ const GameIntro = ({introAllSeen, navigation}) => {
             paddingVertical: 10,
           }}>
           <Heading
+            color={colors.primary}
             style={{
               fontSize: 20,
-              color: colors.primary,
               textTransform: 'uppercase',
               paddingHorizontal: 10,
             }}>
@@ -100,29 +100,22 @@ const GameIntro = ({introAllSeen, navigation}) => {
           <Image source={twoPeople} style={{tintColor: colors.primary}} />
           <Image source={group} style={{tintColor: colors.primary}} />
           <Image source={home} style={{tintColor: colors.primary}} />
-          <View
-            style={{
-              borderColor: colors.primary,
-              borderRadius: 50,
-              borderWidth: 1.4,
-            }}>
-            <Image
-              source={poppedBubble}
-              style={{width: 38.7, height: 38, margin: 2}}
-            />
-          </View>
+          <Image
+            source={poppedBubble2}
+            style={{width: 40.7, height: 40, margin: 2}}
+          />
         </View>
 
-        <StyledText style={{color: '#01016f', paddingVertical: 20}}>
+        <StyledText style={{paddingVertical: 20}}>
           Keep your bubbles safe by Sunday and get rewards!
         </StyledText>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Distancing')}
+          onPress={() => navigation.navigate('Rules')}
           style={styles.buttonStyle}>
           <Heading
+            color={colors.primary}
             style={{
               fontSize: 20,
-              color: colors.primary,
               textTransform: 'uppercase',
               padding: 1,
             }}>

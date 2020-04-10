@@ -7,7 +7,8 @@ import {
 } from 'react-native-responsive-screen';
 
 const UnderlayStyle = styled.View`
-  background: #ffffff;
+  background-color: ${props =>
+    props.background ? props.background : '#ffffff'};
   position: relative;
   z-index: 0;
 `;
@@ -33,11 +34,11 @@ const Internal = styled.View`
   z-index: 2000;
 `;
 
-const Underlay = ({children, bubbles = true}) => (
-  <UnderlayStyle>
+const Underlay = ({children, bubbles = true, background}) => (
+  <UnderlayStyle background={background}>
     <Internal>{children}</Internal>
     {bubbles && <ImgTop source={topLeftBubbles} />}
-    {/* {bubbles && <ImgBottom source={bottomRightBubbles} />} */}
+    {bubbles && <ImgBottom source={bottomRightBubbles} />}
   </UnderlayStyle>
 );
 
