@@ -9,6 +9,7 @@ import {
   GroupsRule,
   InitialScreen,
   KeepYourDistanceRule,
+  StayHomeRule,
   WeeklyChallenge,
 } from './screens';
 
