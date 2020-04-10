@@ -1,6 +1,6 @@
 import React from 'react';
 import {Heading, StyledText, Underlay} from '../components';
-import {distance2, groupNegative} from '../assets';
+import {distance2, groupNegative, house2} from '../assets';
 import {
   Text,
   Image,
@@ -128,7 +128,7 @@ const KeepYourDistanceRule = ({navigation}) => {
   );
 };
 
-const GroupsRule = ({}) => {
+const GroupsRule = ({navigation}) => {
   const {colors} = useTheme();
 
   let spinValue = useSpinVirus();
@@ -230,7 +230,7 @@ const GroupsRule = ({}) => {
       <StyledText color={'#9fcbee'}>Bye, Felicia!</StyledText>
 
       <TouchableOpacity
-        onPress={() => navigation.navigate('Groups')}
+        onPress={() => navigation.navigate('StayHome')}
         style={styles.buttonStyle}>
         <Heading
           color={'#9fcbee'}
@@ -246,7 +246,7 @@ const GroupsRule = ({}) => {
   );
 };
 
-const StayHomeRule = ({}) => {
+const StayHomeRule = ({navigation}) => {
   return (
     <Underlay>
       <Heading>Stay home!</Heading>
@@ -255,10 +255,9 @@ const StayHomeRule = ({}) => {
         Only go out if you have to: getting groceries, going to work, or getting
         some solo exercise!
       </StyledText>
-      <Image source={house} />
+      <Image source={house2} />
 
       <StyledText>Who knew your housecat was onto something...</StyledText>
-      <PrimaryButtonLink text="Ok, got it!" url="/" />
 
       {/* <Link to="/">
         <Text> Ok, got it!</Text>

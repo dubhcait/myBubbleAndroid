@@ -209,6 +209,15 @@ const MainStack = () => {
             headerTitleStyle: {color: 'transparent'},
           }}
         />
+        <Stack.Screen
+          name="StayHome"
+          component={StayHomeRule}
+          options={{
+            headerTransparent: true,
+            headerTintColor: '#01016f',
+            headerTitleStyle: {color: 'transparent'},
+          }}
+        />
       </Stack.Navigator>
     </>
   );
