@@ -36,7 +36,7 @@ const GameIntro = ({introAllSeen, navigation}) => {
         style={{
           flex: 1,
           backgroundColor: '#ffffff',
-          paddingVertical: 30,
+          paddingVertical: 20,
         }}>
         <Heading> How to WIN</Heading>
 
@@ -78,6 +78,8 @@ const GameIntro = ({introAllSeen, navigation}) => {
               borderColor: '#d8031c',
               borderRadius: 50,
               borderWidth: 1.4,
+
+              elevation: 1.8,
             }}>
             <Image
               style={{
@@ -91,7 +93,7 @@ const GameIntro = ({introAllSeen, navigation}) => {
           </View>
         </View>
 
-        <Heading style={{paddingVertical: 30, fontSize: 22}}>
+        <Heading style={{paddingVertical: 20, fontSize: 22}}>
           Don’t burst any bubbles by breaking social distance!
         </Heading>
         <View style={styles.rowIcons}>
@@ -111,18 +113,12 @@ const GameIntro = ({introAllSeen, navigation}) => {
           </View>
         </View>
 
-        <StyledText style={{color: '#01016f', paddingVertical: 10}}>
+        <StyledText style={{color: '#01016f', paddingVertical: 20}}>
           Keep your bubbles safe by Sunday and get rewards!
         </StyledText>
         <TouchableOpacity
           onPress={() => navigation.navigate('Distancing')}
-          style={{
-            borderColor: '#d8031c',
-            marginHorizontal: 46,
-            borderRadius: 20,
-            borderWidth: 1.4,
-            marginVertical: 10,
-          }}>
+          style={styles.buttonStyle}>
           <Heading
             style={{
               fontSize: 20,
@@ -142,6 +138,15 @@ const styles = StyleSheet.create({
   bubbleImage: {
     width: 60,
     height: 60,
+  },
+  buttonStyle: {
+    borderColor: '#d8031c',
+    marginHorizontal: 46,
+    borderRadius: 30,
+    borderWidth: 1.4,
+    marginVertical: 10,
+
+    elevation: 1.8,
   },
   rowIcons: {
     flexDirection: 'row',
