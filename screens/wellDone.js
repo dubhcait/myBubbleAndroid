@@ -1,11 +1,5 @@
-import React from "react";
-import {
-  Heading,
-  Underlay,
-  FlexRow,
-  Bubble,
-  PrimaryButton
-} from "../components";
+import React from 'react';
+import {Bubble, FlexRow, Heading, PrimaryButton, Underlay} from '../components';
 
 const WellDone = () => (
   <Underlay>

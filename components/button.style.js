@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
+import {TouchableOpacity} from 'react-native';
 
-const PrimaryButton = styled.Button`
-  font-family: Dosis-Bold;
-  font-style: normal;
-  color: white;
-  font-size: 20px;
+const ButtonContent = styled.View`
   display: flex;
   align-items: center;
   background: #0e3d71;
@@ -17,6 +14,21 @@ const PrimaryButton = styled.Button`
   align-items: center;
   justify-content: center;
 `;
+
+const StyledButtonText = styled.Text`
+  font-family: Dosis-Bold;
+  font-style: normal;
+  color: white;
+  font-size: 20px;
+`;
+
+const PrimaryButton = ({onPress, text}) => (
+  <TouchableOpacity onPress={onPress}>
+    <ButtonContent>
+      <StyledButtonText>{text}</StyledButtonText>
+    </ButtonContent>
+  </TouchableOpacity>
+);
 
 const LinkStyle = styled.Text`
   font-family: Dosis-Bold;
