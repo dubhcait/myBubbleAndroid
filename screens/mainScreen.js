@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   CheckBox,
   Image,
@@ -15,7 +15,11 @@ import {
   StyledText,
   Underlay,
 } from '../components';
-import {handleHomelocation} from '../util/geoLocation';
+import {
+  distanceFromHome,
+  handleCurrentlocation,
+  handleHomelocation,
+} from '../util/geoLocation';
 
 const HomeLocation = setHomeLocation => {
   handleHomelocation(setHomeLocation);
@@ -24,6 +28,28 @@ const HomeLocation = setHomeLocation => {
 const MainScreen = () => {
   const lifeCountset = [1, 1, 0];
   const [homeLocation, setHomeLocation] = useState({});
+  const [currentLocation, setCurrentLocation] = useState({});
+  const [distanceFromHomeState, setDistanceFromHome] = useState(0);
+
+  useEffect(() => {
+    handleCurrentlocation(setCurrentLocation);
+  }, []);
+
+  useEffect(() => {
+    if (homeLocation.longitude && currentLocation.longitude) {
+      return setDistanceFromHome(
+        distanceFromHome(homeLocation, currentLocation),
+      );
+    }
+  }, [currentLocation, homeLocation]);
+
+  useEffect(() => {
+    console.log(distanceFromHomeState);
+  }, [distanceFromHomeState]);
+
+  useEffect(() => {
+    console.log('current', currentLocation);
+  }, [currentLocation]);
 
   return (
     <ScrollView
