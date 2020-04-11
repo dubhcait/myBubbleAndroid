@@ -2,18 +2,17 @@ import {useTheme} from '@react-navigation/native';
 import React from 'react';
 import {
   Animated,
-  CheckBox,
   Image,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
   View,
 } from 'react-native';
-import {group, home, twoPeople, plus, award} from '../assets';
+import {award, plus} from '../assets';
 import {Heading, StyledText} from '../components';
-import useSpringReward from '../util/useSpringReward';
-import useShrinkingView from '../util/useShrinkingView';
 import useFadeInText from '../util/useFadeInText';
+import useShrinkingView from '../util/useShrinkingView';
+import useSpringReward from '../util/useSpringReward';
 
 const WeeklyChallenge = ({navigation}) => {
   const {colors} = useTheme();
@@ -134,7 +133,7 @@ const WeeklyChallenge = ({navigation}) => {
           <StyledText color={'#9fcbee'}>A free month of Netflix</StyledText>
         </Animated.View>
         <TouchableOpacity
-          onPress={() => navigation.navigate('WeeklyChallenge')}
+          onPress={() => navigation.navigate('Main')}
           style={{
             borderColor: '#d8031c',
             marginHorizontal: 46,

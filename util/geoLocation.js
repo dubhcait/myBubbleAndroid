@@ -26,10 +26,10 @@ async function handleCurrentlocation(setCurrentLocation) {
 
 const distanceFromHome = (home, position) => {
   return calculateDistance(
-    home.coords.latitude,
-    home.coords.longitude,
-    position.coords.latitude,
-    position.coords.longitude,
+    home.latitude,
+    home.longitude,
+    position.latitude,
+    position.longitude,
   );
 };
 

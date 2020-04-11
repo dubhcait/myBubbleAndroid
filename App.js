@@ -1,14 +1,13 @@
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {StatusBar} from 'react-native';
-import {handleCurrentlocation} from './util/geoLocation';
-
 import {
   GameIntro,
   GroupsRule,
   InitialScreen,
   KeepYourDistanceRule,
+  MainScreen,
   StayHomeRule,
   WeeklyChallenge,
 } from './screens';
@@ -61,16 +60,6 @@ const Stack = createStackNavigator();
 
 export function createApp() {
   return function App() {
-    const [homeLocation, setHomeLocation] = useState({});
-    const [currentLocation, setCurrentLocation] = useState({});
-
-    useEffect(() => {
-      handleCurrentlocation(setCurrentLocation);
-    }, []);
-
-    useEffect(() => {
-      console.log(currentLocation);
-    }, [currentLocation]);
     return (
       <>
         <StatusBar
@@ -141,6 +130,15 @@ const MainStack = () => {
             headerTitleStyle: {color: 'transparent'},
           }}
           component={WeeklyChallenge}
+        />
+        <Stack.Screen
+          name="Main"
+          options={{
+            headerTransparent: true,
+            headerTintColor: '#ffffff',
+            headerTitleStyle: {color: 'transparent'},
+          }}
+          component={MainScreen}
         />
       </Stack.Navigator>
     </>
