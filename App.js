@@ -2,16 +2,16 @@ import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import React, {useEffect, useState} from 'react';
 import {StatusBar} from 'react-native';
-import {handleCurrentlocation} from './util/geoLocation';
-
 import {
   GameIntro,
   GroupsRule,
   InitialScreen,
   KeepYourDistanceRule,
+  MainScreen,
   StayHomeRule,
   WeeklyChallenge,
 } from './screens';
+import {handleCurrentlocation} from './util/geoLocation';
 
 const MyTheme = {
   ...DefaultTheme,
@@ -141,6 +141,15 @@ const MainStack = () => {
             headerTitleStyle: {color: 'transparent'},
           }}
           component={WeeklyChallenge}
+        />
+        <Stack.Screen
+          name="Main"
+          options={{
+            headerTransparent: true,
+            headerTintColor: '#ffffff',
+            headerTitleStyle: {color: 'transparent'},
+          }}
+          component={MainScreen}
         />
       </Stack.Navigator>
     </>

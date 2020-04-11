@@ -1,20 +1,20 @@
+import {PrimaryButton, PrimaryButtonLink} from './button.style';
+import {
+  CircularUnderlay,
+  FlexColumn,
+  FlexRow,
+  Underlay,
+} from './containers.style';
 import {
   Bubble,
-  BubbleX,
-  BubblePlus,
   BubbleIcon,
-  TooClose,
+  BubblePlus,
+  BubbleX,
   GroupIcon,
+  TooClose,
 } from './icons';
-import {
-  Underlay,
-  FlexRow,
-  FlexColumn,
-  CircularUnderlay,
-} from './containers.style';
-import {Heading, StyledText, BulletPont} from './text.style';
-import {PrimaryButton, PrimaryButtonLink} from './button.style';
-
+import LifeCount from './lifeCount';
+import {BulletPont, Heading, StyledText} from './text.style';
 export {
   Heading,
   StyledText,
@@ -31,4 +31,5 @@ export {
   PrimaryButton,
   CircularUnderlay,
   PrimaryButtonLink,
+  LifeCount,
 };
