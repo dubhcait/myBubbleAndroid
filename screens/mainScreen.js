@@ -25,27 +25,51 @@ const HomeLocation = setHomeLocation => {
   handleHomelocation(setHomeLocation);
 };
 
-const MainScreen = () => {
+const MainScreen = ({navigation}) => {
   const lifeCountset = [1, 1, 0];
   const [homeLocation, setHomeLocation] = useState({});
   const [currentLocation, setCurrentLocation] = useState({});
-  const [distanceFromHomeState, setDistanceFromHome] = useState(0);
+  const [distanceFromHomeArray, setDistanceFromHomeArray] = useState([0]);
+
+  const geofenceDirectionCheck = (newPosition, oldPosition) => {
+    switch ((newPosition, oldPosition)) {
+      case newPosition < 0.5 && oldPosition > 0.5:
+        navigation.navigate('ReEntering');
+        // reentering home
+        break;
+      case newPosition > 0.5 && oldPosition < 0.5:
+        // exsiting
+        navigation.navigate('Exiting');
+        break;
+      default:
+        return;
+    }
+  };
 
   useEffect(() => {
     handleCurrentlocation(setCurrentLocation);
   }, []);
 
+  const check = async () => {
+    const newDistance = await distanceFromHome(homeLocation, currentLocation);
+    const newState = [newDistance, ...distanceFromHomeArray];
+    console.log(newState);
+    return setDistanceFromHomeArray(newState);
+  };
   useEffect(() => {
     if (homeLocation.longitude && currentLocation.longitude) {
-      return setDistanceFromHome(
-        distanceFromHome(homeLocation, currentLocation),
-      );
+      check();
     }
   }, [currentLocation, homeLocation]);
 
   useEffect(() => {
-    console.log(distanceFromHomeState);
-  }, [distanceFromHomeState]);
+    if (distanceFromHomeArray.length > 1) {
+      geofenceDirectionCheck(
+        distanceFromHomeArray[0],
+        distanceFromHomeArray[1],
+      );
+    }
+  }, [distanceFromHomeArray]);
 
   useEffect(() => {
     console.log('current', currentLocation);
