@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Animated,
+  SectionList,
 } from 'react-native';
 import {useTheme} from '@react-navigation/native';
 import useSpinVirus from '../util/useSpringHeart';
@@ -24,7 +25,7 @@ const KeepYourDistanceRule = ({navigation}) => {
     <Underlay>
       <Heading style={{marginTop: 8}}>Keep your distance!</Heading>
 
-      <StyledText>
+      <StyledText style={{marginBottom: -40}}>
         Getting closer than 6ft increases your risk of getting germs on you
         (gross)!
       </StyledText>
@@ -94,8 +95,8 @@ const KeepYourDistanceRule = ({navigation}) => {
       </View>
       <View
         style={{
-          width: 306,
-          height: 110,
+          width: 206,
+          height: 90,
           alignSelf: 'auto',
         }}>
         <Image
@@ -143,7 +144,7 @@ const GroupsRule = ({navigation}) => {
 
       <StyledText
         color={'#9fcbee'}
-        style={{paddingHorizontal: 8}}
+        style={{paddingHorizontal: 8, marginVertical: -20}}
         numberOfLines={3}>
         Don’t be around more than 1 other person at a time (except for the
         people you live with)!
@@ -249,19 +250,51 @@ const GroupsRule = ({navigation}) => {
 const StayHomeRule = ({navigation}) => {
   return (
     <Underlay>
-      <Heading>Stay home!</Heading>
+      <View style={{width: 90, height: 90, alignSelf: 'auto'}}>
+        <Image
+          source={house2}
+          style={{
+            width: '100%',
+            height: '100%',
+            resizeMode: 'contain',
+            flex: 1,
+            tintColor: '#d8031c',
+          }}
+        />
+      </View>
+      <Heading style={{marginVertical: -80}}>Stay home!</Heading>
 
-      <StyledText>
-        Only go out if you have to: getting groceries, going to work, or getting
-        some solo exercise!
-      </StyledText>
-      <Image source={house2} />
+      <SectionList
+        style={{maxHeight: 120}}
+        sections={[
+          {
+            title: ' Only go out if you have to:',
+            data: [
+              '- Getting groceries',
+              '- Going to work',
+              '- Get some solo exercise',
+            ],
+          },
+        ]}
+        renderItem={({item}) => <StyledText>{item}</StyledText>}
+        renderSectionHeader={({section}) => (
+          <StyledText>{section.title}</StyledText>
+        )}
+        keyExtractor={(item, index) => index}
+      />
 
-      <StyledText>Who knew your housecat was onto something...</StyledText>
-
-      {/* <Link to="/">
-        <Text> Ok, got it!</Text>
-      </Link> */}
+      <TouchableOpacity
+        onPress={() => navigation.navigate('WeeklyChallenge')}
+        style={styles.buttonStyle}>
+        <Heading
+          style={{
+            fontSize: 20,
+            paddingVertical: 1,
+            paddingHorizontal: 16,
+          }}>
+          Ok, got it!
+        </Heading>
+      </TouchableOpacity>
     </Underlay>
   );
 };
@@ -274,9 +307,9 @@ const styles = StyleSheet.create({
   buttonStyle: {
     borderColor: '#d8031c',
     marginHorizontal: 46,
+    marginTop: -40,
     borderRadius: 30,
     borderWidth: 1.4,
-    marginVertical: 10,
     elevation: 1.8,
   },
   rowIcons: {

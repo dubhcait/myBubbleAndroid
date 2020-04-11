@@ -9,6 +9,7 @@ export default function useSpringReward() {
     Animated.spring(springValue, {
       toValue: 1,
       friction: 1,
+      delay: 1800,
       useNativeDriver: true,
     }).start();
   }, []);

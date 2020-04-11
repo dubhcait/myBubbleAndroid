@@ -9,6 +9,7 @@ import {
   GroupsRule,
   InitialScreen,
   KeepYourDistanceRule,
+  StayHomeRule,
   WeeklyChallenge,
 } from './screens';
 
@@ -136,6 +137,7 @@ const MainStack = () => {
           name="WeeklyChallenge"
           options={{
             headerTransparent: true,
+            headerTintColor: '#ffffff',
             headerTitleStyle: {color: 'transparent'},
           }}
           component={WeeklyChallenge}

@@ -9,49 +9,129 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {group, home, twoPeople} from '../assets';
+import {group, home, twoPeople, plus, award} from '../assets';
 import {Heading, StyledText} from '../components';
 import useSpringReward from '../util/useSpringReward';
+import useShrinkingView from '../util/useShrinkingView';
+import useFadeInText from '../util/useFadeInText';
+
 const WeeklyChallenge = ({navigation}) => {
   const {colors} = useTheme();
   const springValue = useSpringReward();
+
+  const shrinkValue = useShrinkingView();
+  const fadeValue = useFadeInText();
+
+  const grow = fadeValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: [-20, 0],
+  });
+
   return (
     <ScrollView
       contentContainerStyle={{
         flexGrow: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#01016f',
       }}>
       <View
         style={{
           flex: 1,
           justifyContent: 'space-evenly',
-
-          backgroundColor: '#ffffff',
-          paddingVertical: 30,
         }}>
-        <Heading>THIS WEEK’S CHALLENGE</Heading>
-        <View>
+        <Animated.View
+          style={{
+            width: 340,
+            height: 340,
+            zIndex: 3,
+            transform: [{scale: shrinkValue}],
+            backgroundColor: '#01016f',
+            paddingTop: 40,
+          }}>
+          <Image
+            style={{
+              tintColor: colors.primary,
+              width: 50,
+              height: 50,
+              marginTop: 10,
+              alignSelf: 'center',
+            }}
+            source={award}
+          />
+          <Heading color={'#9fcbee'} style={{paddingTop: 20}}>
+            THIS WEEK’S CHALLENGE
+          </Heading>
           <View style={styles.objectives}>
-            <CheckBox center disabled={true} title="Objective 1" />
-            <StyledText>Signup for an online course</StyledText>
+            <Animated.Text
+              style={{
+                opacity: fadeValue,
+                transform: [{translateX: grow}],
+                paddingRight: 10,
+                fontSize: 16,
+                paddingTop: 10,
+                color: '#9fcbee',
+                fontFamily: 'Lato-Regular',
+                fontStyle: 'normal',
+              }}>
+              Signup for an online course
+            </Animated.Text>
+            <Animated.Image
+              style={{
+                tintColor: colors.primary,
+                width: 20,
+                height: 20,
+                opacity: fadeValue,
+                marginTop: 10,
+                transform: [{translateX: grow}],
+              }}
+              source={plus}
+            />
           </View>
           <View style={styles.objectives}>
-            <CheckBox center disabled={true} title="Objective 2" />
-            <StyledText>Have a videochat with a friend</StyledText>
+            <Animated.Text
+              style={{
+                opacity: fadeValue,
+                transform: [{translateX: grow}],
+                paddingRight: 10,
+                paddingVertical: 10,
+                fontSize: 16,
+                color: '#9fcbee',
+                fontFamily: 'Lato-Regular',
+                fontStyle: 'normal',
+              }}>
+              Have a videochat with a friend
+            </Animated.Text>
+            <Animated.Image
+              style={{
+                tintColor: colors.primary,
+                width: 20,
+                height: 20,
+                opacity: fadeValue,
+                transform: [{translateX: grow}],
+              }}
+              source={plus}
+            />
           </View>
-        </View>
-        <StyledText>And don’t break the social distance rules!</StyledText>
-
-        <View style={styles.rowIcons}>
-          <Image source={twoPeople} style={{tintColor: colors.primary}} />
-          <Image source={group} style={{tintColor: colors.primary}} />
-          <Image source={home} style={{tintColor: colors.primary}} />
-        </View>
-
-        <Heading>TO EARN:</Heading>
+          <Animated.Text
+            style={{
+              opacity: fadeValue,
+              transform: [{translateX: grow}],
+              paddingVertical: 20,
+              paddingLeft: 20,
+              fontSize: 16,
+              color: '#9fcbee',
+              fontFamily: 'Lato-Regular',
+              fontStyle: 'normal',
+            }}>
+            And don’t break the social distance rules!
+          </Animated.Text>
+        </Animated.View>
+        <Heading color={'#9fcbee'} style={{marginTop: 20}}>
+          TO EARN:
+        </Heading>
         <Animated.View style={{transform: [{scale: springValue}]}}>
-          <StyledText>A free month of Netflix</StyledText>
+          <StyledText color={'#9fcbee'}>A free month of Netflix</StyledText>
         </Animated.View>
         <TouchableOpacity
           onPress={() => navigation.navigate('WeeklyChallenge')}
@@ -63,9 +143,9 @@ const WeeklyChallenge = ({navigation}) => {
             marginVertical: 10,
           }}>
           <Heading
+            color={'#9fcbee'}
             style={{
               fontSize: 20,
-              color: colors.primary,
               textTransform: 'uppercase',
               padding: 1,
             }}>
@@ -86,6 +166,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 20,
   },
 });
 
