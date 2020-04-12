@@ -17,7 +17,7 @@ import {
   twoPeople,
 } from '../assets';
 import {Heading, StyledText} from '../components';
-import useSpringHeart from '../util/useSpringHeart';
+import {useSpringHeart} from '../util/animations';
 
 const GameIntro = ({introAllSeen, navigation}) => {
   const {colors} = useTheme();
@@ -75,7 +75,6 @@ const GameIntro = ({introAllSeen, navigation}) => {
               borderColor: '#d8031c',
               borderRadius: 50,
               borderWidth: 1.4,
-
               elevation: 1.8,
             }}>
             <Image

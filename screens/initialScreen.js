@@ -9,14 +9,11 @@ import {
 } from 'react-native';
 import {healthBubble, virus} from '../assets';
 import {Heading, StyledText} from '../components';
-import {
-  default as useSpinVirus,
-  default as useSpringHeart,
-} from '../util/useSpringHeart';
+import {useSpringHeart} from '../util/animations';
 
 const InitialScreen = ({navigation}) => {
   let springValue = useSpringHeart();
-  let spinValue = useSpinVirus();
+  let spinValue = useSpringHeart();
   const spin = spinValue.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg'],

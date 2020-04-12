@@ -10,9 +10,11 @@ import {
 } from 'react-native';
 import {award, plus} from '../assets';
 import {Heading, StyledText} from '../components';
-import useFadeInText from '../util/useFadeInText';
-import useShrinkingView from '../util/useShrinkingView';
-import useSpringReward from '../util/useSpringReward';
+import {
+  useFadeInText,
+  useShrinkingView,
+  useSpringReward,
+} from '../util/animations';
 
 const WeeklyChallenge = ({navigation}) => {
   const {colors} = useTheme();
