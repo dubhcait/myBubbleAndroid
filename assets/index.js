@@ -22,6 +22,9 @@ import topLeftDarkBubbles from './topLeftDarkBubbles.png';
 import twoPeople from './twoPeople.png';
 import virus from './virus.png';
 import work from './work.png';
+import facecover from './facecover.png';
+import soap from './soap.png';
+import wash from './wash.png';
 export {
   bottomRightBubbles,
   bottomRightDarkBubbles,
@@ -47,4 +50,7 @@ export {
   exercising,
   helping,
   work,
+  facecover,
+  soap,
+  wash,
 };

@@ -7,7 +7,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {essentials, exercising, helping, work} from '../assets';
+import {
+  essentials,
+  exercising,
+  helping,
+  work,
+  facecover,
+  soap,
+  wash,
+} from '../assets';
 import {Heading, StyledText} from '../components';
 
 const Exiting = ({navigation}) => {
@@ -107,31 +115,28 @@ const ReEntering = ({navigation}) => {
           backgroundColor: '#ffffff',
           paddingVertical: 20,
         }}>
-        <Heading> Aaand where do you think you’re going?</Heading>
+        <Heading>Welcome back home!</Heading>
 
-        <View style={styles.rowIcons}>
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <Image source={essentials} style={{tintColor: colors.primary}} />
-            <StyledText style={{width: 160}}>Picking up essentials</StyledText>
-          </View>
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <Image source={exercising} style={{tintColor: colors.primary}} />
-            <StyledText style={{width: 160}}>Going to exercise</StyledText>
-          </View>
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <Image source={facecover} style={{tintColor: colors.primary}} />
+          <StyledText style={{width: 160}}>
+            Clean/discard face covering
+          </StyledText>
         </View>
-        <View style={styles.rowIcons}>
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <Image source={helping} style={{tintColor: colors.primary}} />
-            <StyledText style={{width: 160}}>Gotta go to work</StyledText>
-          </View>
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <Image source={work} style={{tintColor: colors.primary}} />
-            <StyledText style={{width: 160}}>Taking care of someone</StyledText>
-          </View>
+
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <Image source={wash} style={{tintColor: colors.primary}} />
+          <StyledText style={{width: 160}}>Wash your hands</StyledText>
+        </View>
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <Image source={soap} style={{tintColor: colors.primary}} />
+          <StyledText style={{width: 160}}>
+            Clean what you brought home
+          </StyledText>
         </View>
 
         <StyledText style={{paddingVertical: 20}}>
-          Remember: only go out if absolutely necessary:
+          Remember: clean this phone surface too!
         </StyledText>
         <TouchableOpacity
           onPress={() => navigation.navigate('Main')}
@@ -143,7 +148,7 @@ const ReEntering = ({navigation}) => {
               textTransform: 'uppercase',
               padding: 1,
             }}>
-            It’s important, promise!
+            Done!
           </Heading>
         </TouchableOpacity>
       </View>

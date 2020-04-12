@@ -11,6 +11,7 @@ import {
   MainScreen,
   StayHomeRule,
   WeeklyChallenge,
+  ReEntering,
 } from './screens';
 
 const MyTheme = {
@@ -150,6 +151,15 @@ const MainStack = () => {
             headerTitleStyle: {color: 'transparent'},
           }}
           component={Exiting}
+        />
+        <Stack.Screen
+          name="ReEntering"
+          options={{
+            headerTransparent: true,
+            headerTintColor: '#ffffff',
+            headerTitleStyle: {color: 'transparent'},
+          }}
+          component={ReEntering}
         />
       </Stack.Navigator>
     </>

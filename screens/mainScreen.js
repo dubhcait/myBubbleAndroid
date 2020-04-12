@@ -33,12 +33,12 @@ const MainScreen = ({navigation}) => {
 
   const geofenceDirectionCheck = (newPosition, oldPosition) => {
     switch ((newPosition, oldPosition)) {
+      // reentering home
       case newPosition < 0.5 && oldPosition > 0.5:
         navigation.navigate('ReEntering');
-        // reentering home
         break;
+      // exsiting
       case newPosition > 0.5 && oldPosition < 0.5:
-        // exsiting
         navigation.navigate('Exiting');
         break;
       default:

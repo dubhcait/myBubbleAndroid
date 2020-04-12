@@ -1,5 +1,5 @@
 import GameIntro from './gameIntro';
-import {Exiting} from './GeoFencing';
+import {Exiting, ReEntering} from './GeoFencing';
 import InitialScreen from './initialScreen';
 // import { OupsEnd, OupsTooManyPeople } from "./Oups";
 // import WellDone from "./wellDone";
@@ -15,6 +15,7 @@ export {
   // OupsTooManyPeople,
   // OupsEnd,
   // WellDone,
+  ReEntering,
   Exiting,
   MainScreen,
   WeeklyChallenge,
