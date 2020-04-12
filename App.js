@@ -11,6 +11,8 @@ import {
   KeepYourDistanceRule,
   StayHomeRule,
   WeeklyChallenge,
+  MainScreen,
+  WellDone,
 } from './screens';
 
 const MyTheme = {
@@ -92,7 +94,7 @@ const MainStack = () => {
     <>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
+          name="Start"
           component={InitialScreen}
           options={{headerShown: false}}
         />
@@ -141,6 +143,24 @@ const MainStack = () => {
             headerTitleStyle: {color: 'transparent'},
           }}
           component={WeeklyChallenge}
+        />
+        <Stack.Screen
+          name="Home"
+          component={MainScreen}
+          options={{
+            headerTransparent: true,
+            headerTintColor: '#01016f',
+            headerTitleStyle: {color: 'transparent'},
+          }}
+        />
+        <Stack.Screen
+          name="Congratulations"
+          options={{
+            headerTransparent: true,
+            headerTintColor: '#01016f',
+            headerTitleStyle: {color: 'transparent'},
+          }}
+          component={WellDone}
         />
       </Stack.Navigator>
     </>

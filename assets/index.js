@@ -15,7 +15,7 @@ import topLeftDarkBubbles from './topLeftDarkBubbles.png';
 import distance2 from './distance2.png';
 import leaderboard from './leaderboard.png';
 import award from './award.png';
-import goodDeed from './goodDeed.png';
+import goodDeed from './goodDeed2.png';
 import twoPeople from './twoPeople.png';
 import house from './house.png';
 export {

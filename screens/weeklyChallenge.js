@@ -52,8 +52,8 @@ const WeeklyChallenge = ({navigation}) => {
           <Image
             style={{
               tintColor: colors.primary,
-              width: 50,
-              height: 50,
+              width: 51.5,
+              height: 45,
               marginTop: 10,
               alignSelf: 'center',
             }}
@@ -134,7 +134,7 @@ const WeeklyChallenge = ({navigation}) => {
           <StyledText color={'#9fcbee'}>A free month of Netflix</StyledText>
         </Animated.View>
         <TouchableOpacity
-          onPress={() => navigation.navigate('WeeklyChallenge')}
+          onPress={() => navigation.navigate('Home')}
           style={{
             borderColor: '#d8031c',
             marginHorizontal: 46,

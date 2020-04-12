@@ -90,7 +90,8 @@ const GameIntro = ({introAllSeen, navigation}) => {
           </View>
         </View>
 
-        <Heading style={{paddingVertical: 20, fontSize: 22}}>
+        <Heading
+          style={{paddingVertical: 20, fontSize: 22, marginHorizontal: 26}}>
           Don’t burst any bubbles by breaking social distance!
         </Heading>
         <View style={styles.rowIcons}>
@@ -125,10 +126,6 @@ const GameIntro = ({introAllSeen, navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  bubbleImage: {
-    width: 60,
-    height: 60,
-  },
   buttonStyle: {
     borderColor: '#d8031c',
     marginHorizontal: 46,
