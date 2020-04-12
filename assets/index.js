@@ -1,23 +1,30 @@
+import award from './award.png';
 import bottomRightBubbles from './bottomRightBubbles.png';
 import bottomRightDarkBubbles from './bottomRightDarkBubbles.png';
-import group from './groups.png';
+import distance2 from './distance2.png';
+import essentials from './essentials.png';
+import exercising from './exercising.png';
+import goodDeed from './goodDeed.png';
 import groupNegative from './groupNegative.png';
+import group from './groups.png';
 import healthBubble from './healthBubble.png';
-import virus from './virus.png';
+import helping from './helping.png';
 import home from './home.png';
+import house from './house.png';
+import house2 from './house2.png';
+import leaderboard from './leaderboard.png';
 import newTask from './newTask.png';
 import plus from './plus.png';
-import house2 from './house2.png';
 import poppedBubble2 from './poppedBubble2.png';
 import thumbsUp from './thumbsUp.png';
 import topLeftBubbles from './topLeftBubbles.png';
 import topLeftDarkBubbles from './topLeftDarkBubbles.png';
-import distance2 from './distance2.png';
-import leaderboard from './leaderboard.png';
-import award from './award.png';
-import goodDeed from './goodDeed.png';
 import twoPeople from './twoPeople.png';
-import house from './house.png';
+import virus from './virus.png';
+import work from './work.png';
+import facecover from './facecover.png';
+import soap from './soap.png';
+import wash from './wash.png';
 export {
   bottomRightBubbles,
   bottomRightDarkBubbles,
@@ -39,4 +46,11 @@ export {
   twoPeople,
   house,
   virus,
+  essentials,
+  exercising,
+  helping,
+  work,
+  facecover,
+  soap,
+  wash,
 };

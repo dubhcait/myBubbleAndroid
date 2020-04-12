@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {StatusBar} from 'react-native';
 import {
+  Exiting,
   GameIntro,
   GroupsRule,
   InitialScreen,
@@ -10,6 +11,7 @@ import {
   MainScreen,
   StayHomeRule,
   WeeklyChallenge,
+  ReEntering,
 } from './screens';
 
 const MyTheme = {
@@ -139,6 +141,25 @@ const MainStack = () => {
             headerTitleStyle: {color: 'transparent'},
           }}
           component={MainScreen}
+        />
+
+        <Stack.Screen
+          name="Exiting"
+          options={{
+            headerTransparent: true,
+            headerTintColor: '#ffffff',
+            headerTitleStyle: {color: 'transparent'},
+          }}
+          component={Exiting}
+        />
+        <Stack.Screen
+          name="ReEntering"
+          options={{
+            headerTransparent: true,
+            headerTintColor: '#ffffff',
+            headerTitleStyle: {color: 'transparent'},
+          }}
+          component={ReEntering}
         />
       </Stack.Navigator>
     </>
