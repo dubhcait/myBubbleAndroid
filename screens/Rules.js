@@ -11,11 +11,11 @@ import {
   SectionList,
 } from 'react-native';
 import {useTheme} from '@react-navigation/native';
-import useSpinVirus from '../util/useSpringHeart';
+import {useSpringHeart} from '../util/animations';
 import {virus} from '../assets';
 
 const KeepYourDistanceRule = ({navigation}) => {
-  let spinValue = useSpinVirus();
+  let spinValue = useSpringHeart();
   const spin = spinValue.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg'],
@@ -132,7 +132,7 @@ const KeepYourDistanceRule = ({navigation}) => {
 const GroupsRule = ({navigation}) => {
   const {colors} = useTheme();
 
-  let spinValue = useSpinVirus();
+  let spinValue = useSpringHeart();
   const spin = spinValue.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg'],
