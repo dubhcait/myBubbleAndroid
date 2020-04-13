@@ -23,6 +23,12 @@ const KeepYourDistanceRule = ({navigation}) => {
 
   return (
     <Underlay>
+      <Heading style={{marginTop: 8}}>Keep your distance!</Heading>
+
+      <StyledText style={{marginBottom: -40}}>
+        Getting closer than 6ft increases your risk of getting germs on you
+        (gross)!
+      </StyledText>
       <View
         style={{
           flexDirection: 'column',
@@ -30,7 +36,6 @@ const KeepYourDistanceRule = ({navigation}) => {
           width: 300,
           zIndex: 4,
           marginBottom: -230,
-          marginTop: -40,
         }}>
         <View
           style={{
@@ -104,13 +109,6 @@ const KeepYourDistanceRule = ({navigation}) => {
           }}
         />
       </View>
-      <Heading>Keep your distance!</Heading>
-
-      <StyledText style={{marginVertical: -30, marginHorizontal: 20}}>
-        Getting closer than 6ft increases your risk of getting germs on you
-        (gross)!
-      </StyledText>
-
       <StyledText>
         A perfect excuse to avoid that person you ghosted!
       </StyledText>
@@ -142,12 +140,23 @@ const GroupsRule = ({navigation}) => {
 
   return (
     <Underlay background={'#01016f'} bubbles={false}>
+      <Heading color={'#9fcbee'}>Avoid groups!</Heading>
+
+      <StyledText
+        color={'#9fcbee'}
+        style={{paddingHorizontal: 8, marginVertical: -20}}
+        numberOfLines={3}>
+        Don’t be around more than 1 other person at a time (except for the
+        people you live with)!
+      </StyledText>
       <View
         style={{
           flexDirection: 'column',
           justifyContent: 'space-between',
           width: 300,
           zIndex: 4,
+          marginBottom: -230,
+          marginTop: 0,
         }}>
         <View
           style={{
@@ -165,7 +174,6 @@ const GroupsRule = ({navigation}) => {
             }}
           />
         </View>
-
         <View
           style={{
             width: 44,
@@ -181,24 +189,6 @@ const GroupsRule = ({navigation}) => {
               height: '100%',
               resizeMode: 'contain',
               transform: [{rotate: spin}],
-            }}
-          />
-        </View>
-        <View
-          style={{
-            width: 300,
-            height: 80,
-            marginVertical: -60,
-            alignSelf: 'auto',
-          }}>
-          <Image
-            source={groupNegative}
-            style={{
-              tintColor: '#d8031c',
-              width: '100%',
-              height: '100%',
-              resizeMode: 'contain',
-              flex: 1,
             }}
           />
         </View>
@@ -220,14 +210,26 @@ const GroupsRule = ({navigation}) => {
           />
         </View>
       </View>
+      <View
+        style={{
+          width: 300,
+          height: 80,
+          alignSelf: 'auto',
+        }}>
+        <Image
+          source={groupNegative}
+          style={{
+            tintColor: '#d8031c',
+            width: '100%',
+            height: '100%',
+            resizeMode: 'contain',
+            flex: 1,
+          }}
+        />
+      </View>
 
-      <Heading color={'#9fcbee'}>Avoid groups!</Heading>
-      <StyledText color={'#9fcbee'} style={{marginVertical: -20}}>
-        Don’t be around more than 1 other person at a time
-      </StyledText>
-      <StyledText color={'#9fcbee'}>
-        (except for the people you live with)!
-      </StyledText>
+      <StyledText color={'#9fcbee'}>Bye, Felicia!</StyledText>
+
       <TouchableOpacity
         onPress={() => navigation.navigate('StayHome')}
         style={styles.buttonStyle}>
@@ -305,7 +307,7 @@ const styles = StyleSheet.create({
   buttonStyle: {
     borderColor: '#d8031c',
     marginHorizontal: 46,
-    marginTop: -20,
+    marginTop: -40,
     borderRadius: 30,
     borderWidth: 1.4,
     elevation: 1.8,
