@@ -15,9 +15,9 @@ import {
   useShrinkingView,
   useSpringHeart,
 } from '../util/animations';
-const {colors} = useTheme();
 
 const WellDone = ({navigation}) => {
+  const {colors} = useTheme();
   const springValue = useSpringHeart();
   const shrinkValue = useShrinkingView();
   const fadeValue = useFadeInText();
@@ -32,7 +32,10 @@ const WellDone = ({navigation}) => {
       <ScrollView contentContainerStyle={styles.scrollView}>
         <Animated.View
           style={{...styles.animatedView, transform: [{scale: shrinkValue}]}}>
-          <Image style={styles.award} source={award} />
+          <Image
+            style={{...styles.award, tintColor: colors.primary}}
+            source={award}
+          />
           <Heading color={'#9fcbee'} style={styles.vertical40}>
             Well Done!
           </Heading>
@@ -121,7 +124,6 @@ const styles = StyleSheet.create({
   bubbleImage: {width: 60, height: 60},
   vertical40: {marginVertical: 40},
   award: {
-    tintColor: colors.primary,
     width: 51.5,
     height: 45,
     alignSelf: 'center',

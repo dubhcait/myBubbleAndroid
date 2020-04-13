@@ -18,9 +18,9 @@ import {
 } from '../assets';
 import {Heading, StyledText} from '../components';
 import {useSpringHeart} from '../util/animations';
-const {colors} = useTheme();
 
 const GameIntro = ({introAllSeen, navigation}) => {
+  const {colors} = useTheme();
   const springValue = useSpringHeart();
   return (
     <ScrollView contentContainerStyle={styles.scrollView}>
@@ -33,15 +33,15 @@ const GameIntro = ({introAllSeen, navigation}) => {
         <View style={styles.rowIcons}>
           <Animated.Image
             source={healthBubble}
-            style={{...styles.Image, transform: [{scale: springValue}]}}
+            style={{...styles.image, transform: [{scale: springValue}]}}
           />
           <Animated.Image
             source={healthBubble}
-            style={{...styles.Image, transform: [{scale: springValue}]}}
+            style={{...styles.image, transform: [{scale: springValue}]}}
           />
           <Animated.Image
             source={healthBubble}
-            style={{...styles.Image, transform: [{scale: springValue}]}}
+            style={{...styles.image, transform: [{scale: springValue}]}}
           />
         </View>
         <View style={styles.row}>
@@ -49,7 +49,10 @@ const GameIntro = ({introAllSeen, navigation}) => {
             Challenge
           </Heading>
           <View style={styles.imageContainer}>
-            <Image style={styles.plusImage} source={plus} />
+            <Image
+              style={{...styles.plusImage, tintColor: colors.primary}}
+              source={plus}
+            />
           </View>
         </View>
 
@@ -57,9 +60,9 @@ const GameIntro = ({introAllSeen, navigation}) => {
           Don’t burst any bubbles by breaking social distance!
         </Heading>
         <View style={styles.rowIcons}>
-          <Image source={twoPeople} style={styles.imageTint} />
-          <Image source={group} style={styles.imageTint} />
-          <Image source={home} style={styles.imageTint} />
+          <Image source={twoPeople} style={{tintColor: colors.primary}} />
+          <Image source={group} style={{tintColor: colors.primary}} />
+          <Image source={home} style={{tintColor: colors.primary}} />
           <Image source={poppedBubble2} style={styles.poppedBubble} />
         </View>
 
@@ -115,8 +118,6 @@ const styles = StyleSheet.create({
     padding: 1,
   },
 
-  imageTint: {tintColor: colors.primary},
-
   image: {width: 60, height: 60},
 
   vertical20: {paddingVertical: 20},
@@ -128,7 +129,6 @@ const styles = StyleSheet.create({
     elevation: 1.8,
   },
   plusImage: {
-    tintColor: colors.primary,
     width: 20,
     height: 20,
     margin: 4,

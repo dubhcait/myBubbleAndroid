@@ -15,9 +15,9 @@ import {
   useShrinkingView,
   useSpringReward,
 } from '../util/animations';
-const {colors} = useTheme();
 
 const WeeklyChallenge = ({navigation}) => {
+  const {colors} = useTheme();
   const springValue = useSpringReward();
   const shrinkValue = useShrinkingView();
   const fadeValue = useFadeInText();
@@ -35,7 +35,10 @@ const WeeklyChallenge = ({navigation}) => {
             ...styles.annimatedView,
             transform: [{scale: shrinkValue}],
           }}>
-          <Image style={styles.award} source={award} />
+          <Image
+            style={{...styles.award, tintColor: colors.primary}}
+            source={award}
+          />
           <Heading color={'#9fcbee'} style={styles.paddingT20}>
             THIS WEEK’S CHALLENGE
           </Heading>
@@ -53,7 +56,7 @@ const WeeklyChallenge = ({navigation}) => {
                 ...styles.plusImage,
                 ...styles.marginT10,
                 opacity: fadeValue,
-
+                tintColor: colors.primary,
                 transform: [{translateX: grow}],
               }}
               source={plus}
@@ -72,6 +75,7 @@ const WeeklyChallenge = ({navigation}) => {
               style={{
                 ...styles.plusImage,
                 opacity: fadeValue,
+                tintColor: colors.primary,
                 transform: [{translateX: grow}],
               }}
               source={plus}
@@ -139,7 +143,6 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
   },
   plusImage: {
-    tintColor: colors.primary,
     width: 20,
     height: 20,
   },
@@ -160,7 +163,6 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
   },
   award: {
-    tintColor: colors.primary,
     width: 51.5,
     height: 45,
     marginTop: 10,
