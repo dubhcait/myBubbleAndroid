@@ -4,7 +4,7 @@ import bottomRightDarkBubbles from './bottomRightDarkBubbles.png';
 import distance2 from './distance2.png';
 import essentials from './essentials.png';
 import exercising from './exercising.png';
-import goodDeed from './goodDeed.png';
+import goodDeed2 from './goodDeed.png';
 import groupNegative from './groupNegative.png';
 import group from './groups.png';
 import healthBubble from './healthBubble.png';
@@ -25,6 +25,8 @@ import work from './work.png';
 import facecover from './facecover.png';
 import soap from './soap.png';
 import wash from './wash.png';
+import goodDeed from './goodDeed2.png';
+
 export {
   bottomRightBubbles,
   bottomRightDarkBubbles,

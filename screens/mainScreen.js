@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
+import {useTheme} from '@react-navigation/native';
 import {
   CheckBox,
   Image,
   ScrollView,
   TouchableOpacity,
   View,
+  StyleSheet,
 } from 'react-native';
 import {award, goodDeed, leaderboard} from '../assets';
 import {
@@ -20,12 +22,15 @@ import {
   handleCurrentlocation,
   handleHomelocation,
 } from '../util/geoLocation';
+import {useSpringHeart} from '../util/animations';
 
-const HomeLocation = setHomeLocation => {
+const HomeLocation = (setHomeLocation) => {
   handleHomelocation(setHomeLocation);
 };
 
 const MainScreen = ({navigation}) => {
+  const {colors} = useTheme();
+  const springValue = useSpringHeart();
   const lifeCountset = [1, 1, 0];
   const [homeLocation, setHomeLocation] = useState({});
   const [currentLocation, setCurrentLocation] = useState({});
@@ -76,87 +81,125 @@ const MainScreen = ({navigation}) => {
   }, [currentLocation]);
 
   return (
-    <ScrollView
-      contentContainerStyle={{
-        flexGrow: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#01016f',
-      }}>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'space-evenly',
-        }}>
-        <Underlay>
-          <Heading>MyBubble</Heading>
+    <View style={styles.container}>
+      <ScrollView style={{backgroundColor: '#ffffff'}}>
+        <Heading style={{marginVertical: 10}}>MyBubble</Heading>
 
-          {homeLocation.longitude === undefined && (
-            <TouchableOpacity
-              onPress={() => HomeLocation(setHomeLocation)}
+        {homeLocation.longitude === undefined && (
+          <TouchableOpacity
+            onPress={() => HomeLocation(setHomeLocation)}
+            style={{
+              borderColor: '#d8031c',
+              marginHorizontal: 46,
+              borderRadius: 20,
+              borderWidth: 1.4,
+              marginVertical: 10,
+            }}>
+            <Heading
+              color={'#9fcbee'}
               style={{
-                borderColor: '#d8031c',
-                marginHorizontal: 46,
-                borderRadius: 20,
-                borderWidth: 1.4,
-                marginVertical: 10,
+                fontSize: 20,
+                textTransform: 'uppercase',
+                padding: 2,
               }}>
-              <Heading
-                color={'#9fcbee'}
-                style={{
-                  fontSize: 20,
-                  textTransform: 'uppercase',
-                  padding: 2,
-                }}>
-                Mark here as Home
-              </Heading>
-            </TouchableOpacity>
-          )}
+              Mark here as Home
+            </Heading>
+          </TouchableOpacity>
+        )}
+        <View style={styles.card}>
+          <Heading
+            color={colors.primary}
+            style={{
+              fontSize: 20,
+              textTransform: 'uppercase',
+            }}>
+            Bubbles remaining:
+          </Heading>
 
-          <StyledText>Bubbles remaining:</StyledText>
-          <FlexRow>
-            <LifeCount lifeCount={lifeCountset} />
-          </FlexRow>
-
-          <View>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <CheckBox center disabled={true} title="Objective 1" />
-              <StyledText>Signup for an online course</StyledText>
-            </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <CheckBox center disabled={true} title="Objective 2" />
-              <StyledText>Have a videochat with a friend</StyledText>
-            </View>
+          <View style={styles.rowIcons}>
+            <LifeCount lifeCount={lifeCountset} springValue={springValue} />
           </View>
-          <FlexRow>
-            <FlexColumn>
-              <Image source={goodDeed} />
-              <StyledText>Do a good deed</StyledText>
-            </FlexColumn>
-            <FlexColumn>
-              <Image source={leaderboard} />
-              <StyledText>Leaderboard</StyledText>
-            </FlexColumn>
-            <FlexColumn>
-              <Image source={award} />
-              <StyledText>My Rewards</StyledText>
-            </FlexColumn>
-          </FlexRow>
-        </Underlay>
+        </View>
+        <View style={styles.card}>
+          <Heading
+            color={colors.primary}
+            style={{
+              fontSize: 20,
+              textTransform: 'uppercase',
+            }}>
+            Active Challenge:
+          </Heading>
+          <View style={{marginVertical: 20}}>
+            <StyledText>Signup for an online course</StyledText>
+          </View>
+        </View>
+      </ScrollView>
+      <View style={styles.rowIcons}>
+        <TouchableOpacity style={styles.buttonColumn}>
+          <Image
+            source={leaderboard}
+            style={{
+              tintColor: '#01016f',
+              width: 53,
+              height: 46,
+              marginVertical: 10,
+            }}
+          />
+          <StyledText>Leaderboard</StyledText>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonColumn}>
+          <Image
+            source={goodDeed}
+            style={{width: 54, height: 46, marginVertical: 10}}
+          />
+          <StyledText>Good Deed</StyledText>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonColumn}
+          onPress={() => navigation.navigate('Congratulations')}>
+          <Image
+            source={award}
+            style={{
+              tintColor: '#01016f',
+              width: 53,
+              height: 46,
+              marginVertical: 10,
+            }}
+          />
+          <StyledText>My Rewards</StyledText>
+        </TouchableOpacity>
       </View>
-    </ScrollView>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#ffffff',
+  },
+  card: {
+    borderColor: '#d8031c',
+    marginHorizontal: 8,
+    padding: 20,
+    borderRadius: 30,
+    borderWidth: 1.4,
+    marginVertical: 10,
+    elevation: 1.8,
+  },
+  rowIcons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    marginVertical: 20,
+  },
+  buttonColumn: {
+    flexDirection: 'column',
+    alignContent: 'stretch',
+    alignItems: 'center',
+  },
+});
 
 export default MainScreen;
 
