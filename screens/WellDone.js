@@ -10,9 +10,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import useSpringHeart from '../util/useSpringHeart';
-import useShrinkingView from '../util/useShrinkingView';
-import useFadeInText from '../util/useFadeInText';
+import {
+  useSpringHeart,
+  useFadeInText,
+  useShrinkingView,
+} from '../util/animations';
 
 const WellDone = ({navigation}) => {
   const {colors} = useTheme();

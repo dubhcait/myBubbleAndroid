@@ -22,7 +22,7 @@ import {
   StyledText,
   Underlay,
 } from '../components';
-import useSpringHeart from '../util/useSpringHeart';
+import {useSpringHeart} from '../util/animations';
 
 // lifeCount
 
