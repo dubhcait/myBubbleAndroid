@@ -85,8 +85,6 @@ const MainScreen = ({navigation}) => {
       <ScrollView style={{backgroundColor: '#ffffff'}}>
         <Heading style={{marginVertical: 10}}>MyBubble</Heading>
 
-        <Heading>MyBubble</Heading>
-
         {homeLocation.longitude === undefined && (
           <TouchableOpacity
             onPress={() => HomeLocation(setHomeLocation)}
