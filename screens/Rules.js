@@ -1,18 +1,16 @@
-import React from 'react';
-import {Heading, StyledText, Underlay} from '../components';
-import {distance2, groupNegative, house2} from '../assets';
-import {
-  Text,
-  Image,
-  View,
-  TouchableOpacity,
-  StyleSheet,
-  Animated,
-  SectionList,
-} from 'react-native';
 import {useTheme} from '@react-navigation/native';
+import React from 'react';
+import {
+  Animated,
+  Image,
+  SectionList,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {distance2, groupNegative, house2, virus} from '../assets';
+import {Heading, StyledText, Underlay} from '../components';
 import {useSpringHeart} from '../util/animations';
-import {virus} from '../assets';
 
 const KeepYourDistanceRule = ({navigation}) => {
   let spinValue = useSpringHeart();

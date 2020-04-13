@@ -1,28 +1,20 @@
-import React, {useEffect, useState} from 'react';
 import {useTheme} from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
 import {
-  CheckBox,
   Image,
   ScrollView,
+  StyleSheet,
   TouchableOpacity,
   View,
-  StyleSheet,
 } from 'react-native';
 import {award, goodDeed, leaderboard} from '../assets';
-import {
-  FlexColumn,
-  FlexRow,
-  Heading,
-  LifeCount,
-  StyledText,
-  Underlay,
-} from '../components';
+import {Heading, LifeCount, StyledText} from '../components';
+import {useSpringHeart} from '../util/animations';
 import {
   distanceFromHome,
   handleCurrentlocation,
   handleHomelocation,
 } from '../util/geoLocation';
-import {useSpringHeart} from '../util/animations';
 
 const HomeLocation = (setHomeLocation) => {
   handleHomelocation(setHomeLocation);

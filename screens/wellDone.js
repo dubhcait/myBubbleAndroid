@@ -1,7 +1,5 @@
-import React from 'react';
-import {Heading, PrimaryButton, Underlay} from '../components';
 import {useTheme} from '@react-navigation/native';
-import {award, goodDeed, healthBubble, leaderboard} from '../assets';
+import React from 'react';
 import {
   Animated,
   Image,
@@ -10,10 +8,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {award, healthBubble} from '../assets';
+import {Heading} from '../components';
 import {
-  useSpringHeart,
   useFadeInText,
   useShrinkingView,
+  useSpringHeart,
 } from '../util/animations';
 
 const WellDone = ({navigation}) => {

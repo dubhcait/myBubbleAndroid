@@ -4,7 +4,8 @@ import bottomRightDarkBubbles from './bottomRightDarkBubbles.png';
 import distance2 from './distance2.png';
 import essentials from './essentials.png';
 import exercising from './exercising.png';
-import goodDeed2 from './goodDeed.png';
+import facecover from './facecover.png';
+import goodDeed from './goodDeed2.png';
 import groupNegative from './groupNegative.png';
 import group from './groups.png';
 import healthBubble from './healthBubble.png';
@@ -16,16 +17,14 @@ import leaderboard from './leaderboard.png';
 import newTask from './newTask.png';
 import plus from './plus.png';
 import poppedBubble2 from './poppedBubble2.png';
+import soap from './soap.png';
 import thumbsUp from './thumbsUp.png';
 import topLeftBubbles from './topLeftBubbles.png';
 import topLeftDarkBubbles from './topLeftDarkBubbles.png';
 import twoPeople from './twoPeople.png';
 import virus from './virus.png';
-import work from './work.png';
-import facecover from './facecover.png';
-import soap from './soap.png';
 import wash from './wash.png';
-import goodDeed from './goodDeed2.png';
+import work from './work.png';
 
 export {
   bottomRightBubbles,
