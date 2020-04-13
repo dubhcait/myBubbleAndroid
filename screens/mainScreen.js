@@ -16,6 +16,7 @@ import {
   handleHomelocation,
 } from '../util/geoLocation';
 
+// eslint-disable-next-line prettier/prettier
 const HomeLocation = (setHomeLocation) => {
   handleHomelocation(setHomeLocation);
 };
