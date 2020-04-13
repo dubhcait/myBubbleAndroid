@@ -3,7 +3,6 @@ import {Animated} from 'react-native';
 import {healthBubble, poppedBubble2} from '../assets';
 
 const LifeCount = ({lifeCount, springValue}) => {
-  console.log(springValue);
   return lifeCount.map((i, k) => {
     if (k === 0) {
       return (
