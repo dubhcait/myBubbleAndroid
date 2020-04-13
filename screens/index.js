@@ -2,7 +2,7 @@ import GameIntro from './gameIntro';
 import {Exiting, ReEntering} from './GeoFencing';
 import InitialScreen from './initialScreen';
 // import { OupsEnd, OupsTooManyPeople } from "./Oups";
-// import WellDone from "./wellDone";
+import WellDone from './wellDone';
 import MainScreen from './mainScreen';
 import {GroupsRule, KeepYourDistanceRule, StayHomeRule} from './Rules';
 import WeeklyChallenge from './weeklyChallenge';
@@ -14,7 +14,7 @@ export {
   InitialScreen,
   // OupsTooManyPeople,
   // OupsEnd,
-  // WellDone,
+  WellDone,
   ReEntering,
   Exiting,
   MainScreen,

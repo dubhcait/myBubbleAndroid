@@ -1,23 +1,25 @@
 import React from 'react';
-import {Image} from 'react-native';
+import {Animated} from 'react-native';
 import {healthBubble, poppedBubble2} from '../assets';
-const LifeCount = ({lifeCount}) => {
+
+const LifeCount = ({lifeCount, springValue}) => {
+  console.log(springValue);
   return lifeCount.map((i, k) => {
     if (k === 0) {
       return (
-        <Image
+        <Animated.Image
           source={i === 1 ? healthBubble : poppedBubble2}
           key={k}
-          style={{width: 60, height: 60}}
+          style={{width: 60, height: 60, transform: [{scale: springValue}]}}
         />
       );
     }
 
     return (
-      <Image
+      <Animated.Image
         source={i === 1 ? healthBubble : poppedBubble2}
         key={k}
-        style={{width: 60, height: 60}}
+        style={{width: 60, height: 60, transform: [{scale: springValue}]}}
       />
     );
   });
