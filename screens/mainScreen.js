@@ -16,7 +16,7 @@ import {
   handleHomelocation,
 } from '../util/geoLocation';
 
-const HomeLocation = setHomeLocation => {
+const HomeLocation = (setHomeLocation) => {
   handleHomelocation(setHomeLocation);
 };
 
@@ -74,37 +74,22 @@ const MainScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView style={{backgroundColor: '#ffffff'}}>
-        <Heading style={{marginVertical: 10}}>MyBubble</Heading>
+      <ScrollView style={styles.scrollView}>
+        <Heading style={styles.marginV10}>MyBubble</Heading>
 
         {homeLocation.longitude === undefined && (
           <TouchableOpacity
             onPress={() => HomeLocation(setHomeLocation)}
-            style={{
-              borderColor: '#d8031c',
-              marginHorizontal: 46,
-              borderRadius: 20,
-              borderWidth: 1.4,
-              marginVertical: 10,
-            }}>
+            style={styles.button}>
             <Heading
               color={'#9fcbee'}
-              style={{
-                fontSize: 20,
-                textTransform: 'uppercase',
-                padding: 2,
-              }}>
+              style={{...styles.buttonHeading, ...styles.padding2}}>
               Mark here as Home
             </Heading>
           </TouchableOpacity>
         )}
         <View style={styles.card}>
-          <Heading
-            color={colors.primary}
-            style={{
-              fontSize: 20,
-              textTransform: 'uppercase',
-            }}>
+          <Heading color={colors.primary} style={styles.buttonHeading}>
             Bubbles remaining:
           </Heading>
 
@@ -113,51 +98,27 @@ const MainScreen = ({navigation}) => {
           </View>
         </View>
         <View style={styles.card}>
-          <Heading
-            color={colors.primary}
-            style={{
-              fontSize: 20,
-              textTransform: 'uppercase',
-            }}>
+          <Heading color={colors.primary} style={styles.buttonHeading}>
             Active Challenge:
           </Heading>
-          <View style={{marginVertical: 20}}>
+          <View style={styles.marginV20}>
             <StyledText>Signup for an online course</StyledText>
           </View>
         </View>
       </ScrollView>
       <View style={styles.rowIcons}>
         <TouchableOpacity style={styles.buttonColumn}>
-          <Image
-            source={leaderboard}
-            style={{
-              tintColor: '#01016f',
-              width: 53,
-              height: 46,
-              marginVertical: 10,
-            }}
-          />
+          <Image source={leaderboard} style={styles.leaderboard} />
           <StyledText>Leaderboard</StyledText>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonColumn}>
-          <Image
-            source={goodDeed}
-            style={{width: 54, height: 46, marginVertical: 10}}
-          />
+          <Image source={goodDeed} style={styles.goodDeed} />
           <StyledText>Good Deed</StyledText>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonColumn}
           onPress={() => navigation.navigate('Congratulations')}>
-          <Image
-            source={award}
-            style={{
-              tintColor: '#01016f',
-              width: 53,
-              height: 46,
-              marginVertical: 10,
-            }}
-          />
+          <Image source={award} style={styles.award} />
           <StyledText>My Rewards</StyledText>
         </TouchableOpacity>
       </View>
@@ -166,6 +127,7 @@ const MainScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  scrollView: {backgroundColor: '#ffffff'},
   container: {
     flex: 1,
     flexDirection: 'column',
@@ -191,33 +153,33 @@ const styles = StyleSheet.create({
     alignContent: 'stretch',
     alignItems: 'center',
   },
+  button: {
+    borderColor: '#d8031c',
+    marginHorizontal: 46,
+    borderRadius: 20,
+    borderWidth: 1.4,
+    marginVertical: 10,
+  },
+  buttonHeading: {
+    fontSize: 20,
+    textTransform: 'uppercase',
+  },
+  padding2: {padding: 2},
+  leaderboard: {
+    tintColor: '#01016f',
+    width: 53,
+    height: 46,
+    marginVertical: 10,
+  },
+  award: {
+    tintColor: '#01016f',
+    width: 53,
+    height: 46,
+    marginVertical: 10,
+  },
+  goodDeed: {width: 54, height: 46, marginVertical: 10},
+  marginV20: {marginVertical: 20},
+  marginV10: {marginVertical: 10},
 });
 
 export default MainScreen;
-
-{
-  //   const loadLifeCount  = async () => {
-  //     try {
-  //       const value = await AsyncStorage.getItem('myBubble');
-  //       if (value !== null) {
-  // parse ? json and get key value
-  //         return true;
-  //       }
-  //       return [1,1,1];
-  //     } catch (e) {
-  //       return [1,1,1];
-  //     }
-  //   };
-  //   const setLifeCount= async () => {
-  //     try {
-  //       await AsyncStorage.setItem('myBubble', {});
-  //     } catch (e) {
-  //       // saving error
-  //     }
-  //   };
-  //   const handleLifeCount = () => {
-  //const newLifeCount = updateLifeCount(lifecount)
-  //     setLifeCount();
-  //     setLifeCount([]);
-  //   };
-}
