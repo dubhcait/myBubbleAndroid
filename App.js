@@ -9,9 +9,9 @@ import {
   InitialScreen,
   KeepYourDistanceRule,
   MainScreen,
+  ReEntering,
   StayHomeRule,
   WeeklyChallenge,
-  ReEntering,
   WellDone,
 } from './screens';
 
@@ -32,34 +32,6 @@ const MyTheme = {
 
 const Root = createStackNavigator();
 const Stack = createStackNavigator();
-
-{
-  //   const hasIntroBeenSeen = async () => {
-  //     try {
-  //       const value = await AsyncStorage.getItem('introSeen');
-  //       if (value !== null) {
-  //         return true;
-  //       }
-  //       return false;
-  //     } catch (e) {
-  //       return false;
-  //     }
-  //   };
-  //   const [showIntro, setShowIntro] = useState(hasIntroBeenSeen() ? true : false);
-  //   const [showGameInstructions, setGameInstructions] = useState(false);
-  //   const [modalMesg, setModalMesg] = useState(false);
-  //   const setIntroSeenInStorage = async () => {
-  //     try {
-  //       await AsyncStorage.setItem('introSeen', 'true');
-  //     } catch (e) {
-  //       // saving error
-  //     }
-  //   };
-  //   const introAllSeen = () => {
-  //     setShowIntro(false);
-  //     setIntroSeenInStorage();
-  //   };
-}
 
 export function createApp() {
   return function App() {
