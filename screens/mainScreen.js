@@ -16,7 +16,7 @@ import {
   handleHomelocation,
 } from '../util/geoLocation';
 
-const HomeLocation = (setHomeLocation) => {
+const HomeLocation = setHomeLocation => {
   handleHomelocation(setHomeLocation);
 };
 

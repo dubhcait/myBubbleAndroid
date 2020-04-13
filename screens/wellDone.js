@@ -62,7 +62,7 @@ const WellDone = ({navigation}) => {
           </Animated.Text>
         </Animated.View>
       </ScrollView>
-      <View style={{backgroundColor: 'transparent', zIndex: 1}}>
+      <View style={styles.bottomButton}>
         <TouchableOpacity
           onPress={() => navigation.navigate('Home')}
           style={styles.button}>
@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
     height: 45,
     alignSelf: 'center',
   },
+  bottomButton: {backgroundColor: 'transparent', zIndex: 1},
 });
 
 export default WellDone;
