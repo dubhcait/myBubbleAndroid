@@ -1,13 +1,6 @@
 import {useTheme} from '@react-navigation/native';
 import React from 'react';
-import {
-  Animated,
-  Image,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Animated, Image, ScrollView, StyleSheet, View} from 'react-native';
 import {
   group,
   healthBubble,
@@ -16,7 +9,7 @@ import {
   poppedBubble2,
   twoPeople,
 } from '../assets';
-import {Heading, StyledText, Touchable, Card, RowIcons} from '../components';
+import {Card, Heading, RowIcons, StyledText, Touchable} from '../components';
 import {useSpringHeart} from '../util/animations';
 
 const GameIntro = ({introAllSeen, navigation}) => {

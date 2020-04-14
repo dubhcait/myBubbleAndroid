@@ -1,6 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {useTheme} from '@react-navigation/native';
+import {StyleSheet, View} from 'react-native';
 
 export default function Card({children}) {
   return <View style={styles.row}>{children}</View>;

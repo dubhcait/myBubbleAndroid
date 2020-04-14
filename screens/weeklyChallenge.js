@@ -1,13 +1,6 @@
 import {useTheme} from '@react-navigation/native';
 import React from 'react';
-import {
-  Animated,
-  Image,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Animated, Image, ScrollView, StyleSheet, View} from 'react-native';
 import {award, plus} from '../assets';
 import {Heading, StyledText, Touchable} from '../components';
 import {

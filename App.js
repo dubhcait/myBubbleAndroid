@@ -15,6 +15,7 @@ import {
   WeeklyChallenge,
   WellDone,
 } from './screens';
+import {ContextProvider} from './util/context';
 
 const MyTheme = {
   ...DefaultTheme,
@@ -42,9 +43,11 @@ export function createApp() {
           backgroundColor={MyTheme.colors.background}
         />
         <NavigationContainer theme={MyTheme}>
-          <Root.Navigator headerMode="none">
-            <Root.Screen name="Root" component={MainStack} />
-          </Root.Navigator>
+          <ContextProvider>
+            <Root.Navigator headerMode="none">
+              <Root.Screen name="Root" component={MainStack} />
+            </Root.Navigator>
+          </ContextProvider>
         </NavigationContainer>
       </>
     );

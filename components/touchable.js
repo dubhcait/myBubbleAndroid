@@ -1,6 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, StyleSheet} from 'react-native';
-import {useTheme} from '@react-navigation/native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 
 export default function Touchable({
   color,
@@ -10,7 +9,6 @@ export default function Touchable({
   children,
   borderColor,
 }) {
-  const {colors} = useTheme();
   return (
     <TouchableOpacity
       onPress={onPress}

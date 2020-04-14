@@ -1,6 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {useTheme} from '@react-navigation/native';
+import {StyleSheet, View} from 'react-native';
 
 export default function Card({
   color,
@@ -9,7 +8,6 @@ export default function Card({
   onPress,
   children,
 }) {
-  const {colors} = useTheme();
   return (
     <View
       style={[

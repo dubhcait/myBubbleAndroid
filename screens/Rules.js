@@ -1,16 +1,16 @@
+import {useTheme} from '@react-navigation/native';
 import React from 'react';
 import {
   Animated,
   Image,
+  ScrollView,
   SectionList,
   StyleSheet,
   View,
-  ScrollView,
 } from 'react-native';
 import {distance2, groupNegative, house2, virus} from '../assets';
-import {Heading, StyledText, Underlay, Touchable, Card} from '../components';
+import {Card, Heading, StyledText, Touchable} from '../components';
 import {useSpringHeart} from '../util/animations';
-import {useTheme} from '@react-navigation/native';
 
 const KeepYourDistanceRule = ({navigation}) => {
   const {colors} = useTheme();
