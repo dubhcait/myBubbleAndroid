@@ -20,140 +20,69 @@ const InitialScreen = ({navigation}) => {
   });
 
   return (
-    <ScrollView
-      contentContainerStyle={{
-        flexGrow: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#ffffff',
-      }}>
-      <View style={{flex: 1}}>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            height: 100,
-          }}>
-          <View
-            style={{
-              width: 24,
-              height: 26,
-              alignSelf: 'flex-end',
-              margin: 18,
-            }}>
+    <ScrollView contentContainerStyle={styles.scrollView}>
+      <View style={styles.flex}>
+        <View style={styles.row}>
+          <View style={styles.virus1}>
             <Animated.Image
               source={virus}
               style={{
-                tintColor: '#d8031c',
-                width: '100%',
-                height: '100%',
-                resizeMode: 'contain',
+                ...styles.img,
                 transform: [{rotate: spin}],
               }}
             />
           </View>
-          <View
-            style={{
-              width: 34,
-              height: 36,
-              alignSelf: 'flex-start',
-              transform: [{scaleX: -1}],
-              margin: 8,
-            }}>
+          <View style={styles.virus2}>
             <Animated.Image
               source={virus}
               style={{
-                tintColor: '#d8031c',
-                width: '100%',
-                height: '100%',
-                resizeMode: 'contain',
+                ...styles.img,
                 transform: [{rotate: spin}],
               }}
             />
           </View>
-          <View
-            style={{
-              width: 38,
-              height: 40,
-              alignSelf: 'baseline',
-              margin: 30,
-            }}>
+          <View style={styles.virus3}>
             <Animated.Image
               source={virus}
               style={{
-                tintColor: '#d8031c',
-                width: '100%',
-                height: '100%',
-                resizeMode: 'contain',
+                ...styles.img,
                 transform: [{rotate: spin}],
               }}
             />
           </View>
         </View>
-        <Heading style={{marginTop: 20, fontSize: 38}}>YOUR MISSION</Heading>
+        <Heading style={styles.heading}>YOUR MISSION</Heading>
 
-        <StyledText
-          style={{
-            marginTop: 20,
-            marginBottom: 20,
-            textAlign: 'center',
-          }}>
+        <StyledText style={styles.initialText}>
           Keep you and your loved ones safe as we battle <Text>COVID-19</Text>
         </StyledText>
         <View style={styles.rounded}>
           <StyledText
             color={'#9fcbee'}
             numberOfLines={1}
-            style={{
-              marginTop: 70,
-              marginHorizontal: 30,
-              textAlign: 'center',
-            }}>
+            style={styles.middleText}>
             Stay in your “bubble” each week{' '}
           </StyledText>
           <StyledText
             color={'#9fcbee'}
             numberOfLines={1}
-            style={{
-              marginBottom: 10,
-              marginHorizontal: 10,
-              textAlign: 'center',
-            }}>
+            style={styles.emphasisText}>
             - a safe social distance to earn rewards
           </StyledText>
 
           <TouchableOpacity
-            style={{
-              marginHorizontal: 86,
-              marginVertical: 10,
-              flexDirection: 'column',
-              alignContent: 'center',
-              alignItems: 'center',
-            }}
+            style={styles.button}
             onPress={() => navigation.navigate('Intro')}>
-            <View
-              style={{
-                width: 70,
-                height: 70,
-                margin: 10,
-              }}>
+            <View style={styles.buttonView}>
               <Animated.Image
                 source={healthBubble}
                 style={{
-                  width: '100%',
-                  height: '100%',
+                  ...styles.fullsize,
                   transform: [{scale: springValue}],
                 }}
               />
             </View>
-            <Heading
-              color={'#9fcbee'}
-              style={{
-                textTransform: 'uppercase',
-                fontSize: 22,
-                margin: 4,
-                letterSpacing: 1.4,
-              }}>
+            <Heading color={'#9fcbee'} style={styles.buttonHeading}>
               Start
             </Heading>
           </TouchableOpacity>
@@ -172,12 +101,73 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignSelf: 'stretch',
   },
+  buttonHeading: {
+    textTransform: 'uppercase',
+    fontSize: 22,
+    margin: 4,
+    letterSpacing: 1.4,
+  },
+  fullsize: {width: '100%', height: '100%'},
+  buttonView: {
+    width: 70,
+    height: 70,
+    margin: 10,
+  },
+  button: {
+    marginHorizontal: 86,
+    marginVertical: 10,
+    flexDirection: 'column',
+    alignContent: 'center',
+    alignItems: 'center',
+  },
+  emphasisText: {
+    marginBottom: 10,
+    marginHorizontal: 10,
+    textAlign: 'center',
+  },
+  scrollView: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    height: 100,
+  },
+  flex: {flex: 1},
+  initialText: {
+    marginTop: 20,
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  middleText: {
+    marginTop: 70,
+    marginHorizontal: 30,
+    textAlign: 'center',
+  },
+  img: {
+    tintColor: '#d8031c',
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
+  },
+  heading: {marginTop: 20, fontSize: 38},
+  virus1: {width: 24, height: 26, alignSelf: 'flex-end', margin: 18},
+  virus2: {
+    width: 34,
+    height: 36,
+    alignSelf: 'flex-start',
+    transform: [{scaleX: -1}],
+    margin: 8,
+  },
+  virus3: {
+    width: 38,
+    height: 40,
+    alignSelf: 'baseline',
+    margin: 30,
+  },
 });
-
-{
-  /* <Link to="/game">
-<Text>Text</Text>
-</Link> */
-}
 
 export default InitialScreen;
