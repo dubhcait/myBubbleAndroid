@@ -7,8 +7,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {award, goodDeed, leaderboard} from '../assets';
-import {Heading, LifeCount, StyledText} from '../components';
+import {award, goodDeed, leaderboard, home} from '../assets';
+import {
+  Heading,
+  LifeCount,
+  StyledText,
+  Touchable,
+  Card,
+  RowIcons,
+} from '../components';
 import {useSpringHeart} from '../util/animations';
 
 const MainScreen = ({navigation}) => {
@@ -18,52 +25,50 @@ const MainScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <Heading style={styles.marginV10}>MyBubble</Heading>
+        <Heading>MyBubble</Heading>
 
         <TouchableOpacity
-          onPress={() => navigation.navigate('SetHome')}
-          style={styles.button}>
-          <Heading
-            color={'#9fcbee'}
-            style={{...styles.buttonHeading, ...styles.padding2}}>
-            set home location
+          style={styles.setHome}
+          onPress={() => navigation.navigate('SetHome')}>
+          <Image source={home} style={styles.homeImage} />
+          <Heading color={colors.card} style={styles.smallHeading}>
+            Set location
           </Heading>
         </TouchableOpacity>
-
-        <View style={styles.card}>
+        <Card backgroundColor={colors.card}>
           <Heading color={colors.primary} style={styles.buttonHeading}>
             Bubbles remaining:
           </Heading>
 
-          <View style={styles.rowIcons}>
+          <RowIcons>
             <LifeCount lifeCount={lifeCountset} springValue={springValue} />
-          </View>
-        </View>
-        <View style={styles.card}>
+          </RowIcons>
+        </Card>
+        <Card backgroundColor={colors.background}>
           <Heading color={colors.primary} style={styles.buttonHeading}>
             Active Challenge:
           </Heading>
           <View style={styles.marginV20}>
             <StyledText>Signup for an online course</StyledText>
           </View>
-        </View>
+        </Card>
       </ScrollView>
-      <View style={styles.rowIcons}>
+      <RowIcons>
         <TouchableOpacity style={styles.buttonColumn}>
           <Image source={leaderboard} style={styles.leaderboard} />
-          <StyledText>Leaderboard</StyledText>
+          <Heading style={styles.smallHeading}>Leaderboard</Heading>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonColumn}>
           <Image source={goodDeed} style={styles.goodDeed} />
-          <StyledText>Good Deed</StyledText>
+          <Heading style={styles.smallHeading}>Good Deed</Heading>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonColumn}
           onPress={() => navigation.navigate('Congratulations')}>
           <Image source={award} style={styles.award} />
-          <StyledText>My Rewards</StyledText>
+          <Heading style={styles.smallHeading}>My Rewards</Heading>
         </TouchableOpacity>
-      </View>
+      </RowIcons>
     </View>
   );
 };
@@ -84,23 +89,10 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     elevation: 1.8,
   },
-  rowIcons: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    marginVertical: 20,
-  },
   buttonColumn: {
     flexDirection: 'column',
     alignContent: 'stretch',
     alignItems: 'center',
-  },
-  button: {
-    borderColor: '#d8031c',
-    marginHorizontal: 46,
-    borderRadius: 20,
-    borderWidth: 1.4,
-    marginVertical: 10,
   },
   buttonHeading: {
     fontSize: 20,
@@ -122,6 +114,31 @@ const styles = StyleSheet.create({
   goodDeed: {width: 54, height: 46, marginVertical: 10},
   marginV20: {marginVertical: 20},
   marginV10: {marginVertical: 10},
+  setHome: {
+    elevation: 1.8,
+    zIndex: 4,
+    marginTop: 40,
+    borderColor: '#9fcbee',
+    paddingHorizontal: 8,
+    marginBottom: -30,
+    borderRadius: 20,
+    borderWidth: 1.4,
+    alignSelf: 'flex-start',
+    backgroundColor: '#ffffff',
+    marginLeft: 34,
+  },
+  smallHeading: {
+    color: '#9fcbee',
+    fontSize: 16,
+    textTransform: 'uppercase',
+  },
+  homeImage: {
+    tintColor: '#9fcbee',
+    alignSelf: 'center',
+    marginTop: 8,
+    width: 38,
+    height: 33,
+  },
 });
 
 export default MainScreen;

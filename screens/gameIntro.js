@@ -16,7 +16,7 @@ import {
   poppedBubble2,
   twoPeople,
 } from '../assets';
-import {Heading, StyledText} from '../components';
+import {Heading, StyledText, Touchable, Card, RowIcons} from '../components';
 import {useSpringHeart} from '../util/animations';
 
 const GameIntro = ({introAllSeen, navigation}) => {
@@ -26,56 +26,60 @@ const GameIntro = ({introAllSeen, navigation}) => {
     <ScrollView contentContainerStyle={styles.scrollView}>
       <View style={styles.background}>
         <Heading> How to WIN</Heading>
-
-        <StyledText style={styles.vertical20}>
-          Start the week with a new challenge and 3 bubbles
-        </StyledText>
-        <View style={styles.rowIcons}>
-          <Animated.Image
-            source={healthBubble}
-            style={{...styles.image, transform: [{scale: springValue}]}}
-          />
-          <Animated.Image
-            source={healthBubble}
-            style={{...styles.image, transform: [{scale: springValue}]}}
-          />
-          <Animated.Image
-            source={healthBubble}
-            style={{...styles.image, transform: [{scale: springValue}]}}
-          />
-        </View>
-        <View style={styles.row}>
-          <Heading color={colors.primary} style={styles.challenge}>
-            Challenge
-          </Heading>
-          <View style={styles.imageContainer}>
-            <Image
-              style={{...styles.plusImage, tintColor: colors.primary}}
-              source={plus}
+        <Card backgroundColor={colors.card} zIndex={0}>
+          <StyledText>
+            Start the week with a new challenge and 3 bubbles
+          </StyledText>
+          <RowIcons>
+            <Animated.Image
+              source={healthBubble}
+              style={{...styles.image, transform: [{scale: springValue}]}}
             />
+            <Animated.Image
+              source={healthBubble}
+              style={{...styles.image, transform: [{scale: springValue}]}}
+            />
+            <Animated.Image
+              source={healthBubble}
+              style={{...styles.image, transform: [{scale: springValue}]}}
+            />
+          </RowIcons>
+
+          <View style={styles.row}>
+            <Heading color={colors.primary} style={styles.challenge}>
+              Challenge
+            </Heading>
+            <View style={styles.imageContainer}>
+              <Image
+                style={{...styles.plusImage, tintColor: colors.primary}}
+                source={plus}
+              />
+            </View>
           </View>
-        </View>
+        </Card>
+        <Card backgroundColor={colors.background} zIndex={4}>
+          <StyledText>
+            Don’t burst any bubbles by breaking social distance!
+          </StyledText>
+          <RowIcons>
+            <Image source={twoPeople} style={{tintColor: colors.primary}} />
+            <Image source={group} style={{tintColor: colors.primary}} />
+            <Image source={home} style={{tintColor: colors.primary}} />
+            <Image source={poppedBubble2} style={styles.poppedBubble} />
+          </RowIcons>
 
-        <Heading style={styles.centerHeading}>
-          Don’t burst any bubbles by breaking social distance!
-        </Heading>
-        <View style={styles.rowIcons}>
-          <Image source={twoPeople} style={{tintColor: colors.primary}} />
-          <Image source={group} style={{tintColor: colors.primary}} />
-          <Image source={home} style={{tintColor: colors.primary}} />
-          <Image source={poppedBubble2} style={styles.poppedBubble} />
-        </View>
-
-        <StyledText style={styles.vertical20}>
-          Keep your bubbles safe by Sunday and get rewards!
-        </StyledText>
-        <TouchableOpacity
+          <StyledText>
+            Keep your bubbles safe by Sunday and get rewards!
+          </StyledText>
+        </Card>
+        <Touchable
+          borderColor={colors.border}
           onPress={() => navigation.navigate('Rules')}
-          style={styles.buttonStyle}>
+          marginTop={20}>
           <Heading color={colors.primary} style={styles.buttonHeading}>
             What’s social distancing?
           </Heading>
-        </TouchableOpacity>
+        </Touchable>
       </View>
     </ScrollView>
   );
@@ -96,21 +100,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 10,
-  },
-  rowIcons: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-  },
-
-  buttonStyle: {
-    borderColor: '#d8031c',
-    marginHorizontal: 46,
-    borderRadius: 30,
-    borderWidth: 1.4,
-    marginVertical: 10,
-    elevation: 1.8,
   },
   buttonHeading: {
     fontSize: 20,
@@ -119,24 +108,16 @@ const styles = StyleSheet.create({
   },
 
   image: {width: 60, height: 60},
-
-  vertical20: {paddingVertical: 20},
-  poppedBubble: {width: 40.7, height: 40, margin: 2},
-  imageContainer: {
-    borderColor: '#d8031c',
-    borderRadius: 50,
-    borderWidth: 1.4,
-    elevation: 1.8,
-  },
+  poppedBubble: {width: 42.7, height: 42},
   plusImage: {
     width: 20,
     height: 20,
-    margin: 4,
+    marginBottom: 10,
   },
-  centerHeading: {paddingVertical: 20, fontSize: 22, marginHorizontal: 26},
   challenge: {
     fontSize: 20,
     textTransform: 'uppercase',
+    marginBottom: 10,
     paddingHorizontal: 10,
   },
 });

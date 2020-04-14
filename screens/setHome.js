@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Heading} from '../components';
+import {Heading, Touchable} from '../components';
 import {
   distanceFromHome,
   handleCurrentlocation,
@@ -68,7 +68,7 @@ const SetHome = ({navigation}) => {
         <Heading style={styles.marginV10}>MyBubble</Heading>
 
         {homeLocation.longitude === undefined && (
-          <TouchableOpacity
+          <Touchable
             onPress={() => HomeLocation(setHomeLocation)}
             style={styles.button}>
             <Heading
@@ -76,7 +76,7 @@ const SetHome = ({navigation}) => {
               style={{...styles.buttonHeading, ...styles.padding2}}>
               Mark here as Home
             </Heading>
-          </TouchableOpacity>
+          </Touchable>
         )}
         <Text>Current location:</Text>
         <Text>
@@ -120,13 +120,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignContent: 'stretch',
     alignItems: 'center',
-  },
-  button: {
-    borderColor: '#d8031c',
-    marginHorizontal: 46,
-    borderRadius: 20,
-    borderWidth: 1.4,
-    marginVertical: 10,
   },
   buttonHeading: {
     fontSize: 20,
