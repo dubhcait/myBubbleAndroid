@@ -10,6 +10,7 @@ import {
   KeepYourDistanceRule,
   MainScreen,
   ReEntering,
+  SetHome,
   StayHomeRule,
   WeeklyChallenge,
   WellDone,
@@ -142,6 +143,15 @@ const MainStack = () => {
             headerTitleStyle: {color: 'transparent'},
           }}
           component={ReEntering}
+        />
+        <Stack.Screen
+          name="SetHome"
+          options={{
+            headerTransparent: true,
+            headerTintColor: '#ffffff',
+            headerTitleStyle: {color: 'transparent'},
+          }}
+          component={SetHome}
         />
       </Stack.Navigator>
     </>

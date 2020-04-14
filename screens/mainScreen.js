@@ -1,5 +1,5 @@
 import {useTheme} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {
   Image,
   ScrollView,
@@ -10,85 +10,26 @@ import {
 import {award, goodDeed, leaderboard} from '../assets';
 import {Heading, LifeCount, StyledText} from '../components';
 import {useSpringHeart} from '../util/animations';
-import {
-  distanceFromHome,
-  handleCurrentlocation,
-  handleHomelocation,
-} from '../util/geoLocation';
-
-// eslint-disable-next-line prettier/prettier
-const HomeLocation = (setHomeLocation) => {
-  handleHomelocation(setHomeLocation);
-};
 
 const MainScreen = ({navigation}) => {
   const {colors} = useTheme();
   const springValue = useSpringHeart();
   const lifeCountset = [1, 1, 0];
-  const [homeLocation, setHomeLocation] = useState({});
-  const [currentLocation, setCurrentLocation] = useState({});
-  const [distanceFromHomeArray, setDistanceFromHomeArray] = useState([0]);
-
-  const geofenceDirectionCheck = (newPosition, oldPosition) => {
-    switch ((newPosition, oldPosition)) {
-      // reentering home
-      case newPosition < 0.5 && oldPosition > 0.5:
-        navigation.navigate('ReEntering');
-        break;
-      // exsiting
-      case newPosition > 0.5 && oldPosition < 0.5:
-        navigation.navigate('Exiting');
-        break;
-      default:
-        return;
-    }
-  };
-
-  useEffect(() => {
-    handleCurrentlocation(setCurrentLocation);
-  }, []);
-
-  const check = async () => {
-    const newDistance = await distanceFromHome(homeLocation, currentLocation);
-    const newState = [newDistance, ...distanceFromHomeArray];
-    console.log(newState);
-    return setDistanceFromHomeArray(newState);
-  };
-  useEffect(() => {
-    if (homeLocation.longitude && currentLocation.longitude) {
-      check();
-    }
-  }, [currentLocation, homeLocation]);
-
-  useEffect(() => {
-    if (distanceFromHomeArray.length > 1) {
-      geofenceDirectionCheck(
-        distanceFromHomeArray[0],
-        distanceFromHomeArray[1],
-      );
-    }
-  }, [distanceFromHomeArray]);
-
-  useEffect(() => {
-    console.log('current', currentLocation);
-  }, [currentLocation]);
-
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <Heading style={styles.marginV10}>MyBubble</Heading>
 
-        {homeLocation.longitude === undefined && (
-          <TouchableOpacity
-            onPress={() => HomeLocation(setHomeLocation)}
-            style={styles.button}>
-            <Heading
-              color={'#9fcbee'}
-              style={{...styles.buttonHeading, ...styles.padding2}}>
-              Mark here as Home
-            </Heading>
-          </TouchableOpacity>
-        )}
+        <TouchableOpacity
+          onPress={() => navigation.navigate('SetHome')}
+          style={styles.button}>
+          <Heading
+            color={'#9fcbee'}
+            style={{...styles.buttonHeading, ...styles.padding2}}>
+            set home location
+          </Heading>
+        </TouchableOpacity>
+
         <View style={styles.card}>
           <Heading color={colors.primary} style={styles.buttonHeading}>
             Bubbles remaining:
