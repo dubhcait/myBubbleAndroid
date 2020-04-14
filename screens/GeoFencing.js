@@ -54,7 +54,7 @@ const Exiting = ({navigation}) => {
           Remember: only go out if absolutely necessary:
         </StyledText>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Main')}
+          onPress={() => navigation.navigate('Home')}
           style={styles.buttonStyle}>
           <Heading color={colors.primary} style={styles.buttonHeading}>
             It’s important, promise!
@@ -94,7 +94,7 @@ const ReEntering = ({navigation}) => {
           Remember: clean this phone surface too!
         </StyledText>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Main')}
+          onPress={() => navigation.navigate('Home')}
           style={styles.buttonStyle}>
           <Heading color={colors.primary} style={styles.buttonHeading}>
             Done!

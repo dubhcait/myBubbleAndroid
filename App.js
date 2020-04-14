@@ -15,6 +15,7 @@ import {
   WeeklyChallenge,
   WellDone,
 } from './screens';
+import {ContextProvider} from './util/context';
 
 const MyTheme = {
   ...DefaultTheme,
@@ -28,7 +29,6 @@ const MyTheme = {
     ripple: '#d8031c',
   },
 };
-
 //primary: blue, card: grey, text: darkblue, accent: lightblue, ripple: red
 
 const Root = createStackNavigator();
@@ -42,10 +42,13 @@ export function createApp() {
           barStyle="light-content"
           backgroundColor={MyTheme.colors.background}
         />
+
         <NavigationContainer>
-          <Root.Navigator headerMode="none">
-            <Root.Screen name="Root" component={MainStack} />
-          </Root.Navigator>
+          <ContextProvider>
+            <Root.Navigator headerMode="none">
+              <Root.Screen name="Root" component={MainStack} />
+            </Root.Navigator>
+          </ContextProvider>
         </NavigationContainer>
       </>
     );

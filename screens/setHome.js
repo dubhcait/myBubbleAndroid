@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import {useTheme} from '@react-navigation/native';
+import React, {useContext, useEffect} from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -7,28 +8,35 @@ import {
   View,
 } from 'react-native';
 import {Heading} from '../components';
+import {Context} from '../util/context';
 import {
   distanceFromHome,
   handleCurrentlocation,
   handleHomelocation,
 } from '../util/geoLocation';
-
 const HomeLocation = setHomeLocation => {
   handleHomelocation(setHomeLocation);
 };
 
-const SetHome = ({navigation}) => {
-  const [homeLocation, setHomeLocation] = useState({});
-  const [currentLocation, setCurrentLocation] = useState({});
-  const [distanceFromHomeArray, setDistanceFromHomeArray] = useState([0]);
+const SetHome = ({navigation, route}) => {
+  const [state, dispatch] = useContext(Context);
+
+  const setHomeLocation = value =>
+    dispatch({type: 'homeLocation', value: value});
+  const setCurrentLocation = value =>
+    dispatch({type: 'currentLocation', value: value});
+  const setDistanceFromHomeArray = value =>
+    dispatch({type: 'distanceFromHomeArray', value: value});
+
+  const {colors} = useTheme();
 
   const geofenceDirectionCheck = (newPosition, oldPosition) => {
     // reentering home
-    if (newPosition < 0.5 && oldPosition > 0.5) {
+    if (newPosition < 0.05 && oldPosition > 0.05) {
       navigation.navigate('ReEntering');
     }
     // exsiting
-    else if (newPosition > 0.5 && oldPosition < 0.5) {
+    else if (newPosition > 0.05 && oldPosition < 0.05) {
       navigation.navigate('Exiting');
     } else {
       return;
@@ -40,34 +48,35 @@ const SetHome = ({navigation}) => {
   }, []);
 
   const check = async () => {
-    const newDistance = await distanceFromHome(homeLocation, currentLocation);
-    const newState = [newDistance, ...distanceFromHomeArray];
+    const newDistance = await distanceFromHome(
+      state.homeLocation,
+      state.currentLocation,
+    );
+    const newState = [newDistance, ...state.distanceFromHomeArray];
 
     return setDistanceFromHomeArray(newState);
   };
   useEffect(() => {
-    if (homeLocation.longitude && currentLocation.longitude) {
+    if (state.homeLocation.longitude && state.currentLocation.longitude) {
       check();
     }
-  }, [currentLocation, homeLocation]);
+  }, [state.currentLocation, state.homeLocation]);
 
   useEffect(() => {
-    if (distanceFromHomeArray.length > 1) {
+    if (state.distanceFromHomeArray.length > 1) {
       geofenceDirectionCheck(
-        distanceFromHomeArray[0],
-        distanceFromHomeArray[1],
+        state.distanceFromHomeArray[0],
+        state.distanceFromHomeArray[1],
       );
     }
-  }, [distanceFromHomeArray]);
-
-  useEffect(() => {}, [currentLocation]);
+  }, [state.distanceFromHomeArray]);
 
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <Heading style={styles.marginV10}>MyBubble</Heading>
 
-        {homeLocation.longitude === undefined && (
+        {state.homeLocation.longitude === undefined && (
           <TouchableOpacity
             onPress={() => HomeLocation(setHomeLocation)}
             style={styles.button}>
@@ -80,16 +89,27 @@ const SetHome = ({navigation}) => {
         )}
         <Text>Current location:</Text>
         <Text>
-          Longitude:{currentLocation.longitude}, Latitude:
-          {currentLocation.latitude}
+          Longitude:{Math.floor(state.currentLocation.longitude * 100) / 100},
+          Latitude:
+          {Math.floor(state.currentLocation.latitude * 100) / 100}
         </Text>
         <Text>Home location:</Text>
         <Text>
-          Longitude:{homeLocation.longitude}, Latitude:
-          {homeLocation.latitude}
+          Longitude:{Math.floor(state.homeLocation.longitude * 100) / 100},
+          Latitude:
+          {Math.floor(state.homeLocation.latitude * 100) / 100}
         </Text>
-        <Text> Distance from home {distanceFromHomeArray[0]}</Text>
+        <Text>
+          {Math.floor(state.distanceFromHomeArray[0] * 10000)} meters from home
+        </Text>
       </ScrollView>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Home')}
+        style={styles.buttonStyle}>
+        <Heading color={colors.primary} style={styles.buttonHeading}>
+          Done!
+        </Heading>
+      </TouchableOpacity>
     </View>
   );
 };

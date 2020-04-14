@@ -1,5 +1,5 @@
 import {useTheme} from '@react-navigation/native';
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   Image,
   ScrollView,
@@ -10,11 +10,13 @@ import {
 import {award, goodDeed, leaderboard} from '../assets';
 import {Heading, LifeCount, StyledText} from '../components';
 import {useSpringHeart} from '../util/animations';
+import {Context} from '../util/context';
 
 const MainScreen = ({navigation}) => {
   const {colors} = useTheme();
   const springValue = useSpringHeart();
-  const lifeCountset = [1, 1, 0];
+  const [state, dispatch] = useContext(Context);
+
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
@@ -36,7 +38,7 @@ const MainScreen = ({navigation}) => {
           </Heading>
 
           <View style={styles.rowIcons}>
-            <LifeCount lifeCount={lifeCountset} springValue={springValue} />
+            <LifeCount lifeCount={state.lives} springValue={springValue} />
           </View>
         </View>
         <View style={styles.card}>
