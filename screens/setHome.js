@@ -10,6 +10,7 @@ import {
 import {Heading} from '../components';
 import {Context} from '../util/context';
 import {distanceFromHome, handleHomelocation} from '../util/geoLocation';
+
 const HomeLocation = setHomeLocation => {
   handleHomelocation(setHomeLocation);
 };
@@ -131,13 +132,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignContent: 'stretch',
     alignItems: 'center',
-  },
-  button: {
-    borderColor: '#d8031c',
-    marginHorizontal: 46,
-    borderRadius: 20,
-    borderWidth: 1.4,
-    marginVertical: 10,
   },
   buttonHeading: {
     fontSize: 20,

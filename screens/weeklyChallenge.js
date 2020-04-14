@@ -1,15 +1,8 @@
 import {useTheme} from '@react-navigation/native';
 import React from 'react';
-import {
-  Animated,
-  Image,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Animated, Image, ScrollView, StyleSheet, View} from 'react-native';
 import {award, plus} from '../assets';
-import {Heading, StyledText} from '../components';
+import {Heading, StyledText, Touchable} from '../components';
 import {
   useFadeInText,
   useShrinkingView,
@@ -96,13 +89,13 @@ const WeeklyChallenge = ({navigation}) => {
         <Animated.View style={{transform: [{scale: springValue}]}}>
           <StyledText color={'#9fcbee'}>A free month of Netflix</StyledText>
         </Animated.View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('Home')}
-          style={styles.button}>
+        <Touchable
+          borderColor={colors.border}
+          onPress={() => navigation.navigate('Home')}>
           <Heading color={'#9fcbee'} style={styles.buttonHeading}>
             Challenge accepted!
           </Heading>
-        </TouchableOpacity>
+        </Touchable>
       </View>
     </ScrollView>
   );
@@ -118,13 +111,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
-  },
-  button: {
-    borderColor: '#d8031c',
-    marginHorizontal: 46,
-    borderRadius: 20,
-    borderWidth: 1.4,
-    marginVertical: 10,
   },
   buttonHeading: {
     fontSize: 20,

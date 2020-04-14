@@ -5,6 +5,9 @@ import {
   FlexRow,
   Underlay,
 } from './containers.style';
+import Touchable from './touchable';
+import Card from './card';
+import RowIcons from './rowIcons';
 import {
   Bubble,
   BubbleIcon,
@@ -17,6 +20,9 @@ import LifeCount from './lifeCount';
 import {BulletPont, Heading, StyledText} from './text.style';
 export {
   Heading,
+  Touchable,
+  Card,
+  RowIcons,
   StyledText,
   BulletPont,
   Underlay,

@@ -1,17 +1,19 @@
+import {useTheme} from '@react-navigation/native';
 import React from 'react';
 import {
   Animated,
   Image,
+  ScrollView,
   SectionList,
   StyleSheet,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import {distance2, groupNegative, house2, virus} from '../assets';
-import {Heading, StyledText, Underlay} from '../components';
+import {Card, Heading, StyledText, Touchable} from '../components';
 import {useSpringHeart} from '../util/animations';
 
 const KeepYourDistanceRule = ({navigation}) => {
+  const {colors} = useTheme();
   let spinValue = useSpringHeart();
   const spin = spinValue.interpolate({
     inputRange: [0, 1],
@@ -19,18 +21,8 @@ const KeepYourDistanceRule = ({navigation}) => {
   });
 
   return (
-    <Underlay>
-      <View style={styles.distanceContainer}>
-        <View style={styles.distanceAnimationContainer}>
-          <Animated.Image
-            source={virus}
-            style={{
-              ...styles.tintColor,
-              ...styles.virus,
-              transform: [{rotate: spin}],
-            }}
-          />
-        </View>
+    <ScrollView>
+      <View style={styles.virusContainer}>
         <View style={styles.virus1}>
           <Animated.Image
             source={virus}
@@ -41,6 +33,15 @@ const KeepYourDistanceRule = ({navigation}) => {
             }}
           />
         </View>
+        <View style={styles.iconImageContainer}>
+          <Image
+            source={distance2}
+            style={{
+              ...styles.virus,
+            }}
+          />
+        </View>
+
         <View style={styles.virus2}>
           <Animated.Image
             source={virus}
@@ -51,37 +52,42 @@ const KeepYourDistanceRule = ({navigation}) => {
             }}
           />
         </View>
+        <View style={styles.virus3}>
+          <Animated.Image
+            source={virus}
+            style={{
+              ...styles.tintColor,
+              ...styles.virus,
+              transform: [{rotate: spin}],
+            }}
+          />
+        </View>
       </View>
-      <View style={styles.distanceImageContainer}>
-        <Image
-          source={distance2}
-          style={{
-            ...styles.virus,
-            ...styles.flex,
-          }}
-        />
-      </View>
-      <Heading>Keep your distance!</Heading>
 
-      <StyledText style={styles.keepYourDistanceText}>
-        Getting closer than 6ft increases your risk of getting germs on you
-        (gross)!
-      </StyledText>
+      <Card backgroundColor={colors.background}>
+        <Heading style={styles.marginVertical}>Keep your distance!</Heading>
 
-      <StyledText>
-        A perfect excuse to avoid that person you ghosted!
-      </StyledText>
+        <StyledText style={styles.marginVertical}>
+          Getting closer than 6ft increases your risk of getting germs on you
+          (gross)!
+        </StyledText>
 
-      <TouchableOpacity
+        <StyledText>
+          A perfect excuse to avoid that person you ghosted!
+        </StyledText>
+      </Card>
+      <Touchable
+        borderColor={colors.border}
         onPress={() => navigation.navigate('Groups')}
-        style={styles.buttonStyle}>
+        marginTop={40}>
         <Heading style={styles.buttonHeading}>...I'm listening</Heading>
-      </TouchableOpacity>
-    </Underlay>
+      </Touchable>
+    </ScrollView>
   );
 };
 
 const GroupsRule = ({navigation}) => {
+  const {colors} = useTheme();
   let spinValue = useSpringHeart();
   const spin = spinValue.interpolate({
     inputRange: [0, 1],
@@ -89,8 +95,36 @@ const GroupsRule = ({navigation}) => {
   });
 
   return (
-    <Underlay background={'#01016f'} bubbles={false}>
-      <View style={styles.groupsRuleContainer}>
+    <ScrollView style={styles.container}>
+      <View style={styles.virusContainer}>
+        <View style={styles.virus1}>
+          <Animated.Image
+            source={virus}
+            style={{
+              ...styles.virus,
+              transform: [{rotate: spin}],
+            }}
+          />
+        </View>
+        <View style={styles.iconImageContainer}>
+          <Image
+            source={groupNegative}
+            style={{
+              ...styles.tintColor,
+              ...styles.virus,
+            }}
+          />
+        </View>
+        <View style={styles.virus2}>
+          <Animated.Image
+            source={virus}
+            style={{
+              ...styles.virus,
+              transform: [{rotate: spin}],
+            }}
+          />
+        </View>
+
         <View style={styles.virus3}>
           <Animated.Image
             source={virus}
@@ -100,108 +134,72 @@ const GroupsRule = ({navigation}) => {
             }}
           />
         </View>
-
-        <View style={styles.virus4}>
-          <Animated.Image
-            source={virus}
-            style={{
-              ...styles.virus,
-              transform: [{rotate: spin}],
-            }}
-          />
-        </View>
-        <View style={styles.groupImageContainer}>
-          <Image
-            source={groupNegative}
-            style={{
-              ...styles.tintColor,
-              ...styles.virus,
-              ...styles.flex,
-            }}
-          />
-        </View>
-        <View style={styles.virus5}>
-          <Animated.Image
-            source={virus}
-            style={{
-              ...styles.virus,
-              transform: [{rotate: spin}],
-            }}
-          />
-        </View>
       </View>
-
-      <Heading color={'#9fcbee'}>Avoid groups!</Heading>
-      <StyledText color={'#9fcbee'} style={styles.marginVN20}>
-        Don’t be around more than 1 other person at a time
-      </StyledText>
-      <StyledText color={'#9fcbee'}>
-        (except for the people you live with)!
-      </StyledText>
-      <TouchableOpacity
+      <Card backgroundColor={colors.text}>
+        <Heading color={colors.card} style={styles.marginVertical}>
+          Avoid groups!
+        </Heading>
+        <StyledText color={colors.card} style={styles.marginVertical}>
+          Don’t be around more than 1 other person at a time
+        </StyledText>
+        <StyledText color={colors.card}>
+          (except for the people you live with)!
+        </StyledText>
+      </Card>
+      <Touchable
+        borderColor={colors.border}
         onPress={() => navigation.navigate('StayHome')}
-        style={styles.buttonStyle}>
-        <Heading color={'#9fcbee'} style={styles.buttonHeading}>
+        marginTop={80}>
+        <Heading color={colors.card} style={styles.buttonHeading}>
           ...aaaand?
         </Heading>
-      </TouchableOpacity>
-    </Underlay>
+      </Touchable>
+    </ScrollView>
   );
 };
 
 const StayHomeRule = ({navigation}) => {
+  const {colors} = useTheme();
   return (
-    <Underlay>
+    <View>
       <View style={styles.stayHomeRuleContainer}>
         <Image source={house2} style={styles.house} />
       </View>
-      <Heading style={styles.stayHomeRuleHeadding}>Stay home!</Heading>
+      <Heading>Stay home!</Heading>
+      <View>
+        <SectionList
+          style={styles.sectionContainer}
+          sections={[
+            {
+              title: ' Only go out if you have to:',
+              data: [
+                '- Get groceries',
+                '- Go to work',
+                '- Get some solo exercise',
+              ],
+            },
+          ]}
+          renderItem={({item}) => <StyledText>{item}</StyledText>}
+          renderSectionHeader={({section}) => (
+            <StyledText>{section.title}</StyledText>
+          )}
+          keyExtractor={(item, index) => index}
+        />
+      </View>
 
-      <SectionList
-        style={styles.stayHomeRulesection}
-        sections={[
-          {
-            title: ' Only go out if you have to:',
-            data: [
-              '- Getting groceries',
-              '- Going to work',
-              '- Get some solo exercise',
-            ],
-          },
-        ]}
-        renderItem={({item}) => <StyledText>{item}</StyledText>}
-        renderSectionHeader={({section}) => (
-          <StyledText>{section.title}</StyledText>
-        )}
-        keyExtractor={(item, index) => index}
-      />
-
-      <TouchableOpacity
+      <Touchable
+        borderColor={colors.border}
         onPress={() => navigation.navigate('WeeklyChallenge')}
-        style={styles.buttonStyle}>
+        marginTop={80}>
         <Heading style={styles.buttonHeading}>Ok, got it!</Heading>
-      </TouchableOpacity>
-    </Underlay>
+      </Touchable>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  bubbleImage: {
-    width: 60,
-    height: 60,
-  },
-  buttonStyle: {
-    borderColor: '#d8031c',
-    marginHorizontal: 46,
-    marginTop: -20,
-    borderRadius: 30,
-    borderWidth: 1.4,
-    elevation: 1.8,
-  },
-  rowIcons: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
+  container: {
+    backgroundColor: '#01016f',
   },
   buttonHeading: {
     fontSize: 20,
@@ -215,76 +213,51 @@ const styles = StyleSheet.create({
     flex: 1,
     tintColor: '#d8031c',
   },
-  stayHomeRuleContainer: {width: 90, height: 90, alignSelf: 'auto'},
-  stayHomeRuleHeadding: {marginVertical: -80},
-  stayHomeRulesection: {maxHeight: 120},
+  stayHomeRuleContainer: {
+    width: 90,
+    height: 90,
+    alignSelf: 'center',
+    marginTop: 120,
+    marginBottom: 20,
+  },
   virus: {width: '100%', height: '100%', resizeMode: 'contain'},
-  groupsRuleContainer: {
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    width: 300,
-    zIndex: 4,
-  },
+  sectionContainer: {marginVertical: 40},
   tintColor: {tintColor: '#d8031c'},
-  distanceContainer: {
+  virusContainer: {
     flexDirection: 'column',
     justifyContent: 'space-between',
-    width: 300,
-    zIndex: 4,
-    marginBottom: -230,
-    marginTop: -40,
+    width: 340,
+    zIndex: 1,
+    marginHorizontal: 8,
+    marginBottom: -20,
   },
-  distanceAnimationContainer: {
+  virus1: {
     width: 24,
     height: 26,
     alignSelf: 'flex-end',
     margin: 18,
   },
-  virus1: {
+  virus2: {
     width: 34,
     height: 36,
     alignSelf: 'flex-start',
     transform: [{scaleX: -1}],
     margin: 8,
   },
-  virus2: {
-    width: 30,
-    height: 32,
-    alignSelf: 'baseline',
-    margin: 30,
-  },
   virus3: {
-    width: 34,
-    height: 36,
-    alignSelf: 'flex-end',
-  },
-  virus4: {
-    width: 44,
-    height: 46,
-    alignSelf: 'flex-start',
-    transform: [{scaleX: -1}],
-    margin: 10,
-  },
-  virus5: {
     width: 30,
     height: 32,
-    alignSelf: 'flex-end',
-    margin: 17,
+    alignSelf: 'center',
+    marginTop: -20,
+    marginBottom: 30,
   },
-  distanceImageContainer: {
-    width: 206,
+  iconImageContainer: {
+    width: 160,
     height: 90,
-    alignSelf: 'auto',
+    alignSelf: 'center',
+    zIndex: 3,
   },
-  flex: {flex: 1},
-  groupImageContainer: {
-    width: 300,
-    height: 80,
-    marginVertical: -60,
-    alignSelf: 'auto',
-  },
-  marginVN20: {marginVertical: -20},
-  keepYourDistanceText: {marginVertical: -30, marginHorizontal: 20},
+  marginVertical: {marginVertical: 20},
 });
 
 export {KeepYourDistanceRule, GroupsRule, StayHomeRule};
