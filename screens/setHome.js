@@ -9,22 +9,17 @@ import {
 } from 'react-native';
 import {Heading} from '../components';
 import {Context} from '../util/context';
-import {
-  distanceFromHome,
-  handleCurrentlocation,
-  handleHomelocation,
-} from '../util/geoLocation';
+import {distanceFromHome, handleHomelocation} from '../util/geoLocation';
 const HomeLocation = setHomeLocation => {
   handleHomelocation(setHomeLocation);
 };
 
-const SetHome = ({navigation, route}) => {
+const SetHome = ({navigation}) => {
   const [state, dispatch] = useContext(Context);
 
   const setHomeLocation = value =>
     dispatch({type: 'homeLocation', value: value});
-  const setCurrentLocation = value =>
-    dispatch({type: 'currentLocation', value: value});
+
   const setDistanceFromHomeArray = value =>
     dispatch({type: 'distanceFromHomeArray', value: value});
 
@@ -42,10 +37,6 @@ const SetHome = ({navigation, route}) => {
       return;
     }
   };
-
-  useEffect(() => {
-    handleCurrentlocation(setCurrentLocation);
-  }, []);
 
   const check = async () => {
     const newDistance = await distanceFromHome(

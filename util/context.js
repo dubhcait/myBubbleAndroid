@@ -1,4 +1,5 @@
-import React, {createContext, useMemo, useReducer} from 'react';
+import React, {createContext, useEffect, useMemo, useReducer} from 'react';
+import {handleCurrentlocation} from './geoLocation';
 
 const initialState = {
   lives: [1, 1, 1],
@@ -6,7 +7,6 @@ const initialState = {
   currentLocation: {},
   distanceFromHomeArray: [0],
 };
-
 const reducer = (state, action) => {
   switch (action.type) {
     case 'lives':
@@ -27,6 +27,13 @@ export const Context = createContext();
 export const ContextProvider = ({children}) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const value = useMemo(() => [state, dispatch], [state]);
+
+  const setCurrentLocation = location =>
+    dispatch({type: 'currentLocation', value: location});
+
+  useEffect(() => {
+    handleCurrentlocation(setCurrentLocation);
+  }, []);
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
