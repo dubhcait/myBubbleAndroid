@@ -1,4 +1,4 @@
-import {AsyncStorage} from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 import React, {createContext, useEffect, useMemo, useReducer} from 'react';
 import {handleCurrentlocation} from './geoLocation';
 
@@ -12,13 +12,22 @@ const initialState = {
 const retriveFromStorage = async setStateObject => {
   try {
     const value = await AsyncStorage.getItem('myBubble');
-    console.log('value');
-    if (value !== undefined) {
+    console.log('value', value);
+    if (value !== null) {
       const storageObject = JSON.parse(value);
       setStateObject(storageObject);
     }
   } catch (e) {
     console.log('Error:', e);
+  }
+};
+
+const setStateToStorage = async stateObject => {
+  try {
+    await AsyncStorage.setItem('myBubble', JSON.stringify(stateObject));
+  } catch (e) {
+    // saving error
+    console.log('error:', e);
   }
 };
 
@@ -52,10 +61,13 @@ export const ContextProvider = ({children}) => {
     dispatch({type: 'all', value: storedObject});
 
   useEffect(() => {
-    console.log('hi');
     retriveFromStorage(setStateObject);
     handleCurrentlocation(setCurrentLocation);
   }, []);
+
+  useEffect(() => {
+    setStateToStorage;
+  }, [state]);
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
