@@ -1,3 +1,4 @@
+import {AsyncStorage} from '@react-native-community/async-storage';
 import React, {createContext, useEffect, useMemo, useReducer} from 'react';
 import {handleCurrentlocation} from './geoLocation';
 
@@ -7,6 +8,20 @@ const initialState = {
   currentLocation: {},
   distanceFromHomeArray: [0],
 };
+
+const retriveFromStorage = async setStateObject => {
+  try {
+    const value = await AsyncStorage.getItem('myBubble');
+    console.log('value');
+    if (value !== undefined) {
+      const storageObject = JSON.parse(value);
+      setStateObject(storageObject);
+    }
+  } catch (e) {
+    console.log('Error:', e);
+  }
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'lives':
@@ -17,6 +32,8 @@ const reducer = (state, action) => {
       return {...state, currentLocation: action.value};
     case 'distanceFromHomeArray':
       return {...state, distanceFromHomeArray: action.value};
+    case 'all':
+      return action.value;
     default:
       throw new Error('Unrecognized action');
   }
@@ -31,7 +48,12 @@ export const ContextProvider = ({children}) => {
   const setCurrentLocation = location =>
     dispatch({type: 'currentLocation', value: location});
 
+  const setStateObject = storedObject =>
+    dispatch({type: 'all', value: storedObject});
+
   useEffect(() => {
+    console.log('hi');
+    retriveFromStorage(setStateObject);
     handleCurrentlocation(setCurrentLocation);
   }, []);
 
