@@ -66,7 +66,7 @@ export const ContextProvider = ({children}) => {
   }, []);
 
   useEffect(() => {
-    setStateToStorage;
+    setStateToStorage(state);
   }, [state]);
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
