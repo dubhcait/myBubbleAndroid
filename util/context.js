@@ -67,7 +67,7 @@ export const ContextProvider = ({children}) => {
 
   useEffect(() => {
     setStateToStorage(state);
-  }, [state]);
+  }, [state.lives, state.homeLocation, state.distanceFromHomeArray]);
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
