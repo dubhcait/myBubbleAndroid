@@ -34,8 +34,10 @@ const setStateToStorage = async stateObject => {
 const reducer = (state, action) => {
   switch (action.type) {
     case 'lives':
+      setStateToStorage({...state, lives: action.value});
       return {...state, lives: action.value};
     case 'homeLocation':
+      setStateToStorage({...state, homeLocation: action.value});
       return {...state, homeLocation: action.value};
     case 'currentLocation':
       return {...state, currentLocation: action.value};
@@ -64,10 +66,6 @@ export const ContextProvider = ({children}) => {
     retriveFromStorage(setStateObject);
     handleCurrentlocation(setCurrentLocation);
   }, []);
-
-  useEffect(() => {
-    setStateToStorage(state);
-  }, [state.lives, state.homeLocation, state.distanceFromHomeArray]);
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
