@@ -71,29 +71,3 @@ export const ContextProvider = ({children}) => {
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
-
-// dispatch({type:"lives", value: newstate})
-// const homeFromMemory = async () => {
-//   try {
-//     const value = await AsyncStorage.getItem('myBubbleHome');
-//     if (value !== null) {
-//       const storageObject = JSON.parse(value);
-//       return storageObject.Home;
-//     }
-//     return false;
-//   } catch (e) {
-//     return false;
-//   }
-// };
-
-// const setMemory = async (label, item) => {
-//   try {
-//     await AsyncStorage.setItem(
-//       `myBubble${label}`,
-//       JSON.stringify({label, item}),
-//     );
-//   } catch (e) {
-//     // saving error
-//     console.log('error:', e);
-//   }
-// };
