@@ -39,9 +39,22 @@ jobs:
           cd ios && pod install
       - name: Build app
         run: |
-          xcodebuild -workspace myapp.xcworkspace -scheme myapp archive -archivePath myapp.xcarchive -allowProvisioningUpdates
-          xcodebuild -exportArchive -archivePath ./myapp.xcarchive -exportPath . -exportOptionsPlist myapp/Info.plist
-          mv myapp.ipa ../myapp.ipa
+          cd ios && xcodebuild archive \
+            -workspace appname.xcworkspace \
+            -scheme appname \
+            -sdk iphoneos13.2 \
+            -configuration Release \
+            -archivePath $PWD/build/appname.xcarchive \
+            IPHONEOS_DEPLOYMENT_TARGET=9.0
+            PROVISIONING_PROFILE="UUID HERE" \
+            CODE_SIGN_IDENTITY="iPhone Distribution: Some Company (T343ff)"
+      - name: Export app
+        run: |
+          cd ios && xcodebuild \
+            -exportArchive \
+            -archivePath $PWD/build/appname.xcarchive \
+            -exportOptionsPlist $PWD/ci.plist \
+            -exportPath $PWD/build
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
