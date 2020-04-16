@@ -8,7 +8,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import {distance2, groupNegative, house2, virus} from '../assets';
+import {distance2, groupNegative, house2, meow, virus} from '../assets';
 import {Card, Heading, StyledText, Touchable} from '../components';
 import {useSpringHeart} from '../util/animations';
 
@@ -79,7 +79,7 @@ const KeepYourDistanceRule = ({navigation}) => {
       <Touchable
         borderColor={colors.border}
         onPress={() => navigation.navigate('Groups')}
-        marginTop={40}>
+        marginTop={60}>
         <Heading style={styles.buttonHeading}>...I'm listening</Heading>
       </Touchable>
     </ScrollView>
@@ -160,10 +160,19 @@ const GroupsRule = ({navigation}) => {
 
 const StayHomeRule = ({navigation}) => {
   const {colors} = useTheme();
+  let springValue = useSpringHeart();
   return (
     <View>
+      <StyledText style={styles.houseCat}>
+        Who knew your house cat was onto something...
+      </StyledText>
       <View style={styles.stayHomeRuleContainer}>
+        <View style={styles.house} />
         <Image source={house2} style={styles.house} />
+        <Animated.Image
+          source={meow}
+          style={{...styles.speakBubble, transform: [{scale: springValue}]}}
+        />
       </View>
       <Heading>Stay home!</Heading>
       <View>
@@ -190,7 +199,7 @@ const StayHomeRule = ({navigation}) => {
       <Touchable
         borderColor={colors.border}
         onPress={() => navigation.navigate('WeeklyChallenge')}
-        marginTop={80}>
+        marginTop={40}>
         <Heading style={styles.buttonHeading}>Ok, got it!</Heading>
       </Touchable>
     </View>
@@ -207,26 +216,32 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   house: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'contain',
+    width: 86,
     flex: 1,
+    height: 86,
     tintColor: '#d8031c',
   },
+  speakBubble: {
+    width: 70,
+    flex: 1,
+    height: 70,
+    marginBottom: 28,
+  },
   stayHomeRuleContainer: {
-    width: 90,
-    height: 90,
-    alignSelf: 'center',
-    marginTop: 120,
-    marginBottom: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 14,
+    marginBottom: 10,
   },
   virus: {width: '100%', height: '100%', resizeMode: 'contain'},
   sectionContainer: {marginVertical: 40},
+  houseCat: {marginTop: 60, marginBottom: 30},
   tintColor: {tintColor: '#d8031c'},
   virusContainer: {
     flexDirection: 'column',
     justifyContent: 'space-between',
-    width: 340,
+    width: '100%',
     zIndex: 1,
     marginHorizontal: 8,
     marginBottom: -20,

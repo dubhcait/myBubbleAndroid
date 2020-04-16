@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-community/async-storage';
 import React, {createContext, useEffect, useMemo, useReducer} from 'react';
 import {handleCurrentlocation} from './geoLocation';
 
@@ -7,16 +8,43 @@ const initialState = {
   currentLocation: {},
   distanceFromHomeArray: [0],
 };
+
+const retriveFromStorage = async setStateObject => {
+  try {
+    const value = await AsyncStorage.getItem('myBubble');
+    console.log('value', value);
+    if (value !== null) {
+      const storageObject = JSON.parse(value);
+      setStateObject(storageObject);
+    }
+  } catch (e) {
+    console.log('Error:', e);
+  }
+};
+
+const setStateToStorage = async stateObject => {
+  try {
+    await AsyncStorage.setItem('myBubble', JSON.stringify(stateObject));
+  } catch (e) {
+    // saving error
+    console.log('error:', e);
+  }
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'lives':
+      setStateToStorage({...state, lives: action.value});
       return {...state, lives: action.value};
     case 'homeLocation':
+      setStateToStorage({...state, homeLocation: action.value});
       return {...state, homeLocation: action.value};
     case 'currentLocation':
       return {...state, currentLocation: action.value};
     case 'distanceFromHomeArray':
       return {...state, distanceFromHomeArray: action.value};
+    case 'all':
+      return action.value;
     default:
       throw new Error('Unrecognized action');
   }
@@ -31,35 +59,13 @@ export const ContextProvider = ({children}) => {
   const setCurrentLocation = location =>
     dispatch({type: 'currentLocation', value: location});
 
+  const setStateObject = storedObject =>
+    dispatch({type: 'all', value: storedObject});
+
   useEffect(() => {
+    retriveFromStorage(setStateObject);
     handleCurrentlocation(setCurrentLocation);
   }, []);
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
-
-// dispatch({type:"lives", value: newstate})
-// const homeFromMemory = async () => {
-//   try {
-//     const value = await AsyncStorage.getItem('myBubbleHome');
-//     if (value !== null) {
-//       const storageObject = JSON.parse(value);
-//       return storageObject.Home;
-//     }
-//     return false;
-//   } catch (e) {
-//     return false;
-//   }
-// };
-
-// const setMemory = async (label, item) => {
-//   try {
-//     await AsyncStorage.setItem(
-//       `myBubble${label}`,
-//       JSON.stringify({label, item}),
-//     );
-//   } catch (e) {
-//     // saving error
-//     console.log('error:', e);
-//   }
-// };
