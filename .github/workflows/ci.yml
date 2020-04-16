@@ -40,11 +40,11 @@ jobs:
       - name: Build app
         run: |
           cd ios && xcodebuild archive \
-            -workspace appname.xcworkspace \
-            -scheme appname \
+            -workspace MyBubble.xcworkspace \
+            -scheme MyBubble \
             -sdk iphoneos13.2 \
             -configuration Release \
-            -archivePath $PWD/build/appname.xcarchive \
+            -archivePath $PWD/build/MyBubble.xcarchive \
             IPHONEOS_DEPLOYMENT_TARGET=9.0
             PROVISIONING_PROFILE="UUID HERE" \
             CODE_SIGN_IDENTITY="iPhone Distribution: Some Company (T343ff)"
@@ -52,7 +52,7 @@ jobs:
         run: |
           cd ios && xcodebuild \
             -exportArchive \
-            -archivePath $PWD/build/appname.xcarchive \
+            -archivePath $PWD/build/MyBubble.xcarchive \
             -exportOptionsPlist $PWD/ci.plist \
             -exportPath $PWD/build
       - name: Upload Artifact
