@@ -39,24 +39,11 @@ jobs:
           cd ios && pod install
       - name: Build app
         run: |
-          cd ios && xcodebuild archive \
-            -workspace MyBubble.xcworkspace \
-            -scheme MyBubble \
-            -sdk iphoneos13.2 \
-            -configuration Release \
-            -archivePath $PWD/build/MyBubble.xcarchive \
-            IPHONEOS_DEPLOYMENT_TARGET=9.0
-            PROVISIONING_PROFILE="UUID HERE" \
-            CODE_SIGN_IDENTITY="iPhone Distribution: Some Company (T343ff)"
-      - name: Export app
-        run: |
-          cd ios && xcodebuild \
-            -exportArchive \
-            -archivePath $PWD/build/MyBubble.xcarchive \
-            -exportOptionsPlist $PWD/ci.plist \
-            -exportPath $PWD/build
+          xcodebuild -workspace MyBubble.xcworkspace -scheme MyBubble archive -archivePath MyBubble.xcarchive -allowProvisioningUpdates
+          xcodebuild -exportArchive -archivePath ./MyBubble.xcarchive -exportPath . -exportOptionsPlist MyBubble/Info.plist
+          mv MyBubble.ipa ../MyBubble.ipa
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: myapp.ipa
+          name: MyBubble.ipa
           path: ios/build/
