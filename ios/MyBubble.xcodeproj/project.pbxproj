@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* MyBubbleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MyBubbleTests.m */; };
+		074100D12448CFF000A58227 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074100D02448CFF000A58227 /* MapKit.framework */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -52,6 +53,7 @@
 		00E356EE1AD99517003FC87E /* MyBubbleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBubbleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* MyBubbleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyBubbleTests.m; sourceTree = "<group>"; };
+		074100D02448CFF000A58227 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		13B07F961A680F5B00A75B9A /* MyBubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MyBubble/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MyBubble/AppDelegate.m; sourceTree = "<group>"; };
@@ -59,13 +61,13 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MyBubble/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MyBubble/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MyBubble/main.m; sourceTree = "<group>"; };
-		18E11490F9874EADA630C4EA /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-ExtraBold.ttf"; path = "../assets/fonts/Dosis/Dosis-ExtraBold.ttf"; sourceTree = "<group>"; };
+		18E11490F9874EADA630C4EA /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-ExtraBold.ttf"; path = "../assets/fonts/Dosis/Dosis-ExtraBold.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* MyBubble-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyBubble-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* MyBubble-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyBubble-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E4B6D49B2D12E25040731B /* Pods-MyBubble-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-MyBubble-tvOSTests/Pods-MyBubble-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		43FCCBA06CCB446FAB61EFDE /* Dosis-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Regular.ttf"; path = "../assets/fonts/Dosis/Dosis-Regular.ttf"; sourceTree = "<group>"; };
+		43FCCBA06CCB446FAB61EFDE /* Dosis-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Regular.ttf"; path = "../assets/fonts/Dosis/Dosis-Regular.ttf"; sourceTree = "<group>"; };
 		4824DB0107454A80C7F1B078 /* Pods-MyBubble-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-MyBubble-tvOSTests/Pods-MyBubble-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		4CA91CB2EE0B45659C4B7EA1 /* Dosis-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Bold.ttf"; path = "../assets/fonts/Dosis/Dosis-Bold.ttf"; sourceTree = "<group>"; };
+		4CA91CB2EE0B45659C4B7EA1 /* Dosis-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Bold.ttf"; path = "../assets/fonts/Dosis/Dosis-Bold.ttf"; sourceTree = "<group>"; };
 		550A30BF4EDA095B54E3CC90 /* libPods-MyBubble-MyBubbleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyBubble-MyBubbleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		551A666EBBB65DD1712DF1AA /* libPods-MyBubble-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyBubble-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0ED4FF70ACAA6A6C6DC5A9 /* Pods-MyBubble-MyBubbleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble-MyBubbleTests.debug.xcconfig"; path = "Target Support Files/Pods-MyBubble-MyBubbleTests/Pods-MyBubble-MyBubbleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,15 +76,15 @@
 		72733204B7A598C1663770D8 /* libPods-MyBubble-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyBubble-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91740827161D26BA0E34BBEB /* libPods-MyBubble.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyBubble.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FCFD50A3D66F4146BB75268 /* Pods-MyBubble-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-MyBubble-tvOS/Pods-MyBubble-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		A5047D9955A74709ADF1B13D /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato/Lato-Regular.ttf"; sourceTree = "<group>"; };
-		AB1261D5690542D1AA76A4D3 /* Dosis-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-ExtraLight.ttf"; path = "../assets/fonts/Dosis/Dosis-ExtraLight.ttf"; sourceTree = "<group>"; };
-		BBA4A94465C84DCAA96FC8DB /* Dosis-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Light.ttf"; path = "../assets/fonts/Dosis/Dosis-Light.ttf"; sourceTree = "<group>"; };
+		A5047D9955A74709ADF1B13D /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		AB1261D5690542D1AA76A4D3 /* Dosis-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-ExtraLight.ttf"; path = "../assets/fonts/Dosis/Dosis-ExtraLight.ttf"; sourceTree = "<group>"; };
+		BBA4A94465C84DCAA96FC8DB /* Dosis-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Light.ttf"; path = "../assets/fonts/Dosis/Dosis-Light.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		EE03056D8FBD2B3099005537 /* Pods-MyBubble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble.debug.xcconfig"; path = "Target Support Files/Pods-MyBubble/Pods-MyBubble.debug.xcconfig"; sourceTree = "<group>"; };
-		F1F2553833F743158293DAF4 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-SemiBold.ttf"; path = "../assets/fonts/Dosis/Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
+		F1F2553833F743158293DAF4 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-SemiBold.ttf"; path = "../assets/fonts/Dosis/Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
 		F4BD79E68200B2AF19204BB8 /* Pods-MyBubble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble.release.xcconfig"; path = "Target Support Files/Pods-MyBubble/Pods-MyBubble.release.xcconfig"; sourceTree = "<group>"; };
-		FC43005E851F468889510490 /* Dosis-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Medium.ttf"; path = "../assets/fonts/Dosis/Dosis-Medium.ttf"; sourceTree = "<group>"; };
+		FC43005E851F468889510490 /* Dosis-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Medium.ttf"; path = "../assets/fonts/Dosis/Dosis-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				074100D12448CFF000A58227 /* MapKit.framework in Frameworks */,
 				7AC7DB5D96C45C369B4A5018 /* libPods-MyBubble.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +158,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				074100D02448CFF000A58227 /* MapKit.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				91740827161D26BA0E34BBEB /* libPods-MyBubble.a */,
@@ -178,7 +182,6 @@
 				A5047D9955A74709ADF1B13D /* Lato-Regular.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -227,7 +230,6 @@
 				35E4B6D49B2D12E25040731B /* Pods-MyBubble-tvOSTests.debug.xcconfig */,
 				4824DB0107454A80C7F1B078 /* Pods-MyBubble-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -325,6 +327,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = CB3DQ42F3N;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -671,6 +674,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CB3DQ42F3N;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -698,6 +702,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CB3DQ42F3N;
 				INFOPLIST_FILE = MyBubble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
