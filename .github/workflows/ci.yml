@@ -39,7 +39,7 @@ jobs:
           cd ios && pod install
       - name: Build app
         run: |
-          xcodebuild -workspace MyBubble.xcworkspace -scheme MyBubble archive -archivePath MyBubble.xcarchive -allowProvisioningUpdates
+          cd ios && xcodebuild -workspace MyBubble.xcworkspace -scheme MyBubble archive -archivePath MyBubble.xcarchive -allowProvisioningUpdates
           xcodebuild -exportArchive -archivePath ./MyBubble.xcarchive -exportPath . -exportOptionsPlist MyBubble/Info.plist
           mv MyBubble.ipa ../MyBubble.ipa
       - name: Upload Artifact
