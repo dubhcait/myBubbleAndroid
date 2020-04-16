@@ -12,18 +12,22 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		16B6DEA1A6A54407BA3B8BC7 /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18E11490F9874EADA630C4EA /* Dosis-ExtraBold.ttf */; };
+		29D588E82AA44B53B1BC82A1 /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CA91CB2EE0B45659C4B7EA1 /* Dosis-Bold.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* MyBubbleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MyBubbleTests.m */; };
-		29D588E82AA44B53B1BC82A1 /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CA91CB2EE0B45659C4B7EA1 /* Dosis-Bold.ttf */; };
-		16B6DEA1A6A54407BA3B8BC7 /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18E11490F9874EADA630C4EA /* Dosis-ExtraBold.ttf */; };
 		5D550D479F6B4153848DFB9A /* Dosis-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB1261D5690542D1AA76A4D3 /* Dosis-ExtraLight.ttf */; };
-		FC4ECC3A333740329CDB16CB /* Dosis-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBA4A94465C84DCAA96FC8DB /* Dosis-Light.ttf */; };
-		C60E9B3E418841D3818FD692 /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC43005E851F468889510490 /* Dosis-Medium.ttf */; };
+		6EE637C8D258AF7AC96F7E46 /* libPods-MyBubble-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72733204B7A598C1663770D8 /* libPods-MyBubble-tvOSTests.a */; };
 		765AD8E7615C4ADFA4E89FB5 /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43FCCBA06CCB446FAB61EFDE /* Dosis-Regular.ttf */; };
+		7AC7DB5D96C45C369B4A5018 /* libPods-MyBubble.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91740827161D26BA0E34BBEB /* libPods-MyBubble.a */; };
+		A151416FC388A5CCCBA41301 /* libPods-MyBubble-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551A666EBBB65DD1712DF1AA /* libPods-MyBubble-tvOS.a */; };
 		A9D79202BA22438DAB8A9851 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1F2553833F743158293DAF4 /* Dosis-SemiBold.ttf */; };
+		B93E2A921B39E299EAAEF48D /* libPods-MyBubble-MyBubbleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A30BF4EDA095B54E3CC90 /* libPods-MyBubble-MyBubbleTests.a */; };
+		C60E9B3E418841D3818FD692 /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC43005E851F468889510490 /* Dosis-Medium.ttf */; };
 		D64A81F9EE18422094AAAC3D /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5047D9955A74709ADF1B13D /* Lato-Regular.ttf */; };
+		FC4ECC3A333740329CDB16CB /* Dosis-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBA4A94465C84DCAA96FC8DB /* Dosis-Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,18 +59,30 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MyBubble/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MyBubble/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MyBubble/main.m; sourceTree = "<group>"; };
+		18E11490F9874EADA630C4EA /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-ExtraBold.ttf"; path = "../assets/fonts/Dosis/Dosis-ExtraBold.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* MyBubble-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyBubble-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* MyBubble-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyBubble-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35E4B6D49B2D12E25040731B /* Pods-MyBubble-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-MyBubble-tvOSTests/Pods-MyBubble-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		43FCCBA06CCB446FAB61EFDE /* Dosis-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Regular.ttf"; path = "../assets/fonts/Dosis/Dosis-Regular.ttf"; sourceTree = "<group>"; };
+		4824DB0107454A80C7F1B078 /* Pods-MyBubble-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-MyBubble-tvOSTests/Pods-MyBubble-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		4CA91CB2EE0B45659C4B7EA1 /* Dosis-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Bold.ttf"; path = "../assets/fonts/Dosis/Dosis-Bold.ttf"; sourceTree = "<group>"; };
+		550A30BF4EDA095B54E3CC90 /* libPods-MyBubble-MyBubbleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyBubble-MyBubbleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		551A666EBBB65DD1712DF1AA /* libPods-MyBubble-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyBubble-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D0ED4FF70ACAA6A6C6DC5A9 /* Pods-MyBubble-MyBubbleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble-MyBubbleTests.debug.xcconfig"; path = "Target Support Files/Pods-MyBubble-MyBubbleTests/Pods-MyBubble-MyBubbleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6ABC0E2D9A3C61FE10E90161 /* Pods-MyBubble-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble-tvOS.release.xcconfig"; path = "Target Support Files/Pods-MyBubble-tvOS/Pods-MyBubble-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		716A0E71023AFF758BD9C590 /* Pods-MyBubble-MyBubbleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble-MyBubbleTests.release.xcconfig"; path = "Target Support Files/Pods-MyBubble-MyBubbleTests/Pods-MyBubble-MyBubbleTests.release.xcconfig"; sourceTree = "<group>"; };
+		72733204B7A598C1663770D8 /* libPods-MyBubble-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyBubble-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		91740827161D26BA0E34BBEB /* libPods-MyBubble.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyBubble.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FCFD50A3D66F4146BB75268 /* Pods-MyBubble-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-MyBubble-tvOS/Pods-MyBubble-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		A5047D9955A74709ADF1B13D /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		AB1261D5690542D1AA76A4D3 /* Dosis-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-ExtraLight.ttf"; path = "../assets/fonts/Dosis/Dosis-ExtraLight.ttf"; sourceTree = "<group>"; };
+		BBA4A94465C84DCAA96FC8DB /* Dosis-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Light.ttf"; path = "../assets/fonts/Dosis/Dosis-Light.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		4CA91CB2EE0B45659C4B7EA1 /* Dosis-Bold.ttf */ = {isa = PBXFileReference; name = "Dosis-Bold.ttf"; path = "../assets/fonts/Dosis/Dosis-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		18E11490F9874EADA630C4EA /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Dosis-ExtraBold.ttf"; path = "../assets/fonts/Dosis/Dosis-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AB1261D5690542D1AA76A4D3 /* Dosis-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Dosis-ExtraLight.ttf"; path = "../assets/fonts/Dosis/Dosis-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		BBA4A94465C84DCAA96FC8DB /* Dosis-Light.ttf */ = {isa = PBXFileReference; name = "Dosis-Light.ttf"; path = "../assets/fonts/Dosis/Dosis-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		FC43005E851F468889510490 /* Dosis-Medium.ttf */ = {isa = PBXFileReference; name = "Dosis-Medium.ttf"; path = "../assets/fonts/Dosis/Dosis-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		43FCCBA06CCB446FAB61EFDE /* Dosis-Regular.ttf */ = {isa = PBXFileReference; name = "Dosis-Regular.ttf"; path = "../assets/fonts/Dosis/Dosis-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F1F2553833F743158293DAF4 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; name = "Dosis-SemiBold.ttf"; path = "../assets/fonts/Dosis/Dosis-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A5047D9955A74709ADF1B13D /* Lato-Regular.ttf */ = {isa = PBXFileReference; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato/Lato-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EE03056D8FBD2B3099005537 /* Pods-MyBubble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble.debug.xcconfig"; path = "Target Support Files/Pods-MyBubble/Pods-MyBubble.debug.xcconfig"; sourceTree = "<group>"; };
+		F1F2553833F743158293DAF4 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-SemiBold.ttf"; path = "../assets/fonts/Dosis/Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
+		F4BD79E68200B2AF19204BB8 /* Pods-MyBubble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBubble.release.xcconfig"; path = "Target Support Files/Pods-MyBubble/Pods-MyBubble.release.xcconfig"; sourceTree = "<group>"; };
+		FC43005E851F468889510490 /* Dosis-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Medium.ttf"; path = "../assets/fonts/Dosis/Dosis-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B93E2A921B39E299EAAEF48D /* libPods-MyBubble-MyBubbleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AC7DB5D96C45C369B4A5018 /* libPods-MyBubble.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A151416FC388A5CCCBA41301 /* libPods-MyBubble-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EE637C8D258AF7AC96F7E46 /* libPods-MyBubble-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +157,28 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
+				91740827161D26BA0E34BBEB /* libPods-MyBubble.a */,
+				550A30BF4EDA095B54E3CC90 /* libPods-MyBubble-MyBubbleTests.a */,
+				551A666EBBB65DD1712DF1AA /* libPods-MyBubble-tvOS.a */,
+				72733204B7A598C1663770D8 /* libPods-MyBubble-tvOSTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		810D4A9AF4E343E09E787831 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4CA91CB2EE0B45659C4B7EA1 /* Dosis-Bold.ttf */,
+				18E11490F9874EADA630C4EA /* Dosis-ExtraBold.ttf */,
+				AB1261D5690542D1AA76A4D3 /* Dosis-ExtraLight.ttf */,
+				BBA4A94465C84DCAA96FC8DB /* Dosis-Light.ttf */,
+				FC43005E851F468889510490 /* Dosis-Medium.ttf */,
+				43FCCBA06CCB446FAB61EFDE /* Dosis-Regular.ttf */,
+				F1F2553833F743158293DAF4 /* Dosis-SemiBold.ttf */,
+				A5047D9955A74709ADF1B13D /* Lato-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -157,6 +197,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				810D4A9AF4E343E09E787831 /* Resources */,
+				EE9D8F639C15B4BCE481DBBE /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -174,21 +215,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		810D4A9AF4E343E09E787831 /* Resources */ = {
-			isa = "PBXGroup";
+		EE9D8F639C15B4BCE481DBBE /* Pods */ = {
+			isa = PBXGroup;
 			children = (
-				4CA91CB2EE0B45659C4B7EA1 /* Dosis-Bold.ttf */,
-				18E11490F9874EADA630C4EA /* Dosis-ExtraBold.ttf */,
-				AB1261D5690542D1AA76A4D3 /* Dosis-ExtraLight.ttf */,
-				BBA4A94465C84DCAA96FC8DB /* Dosis-Light.ttf */,
-				FC43005E851F468889510490 /* Dosis-Medium.ttf */,
-				43FCCBA06CCB446FAB61EFDE /* Dosis-Regular.ttf */,
-				F1F2553833F743158293DAF4 /* Dosis-SemiBold.ttf */,
-				A5047D9955A74709ADF1B13D /* Lato-Regular.ttf */,
+				EE03056D8FBD2B3099005537 /* Pods-MyBubble.debug.xcconfig */,
+				F4BD79E68200B2AF19204BB8 /* Pods-MyBubble.release.xcconfig */,
+				5D0ED4FF70ACAA6A6C6DC5A9 /* Pods-MyBubble-MyBubbleTests.debug.xcconfig */,
+				716A0E71023AFF758BD9C590 /* Pods-MyBubble-MyBubbleTests.release.xcconfig */,
+				9FCFD50A3D66F4146BB75268 /* Pods-MyBubble-tvOS.debug.xcconfig */,
+				6ABC0E2D9A3C61FE10E90161 /* Pods-MyBubble-tvOS.release.xcconfig */,
+				35E4B6D49B2D12E25040731B /* Pods-MyBubble-tvOSTests.debug.xcconfig */,
+				4824DB0107454A80C7F1B078 /* Pods-MyBubble-tvOSTests.release.xcconfig */,
 			);
-			name = Resources;
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -197,6 +238,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MyBubbleTests" */;
 			buildPhases = (
+				68BDD9D6C916446D83B76430 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -215,6 +257,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MyBubble" */;
 			buildPhases = (
+				5EC21CA210EE84323CA0A8AF /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -234,6 +277,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "MyBubble-tvOS" */;
 			buildPhases = (
+				B4483E5028E3ED7248C1C942 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -253,6 +297,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "MyBubble-tvOSTests" */;
 			buildPhases = (
+				F8A538A78B855ADA0AA22043 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -385,6 +430,94 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		5EC21CA210EE84323CA0A8AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyBubble-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68BDD9D6C916446D83B76430 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyBubble-MyBubbleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4483E5028E3ED7248C1C942 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyBubble-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8A538A78B855ADA0AA22043 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyBubble-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -490,6 +623,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D0ED4FF70ACAA6A6C6DC5A9 /* Pods-MyBubble-MyBubbleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -512,6 +646,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 716A0E71023AFF758BD9C590 /* Pods-MyBubble-MyBubbleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -531,6 +666,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE03056D8FBD2B3099005537 /* Pods-MyBubble.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -557,6 +693,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4BD79E68200B2AF19204BB8 /* Pods-MyBubble.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -577,6 +714,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FCFD50A3D66F4146BB75268 /* Pods-MyBubble-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -604,6 +742,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6ABC0E2D9A3C61FE10E90161 /* Pods-MyBubble-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -631,6 +770,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35E4B6D49B2D12E25040731B /* Pods-MyBubble-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -657,6 +797,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4824DB0107454A80C7F1B078 /* Pods-MyBubble-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
