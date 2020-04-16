@@ -40,9 +40,9 @@ jobs:
       - name: Build app
         run: |
           cd ios && xcodebuild -workspace MyBubble.xcworkspace -scheme MyBubble archive -archivePath MyBubble.xcarchive -allowProvisioningUpdates || sleep 15
+          xcodebuild -exportArchive -archivePath ./MyBubble.xcarchive -exportPath . -exportOptionsPlist MyBubble/Info.plist
+          mv MyBubble.ipa ../MyBubble.ipa
 
-          cd ios && xcodebuild -exportArchive -archivePath ./MyBubble.xcarchive -exportPath . -exportOptionsPlist MyBubble/Info.plist
-          cd ios && mv MyBubble.ipa ../MyBubble.ipa
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
