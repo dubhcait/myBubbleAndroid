@@ -21,7 +21,6 @@ jobs:
           path: android/app/build/outputs/apk/release/
 
   build-ios:
-    needs: install-and-test
     runs-on: [self-hosted, macos]
     steps:
       - uses: actions/checkout@v2
