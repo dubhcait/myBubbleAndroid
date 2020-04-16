@@ -32,4 +32,4 @@ jobs:
           cd ios && pod install
       - name:
         run: |
-          react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios
+          npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios
