@@ -14,6 +14,7 @@ import home from './home.png';
 import house from './house.png';
 import house2 from './house2.png';
 import leaderboard from './leaderboard.png';
+import meow from './meow.png';
 import newTask from './newTask.png';
 import plus from './plus.png';
 import poppedBubble2 from './poppedBubble2.png';
@@ -25,7 +26,6 @@ import twoPeople from './twoPeople.png';
 import virus from './virus.png';
 import wash from './wash.png';
 import work from './work.png';
-
 export {
   bottomRightBubbles,
   bottomRightDarkBubbles,
@@ -54,4 +54,5 @@ export {
   facecover,
   soap,
   wash,
+  meow,
 };

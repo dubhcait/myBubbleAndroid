@@ -58,7 +58,9 @@ const GameIntro = ({introAllSeen, navigation}) => {
             <Image source={twoPeople} style={{tintColor: colors.primary}} />
             <Image source={group} style={{tintColor: colors.primary}} />
             <Image source={home} style={{tintColor: colors.primary}} />
-            <Image source={poppedBubble2} style={styles.poppedBubble} />
+            <View style={styles.bubbleWrap}>
+              <Image source={poppedBubble2} style={styles.poppedBubble} />
+            </View>
           </RowIcons>
 
           <StyledText>
@@ -101,7 +103,16 @@ const styles = StyleSheet.create({
   },
 
   image: {width: 60, height: 60},
-  poppedBubble: {width: 42.7, height: 42},
+  poppedBubble: {
+    width: 42.7,
+    height: 42,
+  },
+  bubbleWrap: {
+    width: 42.7,
+    height: 42,
+    borderRadius: 50,
+    elevation: 3,
+  },
   plusImage: {
     width: 20,
     height: 20,
