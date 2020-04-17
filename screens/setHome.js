@@ -81,18 +81,6 @@ const SetHome = ({navigation}) => {
           </Heading>
         </Touchable>
       )}
-      {/* <Text>Current location:</Text> */}
-      {/* <Text>
-        Longitude:{Math.floor(state.currentLocation.longitude * 100) / 100},
-        Latitude:
-        {Math.floor(state.currentLocation.latitude * 100) / 100}
-      </Text>
-      <Text>Home location:</Text>
-      <Text>
-        Longitude:{Math.floor(state.homeLocation.longitude * 100) / 100},
-        Latitude:
-        {Math.floor(state.homeLocation.latitude * 100) / 100}
-      </Text> */}
       <Text>
         {Math.floor(state.distanceFromHomeArray[0] * 10000)} meters from home
       </Text>
@@ -112,7 +100,7 @@ const SetHome = ({navigation}) => {
         />
         <Touchable
           marginTop={60}
-          style={styles.marginV20}
+          backgroundColor={colors.background}
           borderColor={colors.border}
           onPress={() => navigation.navigate('Home')}>
           <Heading color={colors.primary} style={styles.buttonHeading}>
@@ -166,3 +154,20 @@ const styles = StyleSheet.create({
 });
 
 export default SetHome;
+
+{
+  /* <Text>Current location:</Text> */
+}
+{
+  /* <Text>
+        Longitude:{Math.floor(state.currentLocation.longitude * 100) / 100},
+        Latitude:
+        {Math.floor(state.currentLocation.latitude * 100) / 100}
+      </Text>
+      <Text>Home location:</Text>
+      <Text>
+        Longitude:{Math.floor(state.homeLocation.longitude * 100) / 100},
+        Latitude:
+        {Math.floor(state.homeLocation.latitude * 100) / 100}
+      </Text> */
+}
