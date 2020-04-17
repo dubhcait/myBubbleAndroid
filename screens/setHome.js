@@ -63,8 +63,6 @@ const SetHome = ({navigation}) => {
   let Latitude = (state.homeLocation.latitude * 100) / 100;
   let Longitude = (state.homeLocation.longitude * 100) / 100;
 
-  const htmlStyleFix = `<style type="text/css">iframe{max-width: 100%;}</style>`;
-
   let myLocation = `http://www.openstreetmap.org/export/embed.html?bbox=${Longitude}%2C${Latitude}%2C${Longitude}%2C${Latitude}&amp;layer=mapnik&amp;marker=${Latitude}%2C${Longitude}`;
   return (
     <ScrollView style={styles.scrollView}>
@@ -93,9 +91,9 @@ const SetHome = ({navigation}) => {
           style={styles.webView}
           originWhitelist={['*']}
           source={{
-            html: `${htmlStyleFix}<iFrame width="1165" height="655" style=${
+            html: `<iFrame width="1165" height="655" style=${
               styles.iFrame
-            } src=${myLocation} allowfullscreen></iFrame>`,
+            } src='${myLocation}' allowfullscreen></iFrame>`,
           }}
         />
         <Touchable
@@ -124,6 +122,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     left: 0,
+    maxWidth: '100%',
   },
   buttonHeading: {
     fontSize: 20,
