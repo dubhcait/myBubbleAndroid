@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
     height: 206,
     marginRight: 10,
     marginLeft: 10,
+    opacity: 0.99,
   },
   iFrame: {
     position: 'absolute',
