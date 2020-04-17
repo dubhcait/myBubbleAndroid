@@ -1,10 +1,10 @@
-name: Build Android
+name: Build Android and iOS
 on:
   push:
     branches:
       - master
 jobs:
-  install-and-test:
+  build-android:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,3 +19,32 @@ jobs:
         with:
           name: app-release.apk
           path: android/app/build/outputs/apk/release/
+
+  build-ios:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install gpg
+        run: brew install gnupg
+
+      - name: Switch XCode Version
+        run: sudo xcode-select -s /Applications/Xcode_11.2.app
+
+      - name: Install npm dependencies
+        run: |
+          yarn install
+      - name: Install pod dependencies
+        run: |
+          cd ios && pod install
+      - name: Build app
+        run: |
+          cd ios && xcodebuild -workspace MyBubble.xcworkspace -scheme MyBubble archive -archivePath MyBubble.xcarchive -allowProvisioningUpdates || sleep 15
+          xcodebuild -exportArchive -archivePath ./MyBubble.xcarchive -exportPath . -exportOptionsPlist MyBubble/Info.plist
+          mv MyBubble.ipa ../MyBubble.ipa
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: MyBubble.ipa
+          path: ios/build/
