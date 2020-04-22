@@ -1,3 +1,4 @@
+import BluetoothPg from './Bluetooth';
 import GameIntro from './gameIntro';
 import {Exiting, ReEntering} from './GeoFencing';
 import InitialScreen from './initialScreen';
@@ -21,4 +22,5 @@ export {
   MainScreen,
   WeeklyChallenge,
   SetHome,
+  BluetoothPg,
 };
