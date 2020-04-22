@@ -21,15 +21,24 @@ const MainScreen = ({navigation}) => {
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <Heading>MyBubble</Heading>
-
-        <TouchableOpacity
-          style={styles.setHome}
-          onPress={() => navigation.navigate('SetHome')}>
-          <Image source={home} style={styles.homeImage} />
-          <Heading color={colors.card} style={styles.smallHeading}>
-            Set location
-          </Heading>
-        </TouchableOpacity>
+        <RowIcons>
+          <TouchableOpacity
+            style={styles.setHome}
+            onPress={() => navigation.navigate('SetHome')}>
+            <Image source={home} style={styles.homeImage} />
+            <Heading color={colors.card} style={styles.smallHeading}>
+              Set location
+            </Heading>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.setHome}
+            onPress={() => navigation.navigate('BluetoothPg')}>
+            <Image source={home} style={styles.homeImage} />
+            <Heading color={colors.card} style={styles.smallHeading}>
+              Bluetooth
+            </Heading>
+          </TouchableOpacity>
+        </RowIcons>
         <Card backgroundColor={colors.card}>
           <Heading color={colors.primary} style={styles.buttonHeading}>
             Bubbles remaining:

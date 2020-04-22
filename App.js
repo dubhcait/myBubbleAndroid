@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {StatusBar} from 'react-native';
 import {
+  BluetoothPg,
   Exiting,
   GameIntro,
   GroupsRule,
@@ -154,6 +155,15 @@ const MainStack = () => {
             headerTitleStyle: {color: 'transparent'},
           }}
           component={SetHome}
+        />
+        <Stack.Screen
+          name="BluetoothPg"
+          options={{
+            headerTransparent: true,
+            headerTintColor: '#ffffff',
+            headerTitleStyle: {color: 'transparent'},
+          }}
+          component={BluetoothPg}
         />
       </Stack.Navigator>
     </>
