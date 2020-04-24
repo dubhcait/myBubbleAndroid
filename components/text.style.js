@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Heading = styled.Text`
-  font-family: Dosis-Bold;
+  font-family: Quicksand-Bold;
   font-style: normal;
   font-size: 38px;
   line-height: 38px;
