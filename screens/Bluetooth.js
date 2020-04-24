@@ -114,11 +114,10 @@ const BluetoothPg = ({navigation}) => {
 
   const startScan = () => {
     if (!scanning) {
-      setScanning(true);
-      // BleManager.scan([], 5, true).then(results => {
-      //   console.log('Scanning...');
-
-      // });
+      // setScanning(true);
+      BleManager.scan([], 3, true).then(results => {
+        console.log('Scanning...');
+      });
     }
   };
 
