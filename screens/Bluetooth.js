@@ -33,19 +33,17 @@ const BluetoothPg = ({navigation}) => {
 
     BleManager.start({showAlert: false});
 
-    const handlerDiscover = bleManagerEmitter.addListener(
+    bleManagerEmitter.addListener(
       'BleManagerDiscoverPeripheral',
       handleDiscoverPeripheral,
     );
-    const handlerStop = bleManagerEmitter.addListener(
-      'BleManagerStopScan',
-      handleStopScan,
-    );
-    const handlerDisconnect = bleManagerEmitter.addListener(
+
+    bleManagerEmitter.addListener('BleManagerStopScan', handleStopScan);
+    bleManagerEmitter.addListener(
       'BleManagerDisconnectPeripheral',
       handleDisconnectedPeripheral,
     );
-    const handlerUpdate = bleManagerEmitter.addListener(
+    bleManagerEmitter.addListener(
       'BleManagerDidUpdateValueForCharacteristic',
       handleUpdateValueForCharacteristic,
     );
@@ -71,10 +69,10 @@ const BluetoothPg = ({navigation}) => {
     }
 
     return () => {
-      handlerDiscover.remove();
-      handlerStop.remove();
-      handlerDisconnect.remove();
-      handlerUpdate.remove();
+      // handlerDiscover.remove();
+      // handlerStop.remove();
+      // handlerDisconnect.remove();
+      // handlerUpdate.remove();
     };
   }, []);
 
