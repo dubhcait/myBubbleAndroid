@@ -40,7 +40,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Dosis-Bold.ttf</string>
@@ -51,6 +51,13 @@
 		<string>Dosis-Regular.ttf</string>
 		<string>Dosis-SemiBold.ttf</string>
 		<string>Lato-Regular.ttf</string>
+		<string>Quicksand-Bold.ttf</string>
+		<string>Quicksand-Light.ttf</string>
+		<string>Quicksand-Medium.ttf</string>
+		<string>Quicksand-Regular.ttf</string>
+		<string>Yantramanav-Bold.ttf</string>
+		<string>Yantramanav-Light.ttf</string>
+		<string>Yantramanav-Medium.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
