@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {Component} from 'react';
 import {
   AppState,
   Button,
@@ -23,29 +23,47 @@ const window = Dimensions.get('window');
 const BleManagerModule = NativeModules.BleManager;
 const bleManagerEmitter = new NativeEventEmitter(BleManagerModule);
 
-const BluetoothPg = ({navigation}) => {
-  const [scanning, setScanning] = useState(false);
-  const [peripherals, setPeripherals] = useState(new Map());
-  const [appState, setAppState] = useState('');
+export default class BluetoothPg extends Component {
+  constructor() {
+    super();
 
-  useEffect(() => {
-    AppState.addEventListener('change', handleAppStateChange);
+    this.state = {
+      scanning: false,
+      peripherals: new Map(),
+      appState: '',
+    };
+
+    this.handleDiscoverPeripheral = this.handleDiscoverPeripheral.bind(this);
+    this.handleStopScan = this.handleStopScan.bind(this);
+    this.handleUpdateValueForCharacteristic = this.handleUpdateValueForCharacteristic.bind(
+      this,
+    );
+    this.handleDisconnectedPeripheral = this.handleDisconnectedPeripheral.bind(
+      this,
+    );
+    this.handleAppStateChange = this.handleAppStateChange.bind(this);
+  }
+
+  componentDidMount() {
+    AppState.addEventListener('change', this.handleAppStateChange);
 
     BleManager.start({showAlert: false});
 
-    bleManagerEmitter.addListener(
+    this.handlerDiscover = bleManagerEmitter.addListener(
       'BleManagerDiscoverPeripheral',
-      handleDiscoverPeripheral,
+      this.handleDiscoverPeripheral,
     );
-
-    bleManagerEmitter.addListener('BleManagerStopScan', handleStopScan);
-    bleManagerEmitter.addListener(
+    this.handlerStop = bleManagerEmitter.addListener(
+      'BleManagerStopScan',
+      this.handleStopScan,
+    );
+    this.handlerDisconnect = bleManagerEmitter.addListener(
       'BleManagerDisconnectPeripheral',
-      handleDisconnectedPeripheral,
+      this.handleDisconnectedPeripheral,
     );
-    bleManagerEmitter.addListener(
+    this.handlerUpdate = bleManagerEmitter.addListener(
       'BleManagerDidUpdateValueForCharacteristic',
-      handleUpdateValueForCharacteristic,
+      this.handleUpdateValueForCharacteristic,
     );
 
     if (Platform.OS === 'android' && Platform.Version >= 23) {
@@ -67,37 +85,40 @@ const BluetoothPg = ({navigation}) => {
         }
       });
     }
+  }
 
-    return () => {
-      // handlerDiscover.remove();
-      // handlerStop.remove();
-      // handlerDisconnect.remove();
-      // handlerUpdate.remove();
-    };
-  }, []);
-
-  const handleAppStateChange = nextAppState => {
-    if (appState.match(/inactive|background/) && nextAppState === 'active') {
+  handleAppStateChange(nextAppState) {
+    if (
+      this.state.appState.match(/inactive|background/) &&
+      nextAppState === 'active'
+    ) {
       console.log('App has come to the foreground!');
       BleManager.getConnectedPeripherals([]).then(peripheralsArray => {
         console.log('Connected peripherals: ' + peripheralsArray.length);
       });
     }
-    setAppState(nextAppState);
-  };
+    this.setState({appState: nextAppState});
+  }
 
-  const handleDisconnectedPeripheral = data => {
-    let peripheralsNew = peripherals;
-    let peripheral = peripheralsNew.get(data.peripheral);
+  componentWillUnmount() {
+    this.handlerDiscover.remove();
+    this.handlerStop.remove();
+    this.handlerDisconnect.remove();
+    this.handlerUpdate.remove();
+  }
+
+  handleDisconnectedPeripheral(data) {
+    let peripherals = this.state.peripherals;
+    let peripheral = peripherals.get(data.peripheral);
     if (peripheral) {
       peripheral.connected = false;
-      peripheralsNew.set(peripheral.id, peripheral);
-      setPeripherals(peripheralsNew);
+      peripherals.set(peripheral.id, peripheral);
+      this.setState({peripherals});
     }
     console.log('Disconnected from ' + data.peripheral);
-  };
+  }
 
-  const handleUpdateValueForCharacteristic = data => {
+  handleUpdateValueForCharacteristic(data) {
     console.log(
       'Received data from ' +
         data.peripheral +
@@ -105,61 +126,62 @@ const BluetoothPg = ({navigation}) => {
         data.characteristic,
       data.value,
     );
-  };
+  }
 
-  const handleStopScan = () => {
+  handleStopScan() {
     console.log('Scan is stopped');
-    setScanning(false);
-  };
+    this.setState({scanning: false});
+  }
 
-  const startScan = () => {
-    if (!scanning) {
-      // setScanning(true);
+  startScan() {
+    if (!this.state.scanning) {
+      //this.setState({peripherals: new Map()});
       BleManager.scan([], 3, true).then(results => {
         console.log('Scanning...');
+        this.setState({scanning: true});
       });
     }
-  };
+  }
 
-  const retrieveConnected = () => {
+  retrieveConnected() {
     BleManager.getConnectedPeripherals([]).then(results => {
       if (results.length == 0) {
         console.log('No connected peripherals');
       }
       console.log(results);
-      var peripheralsNew = peripherals;
+      var peripherals = this.state.peripherals;
       for (var i = 0; i < results.length; i++) {
         var peripheral = results[i];
         peripheral.connected = true;
-        peripheralsNew.set(peripheral.id, peripheral);
-        setPeripherals(peripheralsNew);
+        peripherals.set(peripheral.id, peripheral);
+        this.setState({peripherals});
       }
     });
-  };
+  }
 
-  const handleDiscoverPeripheral = peripheral => {
-    var peripheralsNew = peripherals;
+  handleDiscoverPeripheral(peripheral) {
+    var peripherals = this.state.peripherals;
     console.log('Got ble peripheral', peripheral);
     if (!peripheral.name) {
       peripheral.name = 'NO NAME';
     }
-    peripheralsNew.set(peripheral.id, peripheral);
-    peripherals(peripheralsNew);
-  };
+    peripherals.set(peripheral.id, peripheral);
+    this.setState({peripherals});
+  }
 
-  const test = peripheral => {
+  test(peripheral) {
     if (peripheral) {
       if (peripheral.connected) {
         BleManager.disconnect(peripheral.id);
       } else {
         BleManager.connect(peripheral.id)
           .then(() => {
-            let peripheralsNew = peripherals;
-            let p = peripheralsNew.get(peripheral.id);
+            let peripherals = this.state.peripherals;
+            let p = peripherals.get(peripheral.id);
             if (p) {
               p.connected = true;
-              peripheralsNew.set(peripheral.id, p);
-              setPeripherals(peripheralsNew);
+              peripherals.set(peripheral.id, p);
+              this.setState({peripherals});
             }
             console.log('Connected to ' + peripheral.id);
 
@@ -172,6 +194,8 @@ const BluetoothPg = ({navigation}) => {
               });
             });*/
 
+              // Test using bleno's pizza example
+              // https://github.com/sandeepmistry/bleno/tree/master/examples/pizza
               BleManager.retrieveServices(peripheral.id).then(
                 peripheralInfo => {
                   console.log(peripheralInfo);
@@ -196,13 +220,16 @@ const BluetoothPg = ({navigation}) => {
                             crustCharacteristic,
                             [0],
                           ).then(() => {
+                            console.log('Writed NORMAL crust');
                             BleManager.write(
                               peripheral.id,
                               service,
                               bakeCharacteristic,
                               [1, 95],
                             ).then(() => {
-                              console.log('Done');
+                              console.log(
+                                'Writed 351 temperature, the pizza should be BAKED',
+                              );
                             });
                           });
                         }, 500);
@@ -220,12 +247,12 @@ const BluetoothPg = ({navigation}) => {
           });
       }
     }
-  };
+  }
 
-  const renderItem = item => {
+  renderItem(item) {
     const color = item.connected ? 'green' : '#fff';
     return (
-      <TouchableHighlight onPress={() => test(item)}>
+      <TouchableHighlight onPress={() => this.test(item)}>
         <View style={[styles.row, {backgroundColor: color}]}>
           <Text
             style={{
@@ -258,44 +285,49 @@ const BluetoothPg = ({navigation}) => {
         </View>
       </TouchableHighlight>
     );
-  };
+  }
 
-  const list = Array.from(peripherals.values());
-  const btnScanTitle = 'Scan Bluetooth (' + (scanning ? 'on' : 'off') + ')';
+  render() {
+    const list = Array.from(this.state.peripherals.values());
+    const btnScanTitle =
+      'Scan Bluetooth (' + (this.state.scanning ? 'on' : 'off') + ')';
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
-        <View style={{margin: 10}}>
-          <Button title={btnScanTitle} onPress={() => startScan()} />
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
+          <View style={{margin: 10}}>
+            <Button title={btnScanTitle} onPress={() => this.startScan()} />
+          </View>
+
+          <View style={{margin: 10}}>
+            <Button
+              title="Retrieve connected peripherals"
+              onPress={() => this.retrieveConnected()}
+            />
+          </View>
+
+          <ScrollView style={styles.scroll}>
+            {list.length == 0 && (
+              <View style={{flex: 1, margin: 20}}>
+                <Text style={{textAlign: 'center'}}>No peripherals</Text>
+              </View>
+            )}
+            <FlatList
+              data={list}
+              renderItem={({item}) => this.renderItem(item)}
+              keyExtractor={item => item.id}
+            />
+          </ScrollView>
         </View>
-
-        <View style={{margin: 10}}>
-          <Button
-            title="Retrieve connected peripherals"
-            onPress={() => retrieveConnected()}
-          />
-        </View>
-
-        <ScrollView style={styles.scroll}>
-          {list.length == 0 && (
-            <View style={{flex: 1, margin: 20}}>
-              <Text style={{textAlign: 'center'}}>No peripherals</Text>
-            </View>
-          )}
-          <FlatList
-            data={list}
-            renderItem={({item}) => renderItem(item)}
-            keyExtractor={item => item.id}
-          />
-        </ScrollView>
-      </View>
-      <Touchable marginTop={60} onPress={() => navigation.navigate('Home')}>
-        <Heading style={styles.buttonHeading}>Done!</Heading>
-      </Touchable>
-    </SafeAreaView>
-  );
-};
+        <Touchable
+          marginTop={60}
+          onPress={() => this.props.navigation.navigate('Home')}>
+          <Heading style={styles.buttonHeading}>Done!</Heading>
+        </Touchable>
+      </SafeAreaView>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -317,5 +349,3 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
 });
-
-export default BluetoothPg;
