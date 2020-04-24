@@ -1,12 +1,12 @@
-import 'react-native-get-random-values';
 import {useTheme} from '@react-navigation/native';
 import React, {useContext, useEffect} from 'react';
-import {ScrollView, StyleSheet, Text, Image, View} from 'react-native';
-import {Heading, StyledText, Card, Touchable} from '../components';
-import {Context} from '../util/context';
-import {distanceFromHome, handleHomelocation} from '../util/geoLocation';
+import {Image, ScrollView, StyleSheet, Text} from 'react-native';
+import 'react-native-get-random-values';
 import {WebView} from 'react-native-webview';
 import {house} from '../assets';
+import {Card, Heading, StyledText, Touchable} from '../components';
+import {Context} from '../util/context';
+import {distanceFromHome, handleHomelocation} from '../util/geoLocation';
 
 const HomeLocation = setHomeLocation => {
   handleHomelocation(setHomeLocation);
@@ -25,11 +25,12 @@ const SetHome = ({navigation}) => {
 
   const geofenceDirectionCheck = (newPosition, oldPosition) => {
     // reentering home
-    if (newPosition < 0.05 && oldPosition > 0.05) {
+    const distanceMarker = 0.005;
+    if (newPosition < distanceMarker && oldPosition > distanceMarker) {
       navigation.navigate('ReEntering');
     }
     // exsiting
-    else if (newPosition > 0.05 && oldPosition < 0.05) {
+    else if (newPosition > distanceMarker && oldPosition < distanceMarker) {
       navigation.navigate('Exiting');
     } else {
       return;
@@ -60,8 +61,8 @@ const SetHome = ({navigation}) => {
     }
   }, [state.distanceFromHomeArray]);
 
-  let Latitude = (state.homeLocation.latitude * 100) / 100;
-  let Longitude = (state.homeLocation.longitude * 100) / 100;
+  let Latitude = state.homeLocation.latitude;
+  let Longitude = state.homeLocation.longitude;
 
   let myLocation = `http://www.openstreetmap.org/export/embed.html?bbox=${Longitude}%2C${Latitude}%2C${Longitude}%2C${Latitude}&amp;layer=mapnik&amp;marker=${Latitude}%2C${Longitude}`;
   return (
