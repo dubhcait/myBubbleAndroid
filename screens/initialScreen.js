@@ -7,50 +7,16 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {healthBubble, virus} from '../assets';
+import {healthBubble} from '../assets';
 import {Heading, StyledText} from '../components';
 import {useSpringHeart} from '../util/animations';
 
 const InitialScreen = ({navigation}) => {
   let springValue = useSpringHeart();
-  let spinValue = useSpringHeart();
-  const spin = spinValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['0deg', '360deg'],
-  });
 
   return (
     <ScrollView contentContainerStyle={styles.scrollView}>
       <View style={styles.flex}>
-        <View style={styles.row}>
-          <View style={styles.virus1}>
-            <Animated.Image
-              source={virus}
-              style={{
-                ...styles.img,
-                transform: [{rotate: spin}],
-              }}
-            />
-          </View>
-          <View style={styles.virus2}>
-            <Animated.Image
-              source={virus}
-              style={{
-                ...styles.img,
-                transform: [{rotate: spin}],
-              }}
-            />
-          </View>
-          <View style={styles.virus3}>
-            <Animated.Image
-              source={virus}
-              style={{
-                ...styles.img,
-                transform: [{rotate: spin}],
-              }}
-            />
-          </View>
-        </View>
         <Heading style={styles.heading}>YOUR MISSION</Heading>
 
         <StyledText style={styles.initialText}>
@@ -58,13 +24,13 @@ const InitialScreen = ({navigation}) => {
         </StyledText>
         <View style={styles.rounded}>
           <StyledText
-            color={'#9fcbee'}
+            color={'#FFFFFF'}
             numberOfLines={1}
             style={styles.middleText}>
             Stay in your “bubble” each week{' '}
           </StyledText>
           <StyledText
-            color={'#9fcbee'}
+            color={'#FFFFFF'}
             numberOfLines={1}
             style={styles.emphasisText}>
             - a safe social distance to earn rewards
@@ -82,7 +48,7 @@ const InitialScreen = ({navigation}) => {
                 }}
               />
             </View>
-            <Heading color={'#9fcbee'} style={styles.buttonHeading}>
+            <Heading color={'#FFFFFF'} style={styles.buttonHeading}>
               Start
             </Heading>
           </TouchableOpacity>
@@ -94,7 +60,7 @@ const InitialScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   rounded: {
-    backgroundColor: '#01016f',
+    backgroundColor: '#93CCF2',
     borderTopLeftRadius: 175,
     borderTopRightRadius: 175,
     flex: 1,
@@ -154,20 +120,6 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   heading: {marginTop: 20, fontSize: 38},
-  virus1: {width: 24, height: 26, alignSelf: 'flex-end', margin: 18},
-  virus2: {
-    width: 34,
-    height: 36,
-    alignSelf: 'flex-start',
-    transform: [{scaleX: -1}],
-    margin: 8,
-  },
-  virus3: {
-    width: 38,
-    height: 40,
-    alignSelf: 'baseline',
-    margin: 30,
-  },
 });
 
 export default InitialScreen;
