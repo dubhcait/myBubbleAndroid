@@ -13,11 +13,6 @@ import {useSpringHeart} from '../util/animations';
 
 const InitialScreen = ({navigation}) => {
   let springValue = useSpringHeart();
-  let spinValue = useSpringHeart();
-  const spin = spinValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['0deg', '360deg'],
-  });
 
   return (
     <ScrollView contentContainerStyle={styles.scrollView}>
@@ -125,20 +120,6 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   heading: {marginTop: 20, fontSize: 38},
-  virus1: {width: 24, height: 26, alignSelf: 'flex-end', margin: 18},
-  virus2: {
-    width: 34,
-    height: 36,
-    alignSelf: 'flex-start',
-    transform: [{scaleX: -1}],
-    margin: 8,
-  },
-  virus3: {
-    width: 38,
-    height: 40,
-    alignSelf: 'baseline',
-    margin: 30,
-  },
 });
 
 export default InitialScreen;
