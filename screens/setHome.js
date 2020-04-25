@@ -80,7 +80,7 @@ const SetHome = ({navigation}) => {
         </Touchable>
       )}
       <Text>
-        {Math.floor(state.distanceFromHomeArray[0] * 10000)} meters from home
+        {Math.floor(state.distanceFromHomeArray[0] * 1000)} meters from home
       </Text>
       <Card>
         <Image source={house} style={styles.homeImage} />
