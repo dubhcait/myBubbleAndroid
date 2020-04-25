@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-export default function Card({children}) {
-  return <View style={styles.row}>{children}</View>;
+export default function Card({children, style}) {
+  return <View style={{...styles.row, ...style}}>{children}</View>;
 }
 
 const styles = StyleSheet.create({
