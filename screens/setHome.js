@@ -1,10 +1,10 @@
 import {useTheme} from '@react-navigation/native';
 import React, {useContext, useEffect} from 'react';
-import {Image, ScrollView, StyleSheet, Text} from 'react-native';
+import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import 'react-native-get-random-values';
 import {WebView} from 'react-native-webview';
-import {house} from '../assets';
-import {Card, Heading, StyledText, Touchable} from '../components';
+import {bubble3, house} from '../assets';
+import {Heading, StyledText, Touchable} from '../components';
 import {Context} from '../util/context';
 import {distanceFromHome, handleHomelocation} from '../util/geoLocation';
 
@@ -64,49 +64,64 @@ const SetHome = ({navigation}) => {
   let Latitude = state.homeLocation.latitude;
   let Longitude = state.homeLocation.longitude;
 
-  let myLocation = `http://www.openstreetmap.org/export/embed.html?bbox=${Longitude}%2C${Latitude}%2C${Longitude}%2C${Latitude}&amp;layer=mapnik&amp;marker=${Latitude}%2C${Longitude}`;
+  let myLocation = `http://www.openstreetmap.org/export/embed.html?bbox=${Longitude}%2C${Latitude +
+    0.001}%2C${Longitude}%2C${Latitude}&amp;layer=mapnik&amp;marker=${Latitude}%2C${Longitude}`;
   return (
     <ScrollView style={styles.scrollView}>
-      <Heading style={styles.marginV20}>MyBubble</Heading>
+      <Image source={bubble3} style={styles.backgroundBubble} />
+      <WebView
+        style={styles.webView}
+        originWhitelist={['*']}
+        source={{
+          html: `<iFrame width="965" height="1555" style=${
+            styles.iFrame
+          } src='${myLocation}' allowfullscreen></iFrame>`,
+        }}
+      />
+      <View
+        style={{
+          position: 'absolute',
+          zIndex: 12,
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          height: 600,
+          marginLeft: 25,
+        }}>
+        <View style={{alignItems: 'center'}}>
+          <Heading style={styles.heading}>MyBubble</Heading>
 
-      {state.homeLocation.longitude === undefined && (
+          {state.homeLocation.longitude === undefined && (
+            <Touchable
+              onPress={() => HomeLocation(setHomeLocation)}
+              borderColor="#A061BE"
+              style={styles.button}>
+              <Heading
+                color="#A061BE"
+                style={{...styles.buttonHeading, ...styles.padding2}}>
+                Mark here as Home
+              </Heading>
+            </Touchable>
+          )}
+          <Text style={styles.meters}>
+            {Math.floor(state.distanceFromHomeArray[0] * 1000)} meters from home
+          </Text>
+
+          <Image source={house} style={styles.homeImage} />
+          <StyledText style={styles.current}>
+            Your current home position is set to:
+          </StyledText>
+        </View>
         <Touchable
-          onPress={() => HomeLocation(setHomeLocation)}
-          style={styles.button}>
-          <Heading
-            color={colors.primary}
-            style={{...styles.buttonHeading, ...styles.padding2}}>
-            Mark here as Home
-          </Heading>
-        </Touchable>
-      )}
-      <Text>
-        {Math.floor(state.distanceFromHomeArray[0] * 1000)} meters from home
-      </Text>
-      <Card>
-        <Image source={house} style={styles.homeImage} />
-        <StyledText style={styles.marginV20}>
-          Your current home position is set to:
-        </StyledText>
-        <WebView
-          style={styles.webView}
-          originWhitelist={['*']}
-          source={{
-            html: `<iFrame width="1165" height="655" style=${
-              styles.iFrame
-            } src='${myLocation}' allowfullscreen></iFrame>`,
-          }}
-        />
-        <Touchable
-          marginTop={60}
-          backgroundColor={colors.background}
-          borderColor={colors.border}
-          onPress={() => navigation.navigate('Home')}>
-          <Heading color={colors.primary} style={styles.buttonHeading}>
+          borderColor="#A061BE"
+          backgroundColor="#A061BE"
+          color="#ffffff"
+          onPress={() => navigation.navigate('Home')}
+          bomarginTop={30}>
+          <Heading color="#ffffff" style={styles.buttonHeading}>
             Done!
           </Heading>
         </Touchable>
-      </Card>
+      </View>
     </ScrollView>
   );
 };
@@ -115,60 +130,63 @@ const styles = StyleSheet.create({
   scrollView: {flex: 1},
   webView: {
     position: 'relative',
-    height: 206,
-    marginRight: 10,
-    marginLeft: 10,
+    height: 660,
     opacity: 0.99,
+    zIndex: -10,
   },
   iFrame: {
     position: 'absolute',
     top: 0,
     left: 0,
     maxWidth: '100%',
+    height: '100%',
+    zIndex: -10,
   },
   buttonHeading: {
     fontSize: 20,
-    textTransform: 'uppercase',
   },
   padding2: {padding: 2},
-  leaderboard: {
-    tintColor: '#01016f',
-    width: 53,
-    height: 46,
-    marginVertical: 10,
-  },
-  award: {
-    tintColor: '#01016f',
-    width: 53,
-    height: 46,
-    marginVertical: 10,
-  },
-  homeImage: {
-    tintColor: '#1a4cff',
-    alignSelf: 'center',
-    width: 86,
-    height: 86,
-  },
-  goodDeed: {width: 54, height: 46, marginVertical: 10},
+  homeImage: {height: 30, width: 30.48},
   marginV20: {marginVertical: 20},
   marginV10: {marginVertical: 10},
+  backgroundBubble: {
+    height: 360,
+    width: 360,
+    zIndex: 1,
+    top: 10,
+    left: 35,
+    position: 'absolute',
+  },
+  heading: {
+    height: 63,
+    color: '#93CCF2',
+    fontSize: 55,
+    letterSpacing: 0,
+    lineHeight: 63,
+    marginTop: 95,
+    marginBottom: 10,
+  },
+  meters: {
+    height: 26,
+    width: 275,
+    color: '#A061BE',
+    fontSize: 21,
+    fontWeight: 'normal',
+    letterSpacing: 0,
+    lineHeight: 26,
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  current: {
+    width: 190,
+    color: '#93CCF2',
+    fontSize: 20,
+    fontWeight: 'normal',
+    letterSpacing: 0,
+    lineHeight: 28,
+    textAlign: 'center',
+    marginTop: 10,
+  },
 });
 
 export default SetHome;
-
-{
-  /* <Text>Current location:</Text> */
-}
-{
-  /* <Text>
-        Longitude:{Math.floor(state.currentLocation.longitude * 100) / 100},
-        Latitude:
-        {Math.floor(state.currentLocation.latitude * 100) / 100}
-      </Text>
-      <Text>Home location:</Text>
-      <Text>
-        Longitude:{Math.floor(state.homeLocation.longitude * 100) / 100},
-        Latitude:
-        {Math.floor(state.homeLocation.latitude * 100) / 100}
-      </Text> */
-}
