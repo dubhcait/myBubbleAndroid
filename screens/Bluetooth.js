@@ -1,22 +1,19 @@
 import React, {Component} from 'react';
 import {
   AppState,
-  Button,
   Dimensions,
-  FlatList,
   NativeEventEmitter,
   NativeModules,
   PermissionsAndroid,
   Platform,
   SafeAreaView,
-  ScrollView,
   StyleSheet,
   Text,
   TouchableHighlight,
   View,
 } from 'react-native';
 import BleManager from 'react-native-ble-manager';
-import {Heading, Touchable} from '../components';
+import {Heading, Touchable, Underlay} from '../components';
 
 const window = Dimensions.get('window');
 
@@ -289,52 +286,46 @@ export default class BluetoothPg extends Component {
 
   render() {
     const list = Array.from(this.state.peripherals.values());
-    const btnScanTitle =
-      'Scan Bluetooth (' + (this.state.scanning ? 'on' : 'off') + ')';
+    const btnScanTitle = 'Scan';
 
     return (
       <SafeAreaView style={styles.container}>
-        <View style={styles.container}>
-          <View style={{margin: 10}}>
-            <Button title={btnScanTitle} onPress={() => this.startScan()} />
-          </View>
+        <Underlay bubbles={true}>
+          {this.state.scanning ? (
+            <Heading style={styles.top}>Scanning for signs of Life </Heading>
+          ) : (
+            <View style={styles.top}>
+              <Touchable borderColor="#A061BE" onPress={() => this.startScan()}>
+                <Heading color="#A061BE" style={styles.buttonHeading}>
+                  Start scanning
+                </Heading>
+              </Touchable>
+            </View>
+          )}
 
-          <View style={{margin: 10}}>
-            <Button
-              title="Retrieve connected peripherals"
-              onPress={() => this.retrieveConnected()}
-            />
-          </View>
-
-          <ScrollView style={styles.scroll}>
-            {list.length == 0 && (
-              <View style={{flex: 1, margin: 20}}>
-                <Text style={{textAlign: 'center'}}>No peripherals</Text>
-              </View>
-            )}
-            <FlatList
-              data={list}
-              renderItem={({item}) => this.renderItem(item)}
-              keyExtractor={item => item.id}
-            />
-          </ScrollView>
-        </View>
-        <Touchable
-          marginTop={60}
-          onPress={() => this.props.navigation.navigate('Home')}>
-          <Heading style={styles.buttonHeading}>Done!</Heading>
-        </Touchable>
+          <Heading style={styles.numberDetected}>{list.length}</Heading>
+          <Heading>people detected!</Heading>
+          <Touchable
+            borderColor="#A061BE"
+            backgroundColor="#A061BE"
+            color="#ffffff"
+            marginTop={60}
+            onPress={() => this.props.navigation.navigate('Home')}>
+            <Heading color="#ffffff" style={styles.buttonHeading}>
+              Steering clear!
+            </Heading>
+          </Touchable>
+        </Underlay>
       </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  top: {marginVertical: 60},
   container: {
     flex: 1,
     backgroundColor: '#FFF',
-    width: window.width,
-    height: window.height,
   },
   scroll: {
     flex: 1,
@@ -346,6 +337,12 @@ const styles = StyleSheet.create({
   },
   buttonHeading: {
     fontSize: 20,
-    textTransform: 'uppercase',
+  },
+  numberDetected: {
+    height: 188,
+    width: 349,
+    fontSize: 150,
+    letterSpacing: 0,
+    lineHeight: 188,
   },
 });
