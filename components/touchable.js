@@ -33,5 +33,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 40,
     elevation: 1.8,
     zIndex: 6,
+    width: 300,
+    height: 47,
   },
 });

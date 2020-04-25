@@ -7,8 +7,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {award, goodDeed, home, leaderboard} from '../assets';
-import {Card, Heading, LifeCount, RowIcons, StyledText} from '../components';
+import {
+  award,
+  bluetooth,
+  bubble3,
+  goodDeed,
+  leaderboard,
+  locationIcon,
+} from '../assets';
+import {Card, Heading, LifeCount, RowIcons, Touchable} from '../components';
 import {useSpringHeart} from '../util/animations';
 import {Context} from '../util/context';
 
@@ -20,12 +27,16 @@ const MainScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <Heading>MyBubble</Heading>
-        <RowIcons>
+        <Image source={bubble3} style={styles.backgroundBubble} />
+        <Heading color="#93CCF2" style={styles.heading}>
+          MyBubble
+        </Heading>
+
+        <RowIcons style={{width: 360}}>
           <TouchableOpacity
             style={styles.setHome}
             onPress={() => navigation.navigate('SetHome')}>
-            <Image source={home} style={styles.homeImage} />
+            <Image source={locationIcon} style={styles.homeImage} />
             <Heading color={colors.card} style={styles.smallHeading}>
               Set location
             </Heading>
@@ -33,14 +44,14 @@ const MainScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.setHome}
             onPress={() => navigation.navigate('BluetoothPg')}>
-            <Image source={home} style={styles.homeImage} />
+            <Image source={bluetooth} style={styles.homeImage} />
             <Heading color={colors.card} style={styles.smallHeading}>
               Bluetooth
             </Heading>
           </TouchableOpacity>
         </RowIcons>
         <Card backgroundColor={colors.card}>
-          <Heading color={colors.primary} style={styles.buttonHeading}>
+          <Heading color={'#ffffff'} style={styles.buttonHeading}>
             Bubbles remaining:
           </Heading>
 
@@ -48,31 +59,44 @@ const MainScreen = ({navigation}) => {
             <LifeCount lifeCount={state.lives} springValue={springValue} />
           </RowIcons>
         </Card>
-        <Card backgroundColor={colors.background}>
-          <Heading color={colors.primary} style={styles.buttonHeading}>
+        <Card backgroundColor={'#E6F5FF'}>
+          <Heading color={'#93CCF2'} style={styles.buttonHeading}>
             Active Challenge:
           </Heading>
           <View style={styles.marginV20}>
-            <StyledText>Signup for an online course</StyledText>
+            <Touchable
+              borderColor="#A061BE"
+              backgroundColor="#A061BE"
+              color="#ffffff"
+              bomarginTop={30}>
+              <Heading color="#ffffff" style={styles.buttonContent}>
+                Signup for an online course
+              </Heading>
+            </Touchable>
           </View>
         </Card>
+
+        <Card backgroundColor={colors.background}>
+          <RowIcons>
+            <TouchableOpacity style={styles.buttonColumn}>
+              <Image source={leaderboard} style={styles.leaderboard} />
+              <Heading color="#3E36A1" style={styles.smallHeading}>
+                Leaderboard
+              </Heading>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonColumn}>
+              <Image source={goodDeed} style={styles.goodDeed} />
+              <Heading style={styles.smallHeading}>Good Deed</Heading>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.buttonColumn}
+              onPress={() => navigation.navigate('Congratulations')}>
+              <Image source={award} style={styles.award} />
+              <Heading style={styles.smallHeading}>My Rewards</Heading>
+            </TouchableOpacity>
+          </RowIcons>
+        </Card>
       </ScrollView>
-      <RowIcons>
-        <TouchableOpacity style={styles.buttonColumn}>
-          <Image source={leaderboard} style={styles.leaderboard} />
-          <Heading style={styles.smallHeading}>Leaderboard</Heading>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonColumn}>
-          <Image source={goodDeed} style={styles.goodDeed} />
-          <Heading style={styles.smallHeading}>Good Deed</Heading>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttonColumn}
-          onPress={() => navigation.navigate('Congratulations')}>
-          <Image source={award} style={styles.award} />
-          <Heading style={styles.smallHeading}>My Rewards</Heading>
-        </TouchableOpacity>
-      </RowIcons>
     </View>
   );
 };
@@ -104,44 +128,54 @@ const styles = StyleSheet.create({
   },
   padding2: {padding: 2},
   leaderboard: {
-    tintColor: '#01016f',
-    width: 53,
-    height: 46,
+    width: 30,
+    height: 30.46,
+
     marginVertical: 10,
   },
   award: {
-    tintColor: '#01016f',
-    width: 53,
-    height: 46,
+    width: 26.4,
+    height: 30,
     marginVertical: 10,
   },
-  goodDeed: {width: 54, height: 46, marginVertical: 10},
+  goodDeed: {width: 30, height: 31, marginVertical: 10},
   marginV20: {marginVertical: 20},
   marginV10: {marginVertical: 10},
+  heading: {fontSize: 50, lineHeight: 63, marginTop: 85},
   setHome: {
     elevation: 1.8,
     zIndex: 4,
     marginTop: 40,
     borderColor: '#9fcbee',
-    paddingHorizontal: 8,
     marginBottom: -30,
     borderRadius: 20,
     borderWidth: 1.4,
     alignSelf: 'flex-start',
     backgroundColor: '#ffffff',
     marginLeft: 34,
+    width: 125,
+    height: 80,
   },
   smallHeading: {
-    color: '#9fcbee',
     fontSize: 16,
+    letterSpacing: 0,
     textTransform: 'uppercase',
   },
+  buttonContent: {fontSize: 21, letterSpacing: 0},
   homeImage: {
     tintColor: '#9fcbee',
     alignSelf: 'center',
     marginTop: 8,
-    width: 38,
-    height: 33,
+    width: 22,
+    height: 30,
+  },
+  backgroundBubble: {
+    height: 380,
+    width: 380,
+    zIndex: -2,
+    top: 2,
+    left: 15,
+    position: 'absolute',
   },
 });
 
