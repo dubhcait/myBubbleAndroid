@@ -3,6 +3,8 @@ import bluetooth from './bluetoothIcon.png';
 import bottomRightBubbles from './bottomRightBubbles.png';
 import bottomRightDarkBubbles from './bottomRightDarkBubbles.png';
 import bubble3 from './bubble3.png';
+import bubble4 from './bubble4.png';
+import check from './check.png';
 import distance2 from './distance2.png';
 import essentials from './essentials.png';
 import exercising from './exercising.png';
@@ -61,4 +63,6 @@ export {
   locationIcon,
   bluetooth,
   bubble3,
+  check,
+  bubble4,
 };
