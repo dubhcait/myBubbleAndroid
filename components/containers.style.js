@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
-import {topLeftBubbles, bottomRightBubbles} from '../assets';
 import {
-  widthPercentageToDP as wp,
   heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
+import styled from 'styled-components';
+import {bubble4} from '../assets';
 
 const UnderlayStyle = styled.View`
   background-color: ${props =>
@@ -15,21 +15,39 @@ const UnderlayStyle = styled.View`
 
 const ImgTop = styled.Image`
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -25;
+  left: 250;
+  width: 110px;
+  height: 110px;
 `;
 
 const ImgBottom = styled.Image`
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 60;
+  right: 60;
+  width: 300px;
+  height: 300px;
 `;
 
+const ImgLeft = styled.Image`
+  position: absolute;
+  top: 200;
+  left: 40;
+  width: 60px;
+  height: 60px;
+`;
+
+const ImgRight = styled.Image`
+  position: absolute;
+  top: 100;
+  left: 240;
+  width: 180px;
+  height: 180px;
+`;
 const Internal = styled.View`
   width: ${wp('100%')};
   height: ${hp('100%')};
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
   z-index: 2000;
 `;
@@ -37,8 +55,14 @@ const Internal = styled.View`
 const Underlay = ({children, bubbles = true, background}) => (
   <UnderlayStyle background={background}>
     <Internal>{children}</Internal>
-    {bubbles && <ImgTop source={topLeftBubbles} />}
-    {bubbles && <ImgBottom source={bottomRightBubbles} />}
+    {bubbles && (
+      <>
+        <ImgTop source={bubble4} />
+        <ImgLeft source={bubble4} />
+        <ImgRight source={bubble4} />
+        <ImgBottom source={bubble4} />
+      </>
+    )}
   </UnderlayStyle>
 );
 

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   buttonStyle: {
     borderRadius: 20,
     borderWidth: 1.4,
-    marginHorizontal: 40,
+    marginHorizontal: 60,
     elevation: 1.8,
     zIndex: 6,
     width: 300,
