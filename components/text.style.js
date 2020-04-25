@@ -11,7 +11,7 @@ const Heading = styled.Text`
 // color: #0e3d71;
 
 const StyledText = styled.Text`
-  font-family: Lato-Regular;
+  font-family: Quicksand-Bold;
   font-style: normal;
   font-size: 18px;
   line-height: 28px;
