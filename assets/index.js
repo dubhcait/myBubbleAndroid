@@ -28,12 +28,13 @@ import soap from './soap.png';
 import thumbsUp from './thumbsUp.png';
 import topLeftBubbles from './topLeftBubbles.png';
 import topLeftDarkBubbles from './topLeftDarkBubbles.png';
+import trophy from './trophy.png';
 import twoPeople from './twoPeople.png';
 import virus from './virus.png';
 import wash from './wash.png';
 import work from './work.png';
-
 export {
+  trophy,
   cross,
   bottomRightBubbles,
   bottomRightDarkBubbles,
