@@ -39,12 +39,12 @@ const GameIntro = ({introAllSeen, navigation}) => {
           </RowIcons>
 
           <View style={styles.row}>
-            <Heading color={colors.primary} style={styles.challenge}>
+            <Heading color="#3E36A1" style={styles.challenge}>
               Challenge
             </Heading>
             <View style={styles.imageContainer}>
               <Image
-                style={{...styles.plusImage, tintColor: colors.primary}}
+                style={{...styles.plusImage, tintColor: '#3E36A1'}}
                 source={plus}
               />
             </View>
@@ -55,9 +55,9 @@ const GameIntro = ({introAllSeen, navigation}) => {
             Don’t burst any bubbles by breaking social distance!
           </StyledText>
           <RowIcons>
-            <Image source={twoPeople} style={{tintColor: colors.primary}} />
-            <Image source={group} style={{tintColor: colors.primary}} />
-            <Image source={home} style={{tintColor: colors.primary}} />
+            <Image source={twoPeople} style={{tintColor: '#3E36A1'}} />
+            <Image source={group} style={{tintColor: '#3E36A1'}} />
+            <Image source={home} style={{tintColor: '#3E36A1'}} />
             <View style={styles.bubbleWrap}>
               <Image source={poppedBubble2} style={styles.poppedBubble} />
             </View>
@@ -68,10 +68,12 @@ const GameIntro = ({introAllSeen, navigation}) => {
           </StyledText>
         </Card>
         <Touchable
-          borderColor={colors.border}
+          borderColor="#A061BE"
+          backgroundColor="#A061BE"
+          color="#ffffff"
           onPress={() => navigation.navigate('Rules')}
           marginTop={20}>
-          <Heading color={colors.primary} style={styles.buttonHeading}>
+          <Heading c color="#ffffff" style={styles.buttonHeading}>
             What’s social distancing?
           </Heading>
         </Touchable>
