@@ -1,8 +1,8 @@
 import {useTheme} from '@react-navigation/native';
 import React from 'react';
 import {Animated, Image, ScrollView, StyleSheet, View} from 'react-native';
-import {award, plus} from '../assets';
-import {Heading, StyledText, Touchable} from '../components';
+import {trophy} from '../assets';
+import {Heading, StyledText, Touchable, Underlay} from '../components';
 import {
   useFadeInText,
   useShrinkingView,
@@ -22,17 +22,14 @@ const WeeklyChallenge = ({navigation}) => {
 
   return (
     <ScrollView contentContainerStyle={styles.scrollView}>
-      <View style={styles.container}>
+      <Underlay bubbles={true} style={styles.container}>
         <Animated.View
           style={{
             ...styles.annimatedView,
             transform: [{scale: shrinkValue}],
           }}>
-          <Image
-            style={{...styles.award, tintColor: colors.primary}}
-            source={award}
-          />
-          <Heading color={'#9fcbee'} style={styles.paddingT20}>
+          <Image style={{...styles.trophy}} source={trophy} />
+          <Heading color={'#3E36A1'} style={styles.paddingT20}>
             THIS WEEK’S CHALLENGE
           </Heading>
           <View style={styles.objectives}>
@@ -44,16 +41,6 @@ const WeeklyChallenge = ({navigation}) => {
               }}>
               Signup for an online course
             </Animated.Text>
-            <Animated.Image
-              style={{
-                ...styles.plusImage,
-                ...styles.marginT10,
-                opacity: fadeValue,
-                tintColor: colors.primary,
-                transform: [{translateX: grow}],
-              }}
-              source={plus}
-            />
           </View>
           <View style={styles.objectives}>
             <Animated.Text
@@ -64,15 +51,6 @@ const WeeklyChallenge = ({navigation}) => {
               }}>
               Have a videochat with a friend
             </Animated.Text>
-            <Animated.Image
-              style={{
-                ...styles.plusImage,
-                opacity: fadeValue,
-                tintColor: colors.primary,
-                transform: [{translateX: grow}],
-              }}
-              source={plus}
-            />
           </View>
           <Animated.Text
             style={{
@@ -83,20 +61,24 @@ const WeeklyChallenge = ({navigation}) => {
             And don’t break the social distance rules!
           </Animated.Text>
         </Animated.View>
-        <Heading color={'#9fcbee'} style={styles.marginT20}>
+        <Heading color={'#3E36A1'} style={{marginTop: 70}}>
           TO EARN:
         </Heading>
         <Animated.View style={{transform: [{scale: springValue}]}}>
-          <StyledText color={'#9fcbee'}>A free month of Netflix</StyledText>
+          <StyledText style={{marginVertical: 20}} color={'#3E36A1'}>
+            A free month of Netflix
+          </StyledText>
         </Animated.View>
         <Touchable
-          borderColor={colors.border}
+          borderColor="#A061BE"
+          backgroundColor="#A061BE"
+          color="#ffffff"
           onPress={() => navigation.navigate('Home')}>
-          <Heading color={'#9fcbee'} style={styles.buttonHeading}>
+          <Heading color="#ffffff" style={styles.buttonHeading}>
             Challenge accepted!
           </Heading>
         </Touchable>
-      </View>
+      </Underlay>
     </ScrollView>
   );
 };
@@ -110,7 +92,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   buttonHeading: {
     fontSize: 20,
@@ -123,8 +105,9 @@ const styles = StyleSheet.create({
   annimatedText: {
     paddingVertical: 20,
     paddingLeft: 20,
-    fontSize: 16,
-    color: '#9fcbee',
+    fontSize: 18,
+    textAlign: 'center',
+    color: '#FF9090',
     fontFamily: 'Lato-Regular',
     fontStyle: 'normal',
   },
@@ -134,38 +117,37 @@ const styles = StyleSheet.create({
   },
   challenge: {
     paddingRight: 10,
-    paddingVertical: 10,
-    fontSize: 16,
-    color: '#9fcbee',
+
+    fontSize: 18,
+    color: '#3E36A1',
     fontFamily: 'Lato-Regular',
     fontStyle: 'normal',
   },
   signup: {
     paddingRight: 10,
-    fontSize: 16,
+    fontSize: 18,
     paddingTop: 10,
-    color: '#9fcbee',
+    color: '#3E36A1',
     fontFamily: 'Lato-Regular',
     fontStyle: 'normal',
   },
-  award: {
-    width: 51.5,
-    height: 45,
-    marginTop: 10,
+  trophy: {
+    width: 110,
+    height: 110,
+    marginTop: 5,
     alignSelf: 'center',
   },
   annimatedView: {
     width: 340,
     height: 340,
     zIndex: 3,
-    backgroundColor: '#01016f',
+
     paddingTop: 40,
   },
   scrollView: {
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#01016f',
   },
   container: {
     flex: 1,
