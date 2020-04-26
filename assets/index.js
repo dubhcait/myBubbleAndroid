@@ -5,12 +5,13 @@ import bottomRightDarkBubbles from './bottomRightDarkBubbles.png';
 import bubble3 from './bubble3.png';
 import bubble4 from './bubble4.png';
 import check from './check.png';
+import cross from './cross.png';
 import distance2 from './distance2.png';
 import essentials from './essentials.png';
 import exercising from './exercising.png';
 import facecover from './facecover.png';
 import goodDeed from './goodDeed.png';
-import groupNegative from './groupNegative.png';
+import groupNegative from './group.png';
 import group from './groups.png';
 import healthBubble from './healthBubble.png';
 import helping from './helping.png';
@@ -31,7 +32,9 @@ import twoPeople from './twoPeople.png';
 import virus from './virus.png';
 import wash from './wash.png';
 import work from './work.png';
+
 export {
+  cross,
   bottomRightBubbles,
   bottomRightDarkBubbles,
   group,
