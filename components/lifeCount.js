@@ -1,13 +1,13 @@
 import React from 'react';
 import {Animated, StyleSheet} from 'react-native';
-import {healthBubble, poppedBubble2} from '../assets';
+import {healthBubble2, poppedBubble2} from '../assets';
 
 const LifeCount = ({lifeCount, springValue}) => {
   return lifeCount.map((i, k) => {
     if (k === 0) {
       return (
         <Animated.Image
-          source={i === 1 ? healthBubble : poppedBubble2}
+          source={i === 1 ? healthBubble2 : poppedBubble2}
           key={k}
           style={
             i === 1
@@ -20,7 +20,7 @@ const LifeCount = ({lifeCount, springValue}) => {
 
     return (
       <Animated.Image
-        source={i === 1 ? healthBubble : poppedBubble2}
+        source={i === 1 ? healthBubble2 : poppedBubble2}
         key={k}
         style={
           i === 1

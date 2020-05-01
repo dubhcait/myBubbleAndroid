@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {healthBubble} from '../assets';
+import {healthBubble2} from '../assets';
 import {Heading, StyledText} from '../components';
 import {useSpringHeart} from '../util/animations';
 
@@ -41,7 +41,7 @@ const InitialScreen = ({navigation}) => {
             onPress={() => navigation.navigate('Intro')}>
             <View style={styles.buttonView}>
               <Animated.Image
-                source={healthBubble}
+                source={healthBubble2}
                 style={{
                   ...styles.fullsize,
                   transform: [{scale: springValue}],
@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 175,
     flex: 1,
     marginTop: 20,
+    paddingTop: 70,
     alignSelf: 'stretch',
   },
   buttonHeading: {
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
   },
   emphasisText: {
     marginBottom: 10,
-    marginHorizontal: 10,
+    marginHorizontal: 8,
     textAlign: 'center',
   },
   scrollView: {

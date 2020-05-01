@@ -13,7 +13,7 @@ import facecover from './facecover.png';
 import goodDeed from './goodDeed.png';
 import groupNegative from './group.png';
 import group from './groups.png';
-import healthBubble from './healthBubble.png';
+import healthBubble2 from './healthBubble2.png';
 import helping from './helping.png';
 import home from './home.png';
 import house from './house.png';
@@ -40,7 +40,7 @@ export {
   bottomRightDarkBubbles,
   group,
   groupNegative,
-  healthBubble,
+  healthBubble2,
   home,
   house2,
   newTask,

@@ -103,7 +103,7 @@ const GroupsRule = ({navigation}) => {
           backgroundColor="#A061BE"
           color="#ffffff"
           onPress={() => navigation.navigate('StayHome')}
-          marginTop={80}>
+          marginTop={100}>
           <Heading color="#ffffff" style={styles.buttonHeading}>
             ...aaaand?
           </Heading>
@@ -117,7 +117,7 @@ const StayHomeRule = ({navigation}) => {
   const {colors} = useTheme();
   let springValue = useSpringHeart();
   return (
-    <ScrollView>
+    <ScrollView style={styles.container}>
       <Underlay bubbles={true}>
         <View>
           <StyledText style={styles.houseCat}>
@@ -131,39 +131,42 @@ const StayHomeRule = ({navigation}) => {
               style={{...styles.speakBubble, transform: [{scale: springValue}]}}
             />
           </View>
-          <Heading>Stay home!</Heading>
-          <View>
-            <SectionList
-              style={styles.sectionContainer}
-              sections={[
-                {
-                  title: ' Only go out if you have to:',
-                  data: [
-                    '- Get groceries',
-                    '- Go to work',
-                    '- Get some solo exercise',
-                  ],
-                },
-              ]}
-              renderItem={({item}) => <StyledText>{item}</StyledText>}
-              renderSectionHeader={({section}) => (
-                <StyledText>{section.title}</StyledText>
-              )}
-              keyExtractor={(item, index) => index}
-            />
-          </View>
+          <Card>
+            <Heading>Stay home!</Heading>
+            <View>
+              <SectionList
+                style={styles.sectionContainer}
+                sections={[
+                  {
+                    title: ' Only go out if you have to:',
+                    data: [
+                      '- Get groceries',
+                      '- Go to work',
+                      '- Get some solo exercise',
+                    ],
+                  },
+                ]}
+                renderItem={({item}) => <StyledText>{item}</StyledText>}
+                renderSectionHeader={({section}) => (
+                  <StyledText>{section.title}</StyledText>
+                )}
+                keyExtractor={(item, index) => index}
+              />
+            </View>
+
+            <Touchable
+              borderColor="#A061BE"
+              backgroundColor="#A061BE"
+              color="#ffffff"
+              marginTop={30}
+              onPress={() => navigation.navigate('WeeklyChallenge')}>
+              <Heading color="#ffffff" style={styles.buttonHeading}>
+                Ok, got it!
+              </Heading>
+            </Touchable>
+          </Card>
         </View>
       </Underlay>
-      <Touchable
-        borderColor="#A061BE"
-        backgroundColor="#A061BE"
-        color="#ffffff"
-        onPress={() => navigation.navigate('WeeklyChallenge')}
-        marginTop={-140}>
-        <Heading color="#ffffff" style={styles.buttonHeading}>
-          Ok, got it!
-        </Heading>
-      </Touchable>
     </ScrollView>
   );
 };
@@ -183,21 +186,20 @@ const styles = StyleSheet.create({
     height: 130,
   },
   speakBubble: {
-    width: 70,
+    width: 40,
     flex: 1,
-    height: 70,
-    marginBottom: 28,
+    height: 84,
+    marginBottom: 18,
   },
   stayHomeRuleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 14,
-    marginBottom: 10,
   },
   virus: {width: '100%', height: '100%', resizeMode: 'contain'},
   sectionContainer: {marginVertical: 10},
-  houseCat: {marginTop: 60, marginBottom: 30},
+  houseCat: {marginTop: 60, marginBottom: 20, marginHorizontal: 40},
   tintColor: {tintColor: '#d8031c'},
   virusContainer: {
     flexDirection: 'column',
@@ -209,8 +211,8 @@ const styles = StyleSheet.create({
   },
 
   iconImageContainer: {
-    width: 220,
-    height: 220,
+    width: 180,
+    height: 180,
     marginTop: 10,
     alignSelf: 'center',
     zIndex: 3,

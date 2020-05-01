@@ -24,7 +24,7 @@ const MyTheme = {
     ...DefaultTheme.colors,
     primary: '#1a4cff',
     background: '#ffffff',
-    card: '#9fcbee',
+    card: '#93CCF2',
     text: '#01016f',
     border: '#d8031c',
   },

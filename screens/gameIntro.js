@@ -3,7 +3,7 @@ import React from 'react';
 import {Animated, Image, ScrollView, StyleSheet, View} from 'react-native';
 import {
   group,
-  healthBubble,
+  healthBubble2,
   home,
   plus,
   poppedBubble2,
@@ -20,31 +20,31 @@ const GameIntro = ({introAllSeen, navigation}) => {
       <View style={styles.background}>
         <Heading> How to WIN</Heading>
         <Card backgroundColor={colors.card} zIndex={0}>
-          <StyledText>
+          <StyledText color={'#FFFFFF'}>
             Start the week with a new challenge and 3 bubbles
           </StyledText>
           <RowIcons>
             <Animated.Image
-              source={healthBubble}
+              source={healthBubble2}
               style={{...styles.image, transform: [{scale: springValue}]}}
             />
             <Animated.Image
-              source={healthBubble}
+              source={healthBubble2}
               style={{...styles.image, transform: [{scale: springValue}]}}
             />
             <Animated.Image
-              source={healthBubble}
+              source={healthBubble2}
               style={{...styles.image, transform: [{scale: springValue}]}}
             />
           </RowIcons>
 
           <View style={styles.row}>
-            <Heading color="#3E36A1" style={styles.challenge}>
+            <Heading color={'#FFFFFF'} style={styles.challenge}>
               Challenge
             </Heading>
             <View style={styles.imageContainer}>
               <Image
-                style={{...styles.plusImage, tintColor: '#3E36A1'}}
+                style={{...styles.plusImage, tintColor: '#FFFFFF'}}
                 source={plus}
               />
             </View>
@@ -55,9 +55,9 @@ const GameIntro = ({introAllSeen, navigation}) => {
             Don’t burst any bubbles by breaking social distance!
           </StyledText>
           <RowIcons>
-            <Image source={twoPeople} style={{tintColor: '#3E36A1'}} />
-            <Image source={group} style={{tintColor: '#3E36A1'}} />
-            <Image source={home} style={{tintColor: '#3E36A1'}} />
+            <Image source={twoPeople} style={{tintColor: '#ff8480'}} />
+            <Image source={group} style={{tintColor: '#ff8480'}} />
+            <Image source={home} style={{tintColor: '#ff8480'}} />
             <View style={styles.bubbleWrap}>
               <Image source={poppedBubble2} style={styles.poppedBubble} />
             </View>
