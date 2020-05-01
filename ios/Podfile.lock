@@ -233,9 +233,15 @@ PODS:
     - React-cxxreact (= 0.62.1)
     - React-jsi (= 0.62.1)
   - React-jsinspector (0.62.1)
+  - react-native-ble-manager (7.2.0):
+    - React
   - react-native-geolocation (2.0.2):
     - React
+  - react-native-get-random-values (1.4.0):
+    - React
   - react-native-safe-area-context (0.7.3):
+    - React
+  - react-native-webview (9.3.0):
     - React
   - React-RCTActionSheet (0.62.1):
     - React-Core/RCTActionSheetHeaders (= 0.62.1)
@@ -298,13 +304,13 @@ PODS:
     - ReactCommon/callinvoker (= 0.62.1)
   - RNCAsyncStorage (1.9.0):
     - React
-  - RNCMaskedView (0.1.7):
+  - RNCMaskedView (0.1.9):
     - React
   - RNGestureHandler (1.6.1):
     - React
   - RNReanimated (1.8.0):
     - React
-  - RNScreens (2.4.0):
+  - RNScreens (2.5.0):
     - React
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -332,8 +338,11 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-ble-manager (from `../node_modules/react-native-ble-manager`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
+  - react-native-get-random-values (from `../node_modules/react-native-get-random-values`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -396,10 +405,16 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-ble-manager:
+    :path: "../node_modules/react-native-ble-manager"
   react-native-geolocation:
     :path: "../node_modules/@react-native-community/geolocation"
+  react-native-get-random-values:
+    :path: "../node_modules/react-native-get-random-values"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-webview:
+    :path: "../node_modules/react-native-webview"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -459,8 +474,11 @@ SPEC CHECKSUMS:
   React-jsi: 600d8e42510c3254fd2abd702f4b9d3f598d8f52
   React-jsiexecutor: e9698dee4fd43ceb44832baf15d5745f455b0157
   React-jsinspector: f74a62727e5604119abd4a1eda52c0a12144bcd5
-  react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
-  react-native-safe-area-context: e200d4433aba6b7e60b52da5f37af11f7a0b0392
+  react-native-ble-manager: fda5f6b20092f2b2d356676bd1f3dc7065bb4329
+  react-native-geolocation: cbd9d6bd06bac411eed2671810f454d4908484a8
+  react-native-get-random-values: 2b7500cdb68066aba87cdccd97067c29e16ffe95
+  react-native-safe-area-context: 8260e5157617df4b72865f44006797f895b2ada7
+  react-native-webview: bdde2a3c4cbdc0122bc2bfba13603db193f0cc5c
   React-RCTActionSheet: af8f28dd82fec89b8fe29637b8c779829e016a88
   React-RCTAnimation: 0d21fff7c20fb8ee41de5f2ebb63221127febd96
   React-RCTBlob: 9496bd93130b22069bfbc5d35e98653dae7c35c6
@@ -471,11 +489,11 @@ SPEC CHECKSUMS:
   React-RCTText: 239e040f401505001327a109f9188a4e6dad1bd2
   React-RCTVibration: 072c3b427dd29e730c2ee5bfc509cf5054741a50
   ReactCommon: 3585806280c51d5c2c0d3aa5a99014c3badb629d
-  RNCAsyncStorage: 453cd7c335ec9ba3b877e27d02238956b76f3268
-  RNCMaskedView: 76c40a1d41c3e2535df09246a2b5487f04de0814
+  RNCAsyncStorage: b16697280b08bab4b5f2f67f752d93d13a52e9ed
+  RNCMaskedView: 5dba3cb07493765fb66156c83c3dd281ca709a48
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
   RNReanimated: 955cf4068714003d2f1a6e2bae3fb1118f359aff
-  RNScreens: b5c0e1b2b04512919e78bd3898e144a157ce2363
+  RNScreens: ac02d0e4529f08ced69f5580d416f968a6ec3a1d
   Yoga: 50fb6eb13d2152e7363293ff603385db380815b1
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
