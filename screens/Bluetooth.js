@@ -32,12 +32,14 @@ export default class BluetoothPg extends Component {
 
     this.handleDiscoverPeripheral = this.handleDiscoverPeripheral.bind(this);
     this.handleStopScan = this.handleStopScan.bind(this);
+/* CHRIS_TEST_START
     this.handleUpdateValueForCharacteristic = this.handleUpdateValueForCharacteristic.bind(
       this,
     );
     this.handleDisconnectedPeripheral = this.handleDisconnectedPeripheral.bind(
       this,
     );
+CHRIS_TEST_END */
     this.handleAppStateChange = this.handleAppStateChange.bind(this);
   }
 
@@ -54,6 +56,7 @@ export default class BluetoothPg extends Component {
       'BleManagerStopScan',
       this.handleStopScan,
     );
+/* CHRIS_TEST_START
     this.handlerDisconnect = bleManagerEmitter.addListener(
       'BleManagerDisconnectPeripheral',
       this.handleDisconnectedPeripheral,
@@ -62,6 +65,7 @@ export default class BluetoothPg extends Component {
       'BleManagerDidUpdateValueForCharacteristic',
       this.handleUpdateValueForCharacteristic,
     );
+CHRIS_TEST_END */
 
     if (Platform.OS === 'android' && Platform.Version >= 23) {
       PermissionsAndroid.check(
@@ -100,10 +104,13 @@ export default class BluetoothPg extends Component {
   componentWillUnmount() {
     this.handlerDiscover.remove();
     this.handlerStop.remove();
+/* CHRIS_TEST_START
     this.handlerDisconnect.remove();
     this.handlerUpdate.remove();
+CHRIS_TEST_END */
   }
 
+/* CHRIS_TEST_START
   handleDisconnectedPeripheral(data) {
     let peripherals = this.state.peripherals;
     let peripheral = peripherals.get(data.peripheral);
@@ -114,7 +121,9 @@ export default class BluetoothPg extends Component {
     }
     console.log('Disconnected from ' + data.peripheral);
   }
+CHRIS_TEST_END */
 
+/* CHRIS_TEST_START
   handleUpdateValueForCharacteristic(data) {
     console.log(
       'Received data from ' +
@@ -124,6 +133,7 @@ export default class BluetoothPg extends Component {
       data.value,
     );
   }
+CHRIS_TEST_END */
 
   handleStopScan() {
     console.log('Scan is stopped');
@@ -139,7 +149,7 @@ export default class BluetoothPg extends Component {
       });
     }
   }
-
+/* CHRIS_TEST_START
   retrieveConnected() {
     BleManager.getConnectedPeripherals([]).then(results => {
       if (results.length == 0) {
@@ -155,6 +165,7 @@ export default class BluetoothPg extends Component {
       }
     });
   }
+CHRIS_TEST_END */
 
   handleDiscoverPeripheral(peripheral) {
     var peripherals = this.state.peripherals;
@@ -166,6 +177,7 @@ export default class BluetoothPg extends Component {
     this.setState({peripherals});
   }
 
+/* CHRIS_TEST_START
   test(peripheral) {
     if (peripheral) {
       if (peripheral.connected) {
@@ -183,6 +195,8 @@ export default class BluetoothPg extends Component {
             console.log('Connected to ' + peripheral.id);
 
             setTimeout(() => {
+CHRIS_TEST_END */
+
               /* read current RSSI value
             BleManager.retrieveServices(peripheral.id).then((peripheralData) => {
               console.log('Retrieved peripheral services', peripheralData);
@@ -193,6 +207,7 @@ export default class BluetoothPg extends Component {
 
               // Test using bleno's pizza example
               // https://github.com/sandeepmistry/bleno/tree/master/examples/pizza
+/* CHRIS_TEST_START
               BleManager.retrieveServices(peripheral.id).then(
                 peripheralInfo => {
                   console.log(peripheralInfo);
@@ -245,6 +260,7 @@ export default class BluetoothPg extends Component {
       }
     }
   }
+CHRIS_TEST_END */
 
   renderItem(item) {
     const color = item.connected ? 'green' : '#fff';
