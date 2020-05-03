@@ -13,6 +13,10 @@ import {
   View,
 } from 'react-native';
 import BleManager from 'react-native-ble-manager';
+
+// Used for Android AND iOS Bluetooth permissions
+import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
+
 import {Heading, Touchable, Underlay} from '../components';
 
 const window = Dimensions.get('window');
@@ -56,6 +60,7 @@ CHRIS_TEST_END */
       'BleManagerStopScan',
       this.handleStopScan,
     );
+
 /* CHRIS_TEST_START
     this.handlerDisconnect = bleManagerEmitter.addListener(
       'BleManagerDisconnectPeripheral',
@@ -67,6 +72,7 @@ CHRIS_TEST_END */
     );
 CHRIS_TEST_END */
 
+// Android (only) Bluetooth permission check & request using PermissionsAndroid from react-native
     if (Platform.OS === 'android' && Platform.Version >= 23) {
       PermissionsAndroid.check(
         PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
@@ -86,6 +92,45 @@ CHRIS_TEST_END */
         }
       });
     }
+
+// BETTER: Android (eventually) AND iOS Bluetooth permission check & request using react-native-permissions
+
+    // iOS: Check if Bluetooth permission is already granted, but only for iOS version > 12
+    if (Platform.OS === "ios" && parseInt(Platform.Version, 10) > 12) {
+        var permission_check = check(PERMISSIONS.IOS.BLUETOOTH_PERIPHERAL);
+    
+        // If Bluetooth permission is not already granted, ask the user to grant it
+      if (permission_check !== RESULTS.GRANTED) {
+          request(PERMISSIONS.IOS.BLUETOOTH_PERIPHERAL).then(result => {
+        
+          // Log the result
+          switch (result) {
+            case RESULTS.UNAVAILABLE:
+              console.log(
+                  'BLUETOOTH_PERIPHERAL not available (on this device / in this context)',
+              );
+              break;
+            case RESULTS.DENIED:
+              console.log(
+                'BLUETOOTH_PERIPHERAL permission has not been requested / is denied but requestable',
+              );
+              break;
+            case RESULTS.GRANTED:
+              console.log('BLUETOOTH_PERIPHERAL permission is granted');
+              break;
+            case RESULTS.BLOCKED:
+              console.log('BLUETOOTH_PERIPHERAL permission is denied and no longer requestable');
+              break;
+          }
+          })
+      }
+    
+    } else {
+        console.warn("BLUETOOTH_PERIPHERAL permission not required for this version of iOS.")
+        // TODO: Check a "location" permission instead?
+    }
+
+    // TODO: Android: Check/request Android Bluetooth permissions using react-native-permissions...
   }
 
   handleAppStateChange(nextAppState) {
