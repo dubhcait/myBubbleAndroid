@@ -14,9 +14,6 @@ import {
 } from 'react-native';
 import BleManager from 'react-native-ble-manager';
 
-// Used for Android AND iOS Bluetooth permissions
-import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
-
 import {Heading, Touchable, Underlay} from '../components';
 
 const window = Dimensions.get('window');
@@ -36,14 +33,6 @@ export default class BluetoothPg extends Component {
 
     this.handleDiscoverPeripheral = this.handleDiscoverPeripheral.bind(this);
     this.handleStopScan = this.handleStopScan.bind(this);
-/* CHRIS_TEST_START
-    this.handleUpdateValueForCharacteristic = this.handleUpdateValueForCharacteristic.bind(
-      this,
-    );
-    this.handleDisconnectedPeripheral = this.handleDisconnectedPeripheral.bind(
-      this,
-    );
-CHRIS_TEST_END */
     this.handleAppStateChange = this.handleAppStateChange.bind(this);
   }
 
@@ -61,18 +50,7 @@ CHRIS_TEST_END */
       this.handleStopScan,
     );
 
-/* CHRIS_TEST_START
-    this.handlerDisconnect = bleManagerEmitter.addListener(
-      'BleManagerDisconnectPeripheral',
-      this.handleDisconnectedPeripheral,
-    );
-    this.handlerUpdate = bleManagerEmitter.addListener(
-      'BleManagerDidUpdateValueForCharacteristic',
-      this.handleUpdateValueForCharacteristic,
-    );
-CHRIS_TEST_END */
-
-// Android (only) Bluetooth permission check & request using PermissionsAndroid from react-native
+    // Android Bluetooth permission check & request using PermissionsAndroid from react-native
     if (Platform.OS === 'android' && Platform.Version >= 23) {
       PermissionsAndroid.check(
         PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
@@ -92,45 +70,6 @@ CHRIS_TEST_END */
         }
       });
     }
-
-// BETTER: Android (eventually) AND iOS Bluetooth permission check & request using react-native-permissions
-
-    // iOS: Check if Bluetooth permission is already granted, but only for iOS version > 12
-    if (Platform.OS === "ios" && parseInt(Platform.Version, 10) > 12) {
-        var permission_check = check(PERMISSIONS.IOS.BLUETOOTH_PERIPHERAL);
-    
-        // If Bluetooth permission is not already granted, ask the user to grant it
-      if (permission_check !== RESULTS.GRANTED) {
-          request(PERMISSIONS.IOS.BLUETOOTH_PERIPHERAL).then(result => {
-        
-          // Log the result
-          switch (result) {
-            case RESULTS.UNAVAILABLE:
-              console.log(
-                  'BLUETOOTH_PERIPHERAL not available (on this device / in this context)',
-              );
-              break;
-            case RESULTS.DENIED:
-              console.log(
-                'BLUETOOTH_PERIPHERAL permission has not been requested / is denied but requestable',
-              );
-              break;
-            case RESULTS.GRANTED:
-              console.log('BLUETOOTH_PERIPHERAL permission is granted');
-              break;
-            case RESULTS.BLOCKED:
-              console.log('BLUETOOTH_PERIPHERAL permission is denied and no longer requestable');
-              break;
-          }
-          })
-      }
-    
-    } else {
-        console.warn("BLUETOOTH_PERIPHERAL permission not required for this version of iOS.")
-        // TODO: Check a "location" permission instead?
-    }
-
-    // TODO: Android: Check/request Android Bluetooth permissions using react-native-permissions...
   }
 
   handleAppStateChange(nextAppState) {
@@ -149,36 +88,7 @@ CHRIS_TEST_END */
   componentWillUnmount() {
     this.handlerDiscover.remove();
     this.handlerStop.remove();
-/* CHRIS_TEST_START
-    this.handlerDisconnect.remove();
-    this.handlerUpdate.remove();
-CHRIS_TEST_END */
   }
-
-/* CHRIS_TEST_START
-  handleDisconnectedPeripheral(data) {
-    let peripherals = this.state.peripherals;
-    let peripheral = peripherals.get(data.peripheral);
-    if (peripheral) {
-      peripheral.connected = false;
-      peripherals.set(peripheral.id, peripheral);
-      this.setState({peripherals});
-    }
-    console.log('Disconnected from ' + data.peripheral);
-  }
-CHRIS_TEST_END */
-
-/* CHRIS_TEST_START
-  handleUpdateValueForCharacteristic(data) {
-    console.log(
-      'Received data from ' +
-        data.peripheral +
-        ' characteristic ' +
-        data.characteristic,
-      data.value,
-    );
-  }
-CHRIS_TEST_END */
 
   handleStopScan() {
     console.log('Scan is stopped');
@@ -194,23 +104,6 @@ CHRIS_TEST_END */
       });
     }
   }
-/* CHRIS_TEST_START
-  retrieveConnected() {
-    BleManager.getConnectedPeripherals([]).then(results => {
-      if (results.length == 0) {
-        console.log('No connected peripherals');
-      }
-      console.log(results);
-      var peripherals = this.state.peripherals;
-      for (var i = 0; i < results.length; i++) {
-        var peripheral = results[i];
-        peripheral.connected = true;
-        peripherals.set(peripheral.id, peripheral);
-        this.setState({peripherals});
-      }
-    });
-  }
-CHRIS_TEST_END */
 
   handleDiscoverPeripheral(peripheral) {
     var peripherals = this.state.peripherals;
@@ -221,91 +114,6 @@ CHRIS_TEST_END */
     peripherals.set(peripheral.id, peripheral);
     this.setState({peripherals});
   }
-
-/* CHRIS_TEST_START
-  test(peripheral) {
-    if (peripheral) {
-      if (peripheral.connected) {
-        BleManager.disconnect(peripheral.id);
-      } else {
-        BleManager.connect(peripheral.id)
-          .then(() => {
-            let peripherals = this.state.peripherals;
-            let p = peripherals.get(peripheral.id);
-            if (p) {
-              p.connected = true;
-              peripherals.set(peripheral.id, p);
-              this.setState({peripherals});
-            }
-            console.log('Connected to ' + peripheral.id);
-
-            setTimeout(() => {
-CHRIS_TEST_END */
-
-              /* read current RSSI value
-            BleManager.retrieveServices(peripheral.id).then((peripheralData) => {
-              console.log('Retrieved peripheral services', peripheralData);
-              BleManager.readRSSI(peripheral.id).then((rssi) => {
-                console.log('Retrieved actual RSSI value', rssi);
-              });
-            });*/
-
-              // Test using bleno's pizza example
-              // https://github.com/sandeepmistry/bleno/tree/master/examples/pizza
-/* CHRIS_TEST_START
-              BleManager.retrieveServices(peripheral.id).then(
-                peripheralInfo => {
-                  console.log(peripheralInfo);
-                  var service = '13333333-3333-3333-3333-333333333337';
-                  var bakeCharacteristic =
-                    '13333333-3333-3333-3333-333333330003';
-                  var crustCharacteristic =
-                    '13333333-3333-3333-3333-333333330001';
-
-                  setTimeout(() => {
-                    BleManager.startNotification(
-                      peripheral.id,
-                      service,
-                      bakeCharacteristic,
-                    )
-                      .then(() => {
-                        console.log('Started notification on ' + peripheral.id);
-                        setTimeout(() => {
-                          BleManager.write(
-                            peripheral.id,
-                            service,
-                            crustCharacteristic,
-                            [0],
-                          ).then(() => {
-                            console.log('Writed NORMAL crust');
-                            BleManager.write(
-                              peripheral.id,
-                              service,
-                              bakeCharacteristic,
-                              [1, 95],
-                            ).then(() => {
-                              console.log(
-                                'Writed 351 temperature, the pizza should be BAKED',
-                              );
-                            });
-                          });
-                        }, 500);
-                      })
-                      .catch(error => {
-                        console.log('Notification error', error);
-                      });
-                  }, 200);
-                },
-              );
-            }, 900);
-          })
-          .catch(error => {
-            console.log('Connection error', error);
-          });
-      }
-    }
-  }
-CHRIS_TEST_END */
 
   renderItem(item) {
     const color = item.connected ? 'green' : '#fff';
