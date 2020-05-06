@@ -17,81 +17,77 @@ const GameIntro = ({introAllSeen, navigation}) => {
   const springValue = useSpringHeart();
   return (
     <ScrollView contentContainerStyle={styles.scrollView}>
-      <View style={styles.background}>
-        <Heading> How to WIN</Heading>
-        <Card backgroundColor={colors.card} zIndex={0}>
-          <StyledText color={'#FFFFFF'}>
-            Start the week with a new challenge and 3 bubbles
-          </StyledText>
-          <RowIcons>
-            <Animated.Image
-              source={healthBubble2}
-              style={{...styles.image, transform: [{scale: springValue}]}}
-            />
-            <Animated.Image
-              source={healthBubble2}
-              style={{...styles.image, transform: [{scale: springValue}]}}
-            />
-            <Animated.Image
-              source={healthBubble2}
-              style={{...styles.image, transform: [{scale: springValue}]}}
-            />
-          </RowIcons>
+      <Heading color={colors.card}> How to WIN</Heading>
+      <Card backgroundColor={colors.card} zIndex={0}>
+        <StyledText color={'#FFFFFF'}>
+          Start the week with a new challenge and 3 bubbles
+        </StyledText>
+        <RowIcons>
+          <Animated.Image
+            source={healthBubble2}
+            style={{...styles.image, transform: [{scale: springValue}]}}
+          />
+          <Animated.Image
+            source={healthBubble2}
+            style={{...styles.image, transform: [{scale: springValue}]}}
+          />
+          <Animated.Image
+            source={healthBubble2}
+            style={{...styles.image, transform: [{scale: springValue}]}}
+          />
+        </RowIcons>
 
-          <View style={styles.row}>
-            <Heading color={'#FFFFFF'} style={styles.challenge}>
-              Challenge
-            </Heading>
-            <View style={styles.imageContainer}>
-              <Image
-                style={{...styles.plusImage, tintColor: '#FFFFFF'}}
-                source={plus}
-              />
-            </View>
-          </View>
-        </Card>
-        <Card backgroundColor={colors.background} zIndex={4}>
-          <StyledText>
-            Don’t burst any bubbles by breaking social distance!
-          </StyledText>
-          <RowIcons>
-            <Image source={twoPeople} style={{tintColor: '#ff8480'}} />
-            <Image source={group} style={{tintColor: '#ff8480'}} />
-            <Image source={home} style={{tintColor: '#ff8480'}} />
-            <View style={styles.bubbleWrap}>
-              <Image source={poppedBubble2} style={styles.poppedBubble} />
-            </View>
-          </RowIcons>
-
-          <StyledText>
-            Keep your bubbles safe by Sunday and get rewards!
-          </StyledText>
-        </Card>
-        <Touchable
-          borderColor="#A061BE"
-          backgroundColor="#A061BE"
-          color="#ffffff"
-          onPress={() => navigation.navigate('Rules')}
-          marginTop={20}>
-          <Heading c color="#ffffff" style={styles.buttonHeading}>
-            What’s social distancing?
+        <View style={styles.row}>
+          <Heading color={'#FFFFFF'} style={styles.challenge}>
+            Challenge
           </Heading>
-        </Touchable>
-      </View>
+          <View style={styles.imageContainer}>
+            <Image
+              style={{...styles.plusImage, tintColor: '#FFFFFF'}}
+              source={plus}
+            />
+          </View>
+        </View>
+      </Card>
+      <Card backgroundColor={colors.background} zIndex={4}>
+        <StyledText color={colors.card}>
+          Don’t burst any bubbles by breaking social distance!
+        </StyledText>
+        <RowIcons>
+          <Image source={twoPeople} style={{tintColor: '#ff8480'}} />
+          <Image source={group} style={{tintColor: '#ff8480'}} />
+          <Image source={home} style={{tintColor: '#ff8480'}} />
+          <View style={styles.bubbleWrap}>
+            <Image source={poppedBubble2} style={styles.poppedBubble} />
+          </View>
+        </RowIcons>
+
+        <StyledText color={colors.card}>
+          Keep your bubbles safe by Sunday and get rewards!
+        </StyledText>
+      </Card>
+      <Touchable
+        borderColor="#A061BE"
+        backgroundColor="#A061BE"
+        color="#ffffff"
+        onPress={() => navigation.navigate('Rules')}
+        marginTop={20}>
+        <Heading c color="#ffffff" style={styles.buttonHeading}>
+          What’s social distancing?
+        </Heading>
+      </Touchable>
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   scrollView: {
-    flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   background: {
-    flex: 1,
     backgroundColor: '#ffffff',
-    paddingVertical: 20,
+    paddingVertical: 14,
   },
   row: {
     flexDirection: 'row',
@@ -100,7 +96,6 @@ const styles = StyleSheet.create({
   },
   buttonHeading: {
     fontSize: 20,
-    textTransform: 'uppercase',
     padding: 1,
   },
 

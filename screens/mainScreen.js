@@ -145,11 +145,11 @@ const styles = StyleSheet.create({
   goodDeed: {width: 30, height: 31, marginVertical: 10, tintColor: '#93CCF2'},
   marginV20: {marginVertical: 20, alignSelf: 'center'},
   marginV10: {marginVertical: 10},
-  heading: {fontSize: 50, lineHeight: 63, marginTop: 60},
+  heading: {fontSize: 50, lineHeight: 63, marginTop: 70},
   setHome: {
     elevation: 1.8,
     zIndex: 4,
-    marginTop: 60,
+    marginTop: 30,
     borderColor: '#9fcbee',
     marginBottom: -30,
     borderRadius: 20,
@@ -172,11 +172,10 @@ const styles = StyleSheet.create({
     height: 21,
   },
   backgroundBubble: {
-    height: 180,
-    width: 180,
+    height: 340,
+    width: 340,
     zIndex: -2,
-    top: 2,
-    left: 10,
+    alignSelf: 'center',
     position: 'absolute',
   },
 });

@@ -8,7 +8,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import {cross, distance2, groupNegative, house, meow} from '../assets';
+import {cross, distance2, groupNegative, house2, meow} from '../assets';
 import {Card, Heading, StyledText, Touchable, Underlay} from '../components';
 import {useSpringHeart} from '../util/animations';
 
@@ -26,6 +26,7 @@ const KeepYourDistanceRule = ({navigation}) => {
         <View style={styles.virusContainer}>
           <View style={styles.iconImageContainer}>
             <Image
+              tintColor={'#93CCF2'}
               source={distance2}
               style={{
                 ...styles.virus,
@@ -51,7 +52,7 @@ const KeepYourDistanceRule = ({navigation}) => {
           backgroundColor="#A061BE"
           color="#ffffff"
           onPress={() => navigation.navigate('Groups')}
-          marginTop={60}>
+          marginTop={40}>
           <Heading color="#ffffff" style={styles.buttonHeading}>
             ...I'm listening
           </Heading>
@@ -70,7 +71,7 @@ const GroupsRule = ({navigation}) => {
   });
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
       <Underlay bubbles={true}>
         <View>
           <View style={styles.iconImageContainer}>
@@ -90,10 +91,8 @@ const GroupsRule = ({navigation}) => {
           </View>
         </View>
         <Card>
-          <Heading card="#9fcbee" style={styles.marginVertical}>
-            Avoid groups!
-          </Heading>
-          <StyledText card="#9fcbee" style={styles.groupsParagraph}>
+          <Heading style={styles.marginVertical}>Avoid groups!</Heading>
+          <StyledText style={styles.groupsParagraph}>
             Don’t be around more than 1 other person at a time except for the
             people you live with!
           </StyledText>
@@ -103,7 +102,7 @@ const GroupsRule = ({navigation}) => {
           backgroundColor="#A061BE"
           color="#ffffff"
           onPress={() => navigation.navigate('StayHome')}
-          marginTop={100}>
+          marginTop={120}>
           <Heading color="#ffffff" style={styles.buttonHeading}>
             ...aaaand?
           </Heading>
@@ -117,7 +116,7 @@ const StayHomeRule = ({navigation}) => {
   const {colors} = useTheme();
   let springValue = useSpringHeart();
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
       <Underlay bubbles={true}>
         <View>
           <StyledText style={styles.houseCat}>
@@ -125,7 +124,7 @@ const StayHomeRule = ({navigation}) => {
           </StyledText>
           <View style={styles.stayHomeRuleContainer}>
             <View style={styles.house} />
-            <Image source={house} style={styles.house} />
+            <Image source={house2} style={styles.house} tintColor={'#93CCF2'} />
             <Animated.Image
               source={meow}
               style={{...styles.speakBubble, transform: [{scale: springValue}]}}
@@ -172,9 +171,6 @@ const StayHomeRule = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#01016f',
-  },
   buttonHeading: {
     fontSize: 20,
     paddingVertical: 1,
@@ -186,10 +182,10 @@ const styles = StyleSheet.create({
     height: 130,
   },
   speakBubble: {
-    width: 40,
+    width: 126,
     flex: 1,
-    height: 84,
-    marginBottom: 18,
+    height: 103.2,
+    marginBottom: 8,
   },
   stayHomeRuleContainer: {
     flexDirection: 'row',

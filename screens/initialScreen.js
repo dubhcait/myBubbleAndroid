@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTheme} from '@react-navigation/native';
 import {
   Animated,
   ScrollView,
@@ -13,13 +14,16 @@ import {useSpringHeart} from '../util/animations';
 
 const InitialScreen = ({navigation}) => {
   let springValue = useSpringHeart();
+  const {colors} = useTheme();
 
   return (
     <ScrollView contentContainerStyle={styles.scrollView}>
       <View style={styles.flex}>
-        <Heading style={styles.heading}>YOUR MISSION</Heading>
+        <Heading style={styles.heading} color={colors.card}>
+          YOUR MISSION:
+        </Heading>
 
-        <StyledText style={styles.initialText}>
+        <StyledText style={styles.initialText} color={colors.card}>
           Keep you and your loved ones safe as we battle <Text>COVID-19</Text>
         </StyledText>
         <View style={styles.rounded}>
@@ -120,7 +124,7 @@ const styles = StyleSheet.create({
     height: '100%',
     resizeMode: 'contain',
   },
-  heading: {marginTop: 20, fontSize: 38},
+  heading: {marginTop: 60, fontSize: 38},
 });
 
 export default InitialScreen;

@@ -67,27 +67,19 @@ const SetHome = ({navigation}) => {
   let myLocation = `http://www.openstreetmap.org/export/embed.html?bbox=${Longitude}%2C${Latitude +
     0.001}%2C${Longitude}%2C${Latitude}&amp;layer=mapnik&amp;marker=${Latitude}%2C${Longitude}`;
   return (
-    <ScrollView style={styles.scrollView}>
-      <Image source={bubble3} style={styles.backgroundBubble} />
-      <WebView
-        style={styles.webView}
-        originWhitelist={['*']}
-        source={{
-          html: `<iFrame width="965" height="1555" style=${
-            styles.iFrame
-          } src='${myLocation}' allowfullscreen></iFrame>`,
-        }}
-      />
-      <View
-        style={{
-          position: 'absolute',
-          zIndex: 12,
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          height: 600,
-          marginLeft: 25,
-        }}>
-        <View style={{alignItems: 'center'}}>
+    <>
+      <ScrollView contentContainerStyle={styles.scrollView}>
+        <Image source={bubble3} style={styles.backgroundBubble} />
+        <WebView
+          style={styles.webView}
+          originWhitelist={['*']}
+          source={{
+            html: `<iFrame width="965" height="1555" style=${
+              styles.iFrame
+            } src='${myLocation}' allowfullscreen></iFrame>`,
+          }}
+        />
+        <View style={styles.textView}>
           <Heading style={styles.heading}>MyBubble</Heading>
 
           {state.homeLocation.longitude === undefined && (
@@ -107,40 +99,51 @@ const SetHome = ({navigation}) => {
           </Text>
 
           <Image source={house} style={styles.homeImage} />
-          <StyledText style={styles.current}>
+          <StyledText style={styles.current} numberOfLines={2}>
             Your current home position is set to:
           </StyledText>
         </View>
+      </ScrollView>
+      <View style={styles.center}>
         <Touchable
           borderColor="#A061BE"
           backgroundColor="#A061BE"
           color="#ffffff"
-          onPress={() => navigation.navigate('Home')}
-          bomarginTop={30}>
+          marginTop={-60}
+          onPress={() => navigation.navigate('Home')}>
           <Heading color="#ffffff" style={styles.buttonHeading}>
             Done!
           </Heading>
         </Touchable>
       </View>
-    </ScrollView>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
+  center: {
+    alignItems: 'center',
+  },
+  textView: {
+    position: 'absolute',
+    zIndex: 12,
+    alignItems: 'center',
+    height: 600,
+    paddingHorizontal: 40,
+  },
   scrollView: {flex: 1},
   webView: {
     position: 'relative',
     height: 660,
     opacity: 0.99,
-    zIndex: -10,
+    zIndex: 1,
   },
   iFrame: {
     position: 'absolute',
-    top: 0,
-    left: 0,
+    flex: 1,
     maxWidth: '100%',
     height: '100%',
-    zIndex: -10,
+    zIndex: 1,
   },
   buttonHeading: {
     fontSize: 20,
@@ -150,42 +153,31 @@ const styles = StyleSheet.create({
   marginV20: {marginVertical: 20},
   marginV10: {marginVertical: 10},
   backgroundBubble: {
-    height: 360,
-    width: 360,
-    zIndex: 1,
-    top: 10,
-    left: 35,
+    height: 340,
+    width: 340,
+    zIndex: 3,
+    alignSelf: 'center',
     position: 'absolute',
+    top: 10,
   },
   heading: {
-    height: 63,
     color: '#93CCF2',
-    fontSize: 55,
-    letterSpacing: 0,
-    lineHeight: 63,
+    fontSize: 50,
     marginTop: 95,
-    marginBottom: 10,
+    lineHeight: 52,
   },
   meters: {
-    height: 26,
-    width: 275,
     color: '#A061BE',
-    fontSize: 21,
-    fontWeight: 'normal',
-    letterSpacing: 0,
-    lineHeight: 26,
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-  current: {
-    width: 190,
-    color: '#93CCF2',
-    fontSize: 20,
-    fontWeight: 'normal',
-    letterSpacing: 0,
-    lineHeight: 28,
+    fontSize: 18,
     textAlign: 'center',
     marginTop: 10,
+    marginBottom: 20,
+  },
+  current: {
+    color: '#93CCF2',
+    fontSize: 18,
+    textAlign: 'center',
+    marginVertical: 10,
   },
 });
 
