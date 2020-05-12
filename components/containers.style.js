@@ -44,9 +44,9 @@ const ImgRight = styled.Image`
   width: 180px;
   height: 180px;
 `;
+
 const Internal = styled.View`
-  width: ${wp('100%')};
-  height: ${hp('100%')};
+  flex: 1;
   display: flex;
   align-items: center;
   z-index: 2000;

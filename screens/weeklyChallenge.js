@@ -53,6 +53,7 @@ const WeeklyChallenge = ({navigation}) => {
             </Animated.Text>
           </View>
           <Animated.Text
+            numberOfLines={1}
             style={{
               ...styles.annimatedText,
               opacity: fadeValue,
@@ -73,6 +74,7 @@ const WeeklyChallenge = ({navigation}) => {
           borderColor="#A061BE"
           backgroundColor="#A061BE"
           color="#ffffff"
+          marginTop={40}
           onPress={() => navigation.navigate('Home')}>
           <Heading color="#ffffff" style={styles.buttonHeading}>
             Challenge accepted!
@@ -104,12 +106,11 @@ const styles = StyleSheet.create({
   paddingT20: {paddingTop: 20},
   annimatedText: {
     paddingVertical: 20,
-    paddingLeft: 20,
-    fontSize: 18,
+    fontSize: 14,
+    textTransform: 'uppercase',
     textAlign: 'center',
     color: '#FF9090',
-    fontFamily: 'Lato-Regular',
-    fontStyle: 'normal',
+    fontFamily: 'Quicksand-Bold',
   },
   plusImage: {
     width: 20,
@@ -117,19 +118,16 @@ const styles = StyleSheet.create({
   },
   challenge: {
     paddingRight: 10,
-
     fontSize: 18,
     color: '#3E36A1',
-    fontFamily: 'Lato-Regular',
-    fontStyle: 'normal',
+    fontFamily: 'Quicksand-Bold',
   },
   signup: {
     paddingRight: 10,
     fontSize: 18,
     paddingTop: 10,
     color: '#3E36A1',
-    fontFamily: 'Lato-Regular',
-    fontStyle: 'normal',
+    fontFamily: 'Quicksand-Bold',
   },
   trophy: {
     width: 110,

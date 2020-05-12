@@ -32,7 +32,7 @@ const MainScreen = ({navigation}) => {
           MyBubble
         </Heading>
 
-        <RowIcons style={{width: 360}}>
+        <RowIcons style={{width: '100%'}}>
           <TouchableOpacity
             style={styles.setHome}
             onPress={() => navigation.navigate('SetHome')}>
@@ -67,8 +67,7 @@ const MainScreen = ({navigation}) => {
             <Touchable
               borderColor="#A061BE"
               backgroundColor="#A061BE"
-              color="#ffffff"
-              bomarginTop={30}>
+              color="#ffffff">
               <Heading color="#ffffff" style={styles.buttonContent}>
                 Signup for an online course
               </Heading>
@@ -80,19 +79,23 @@ const MainScreen = ({navigation}) => {
           <RowIcons>
             <TouchableOpacity style={styles.buttonColumn}>
               <Image source={leaderboard} style={styles.leaderboard} />
-              <Heading color="#3E36A1" style={styles.smallHeading}>
+              <Heading style={styles.smallHeading} color={colors.card}>
                 Leaderboard
               </Heading>
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonColumn}>
               <Image source={goodDeed} style={styles.goodDeed} />
-              <Heading style={styles.smallHeading}>Good Deed</Heading>
+              <Heading style={styles.smallHeading} color={colors.card}>
+                Good Deed
+              </Heading>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.buttonColumn}
               onPress={() => navigation.navigate('Congratulations')}>
               <Image source={award} style={styles.award} />
-              <Heading style={styles.smallHeading}>My Rewards</Heading>
+              <Heading style={styles.smallHeading} color={colors.card}>
+                My Rewards
+              </Heading>
             </TouchableOpacity>
           </RowIcons>
         </Card>
@@ -130,31 +133,30 @@ const styles = StyleSheet.create({
   leaderboard: {
     width: 30,
     height: 30.46,
-
+    tintColor: '#93CCF2',
     marginVertical: 10,
   },
   award: {
     width: 26.4,
     height: 30,
     marginVertical: 10,
+    tintColor: '#93CCF2',
   },
-  goodDeed: {width: 30, height: 31, marginVertical: 10},
-  marginV20: {marginVertical: 20},
+  goodDeed: {width: 30, height: 31, marginVertical: 10, tintColor: '#93CCF2'},
+  marginV20: {marginVertical: 20, alignSelf: 'center'},
   marginV10: {marginVertical: 10},
-  heading: {fontSize: 50, lineHeight: 63, marginTop: 85},
+  heading: {fontSize: 50, lineHeight: 63, marginTop: 70},
   setHome: {
     elevation: 1.8,
     zIndex: 4,
-    marginTop: 40,
+    marginTop: 30,
     borderColor: '#9fcbee',
     marginBottom: -30,
     borderRadius: 20,
     borderWidth: 1.4,
-    alignSelf: 'flex-start',
     backgroundColor: '#ffffff',
-    marginLeft: 34,
-    width: 125,
-    height: 80,
+    width: 128,
+    height: 32,
   },
   smallHeading: {
     fontSize: 16,
@@ -165,16 +167,15 @@ const styles = StyleSheet.create({
   homeImage: {
     tintColor: '#9fcbee',
     alignSelf: 'center',
-    marginTop: 8,
-    width: 22,
-    height: 30,
+    marginTop: -26,
+    width: 15,
+    height: 21,
   },
   backgroundBubble: {
-    height: 380,
-    width: 380,
+    height: 340,
+    width: 340,
     zIndex: -2,
-    top: 2,
-    left: 15,
+    alignSelf: 'center',
     position: 'absolute',
   },
 });
