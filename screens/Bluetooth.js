@@ -13,6 +13,7 @@ import {
   View,
 } from 'react-native';
 import BleManager from 'react-native-ble-manager';
+
 import {Heading, Touchable, Underlay} from '../components';
 
 const window = Dimensions.get('window');
@@ -32,12 +33,6 @@ export default class BluetoothPg extends Component {
 
     this.handleDiscoverPeripheral = this.handleDiscoverPeripheral.bind(this);
     this.handleStopScan = this.handleStopScan.bind(this);
-    this.handleUpdateValueForCharacteristic = this.handleUpdateValueForCharacteristic.bind(
-      this,
-    );
-    this.handleDisconnectedPeripheral = this.handleDisconnectedPeripheral.bind(
-      this,
-    );
     this.handleAppStateChange = this.handleAppStateChange.bind(this);
   }
 
@@ -54,15 +49,8 @@ export default class BluetoothPg extends Component {
       'BleManagerStopScan',
       this.handleStopScan,
     );
-    this.handlerDisconnect = bleManagerEmitter.addListener(
-      'BleManagerDisconnectPeripheral',
-      this.handleDisconnectedPeripheral,
-    );
-    this.handlerUpdate = bleManagerEmitter.addListener(
-      'BleManagerDidUpdateValueForCharacteristic',
-      this.handleUpdateValueForCharacteristic,
-    );
 
+    // Android Bluetooth permission check & request using PermissionsAndroid from react-native
     if (Platform.OS === 'android' && Platform.Version >= 23) {
       PermissionsAndroid.check(
         PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
@@ -100,29 +88,6 @@ export default class BluetoothPg extends Component {
   componentWillUnmount() {
     this.handlerDiscover.remove();
     this.handlerStop.remove();
-    this.handlerDisconnect.remove();
-    this.handlerUpdate.remove();
-  }
-
-  handleDisconnectedPeripheral(data) {
-    let peripherals = this.state.peripherals;
-    let peripheral = peripherals.get(data.peripheral);
-    if (peripheral) {
-      peripheral.connected = false;
-      peripherals.set(peripheral.id, peripheral);
-      this.setState({peripherals});
-    }
-    console.log('Disconnected from ' + data.peripheral);
-  }
-
-  handleUpdateValueForCharacteristic(data) {
-    console.log(
-      'Received data from ' +
-        data.peripheral +
-        ' characteristic ' +
-        data.characteristic,
-      data.value,
-    );
   }
 
   handleStopScan() {
@@ -140,22 +105,6 @@ export default class BluetoothPg extends Component {
     }
   }
 
-  retrieveConnected() {
-    BleManager.getConnectedPeripherals([]).then(results => {
-      if (results.length == 0) {
-        console.log('No connected peripherals');
-      }
-      console.log(results);
-      var peripherals = this.state.peripherals;
-      for (var i = 0; i < results.length; i++) {
-        var peripheral = results[i];
-        peripheral.connected = true;
-        peripherals.set(peripheral.id, peripheral);
-        this.setState({peripherals});
-      }
-    });
-  }
-
   handleDiscoverPeripheral(peripheral) {
     var peripherals = this.state.peripherals;
     console.log('Got ble peripheral', peripheral);
@@ -164,86 +113,6 @@ export default class BluetoothPg extends Component {
     }
     peripherals.set(peripheral.id, peripheral);
     this.setState({peripherals});
-  }
-
-  test(peripheral) {
-    if (peripheral) {
-      if (peripheral.connected) {
-        BleManager.disconnect(peripheral.id);
-      } else {
-        BleManager.connect(peripheral.id)
-          .then(() => {
-            let peripherals = this.state.peripherals;
-            let p = peripherals.get(peripheral.id);
-            if (p) {
-              p.connected = true;
-              peripherals.set(peripheral.id, p);
-              this.setState({peripherals});
-            }
-            console.log('Connected to ' + peripheral.id);
-
-            setTimeout(() => {
-              /* read current RSSI value
-            BleManager.retrieveServices(peripheral.id).then((peripheralData) => {
-              console.log('Retrieved peripheral services', peripheralData);
-              BleManager.readRSSI(peripheral.id).then((rssi) => {
-                console.log('Retrieved actual RSSI value', rssi);
-              });
-            });*/
-
-              // Test using bleno's pizza example
-              // https://github.com/sandeepmistry/bleno/tree/master/examples/pizza
-              BleManager.retrieveServices(peripheral.id).then(
-                peripheralInfo => {
-                  console.log(peripheralInfo);
-                  var service = '13333333-3333-3333-3333-333333333337';
-                  var bakeCharacteristic =
-                    '13333333-3333-3333-3333-333333330003';
-                  var crustCharacteristic =
-                    '13333333-3333-3333-3333-333333330001';
-
-                  setTimeout(() => {
-                    BleManager.startNotification(
-                      peripheral.id,
-                      service,
-                      bakeCharacteristic,
-                    )
-                      .then(() => {
-                        console.log('Started notification on ' + peripheral.id);
-                        setTimeout(() => {
-                          BleManager.write(
-                            peripheral.id,
-                            service,
-                            crustCharacteristic,
-                            [0],
-                          ).then(() => {
-                            console.log('Writed NORMAL crust');
-                            BleManager.write(
-                              peripheral.id,
-                              service,
-                              bakeCharacteristic,
-                              [1, 95],
-                            ).then(() => {
-                              console.log(
-                                'Writed 351 temperature, the pizza should be BAKED',
-                              );
-                            });
-                          });
-                        }, 500);
-                      })
-                      .catch(error => {
-                        console.log('Notification error', error);
-                      });
-                  }, 200);
-                },
-              );
-            }, 900);
-          })
-          .catch(error => {
-            console.log('Connection error', error);
-          });
-      }
-    }
   }
 
   renderItem(item) {
